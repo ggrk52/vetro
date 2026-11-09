@@ -9,7 +9,7 @@ export interface VetroLogoProps {
 }
 
 export const VetroLogoMark: React.FC<{ size?: number; theme?: 'dark' | 'light'; className?: string }> = ({
-  size = 38,
+  size = 36,
   theme = 'dark',
   className = '',
 }) => {
@@ -19,40 +19,42 @@ export const VetroLogoMark: React.FC<{ size?: number; theme?: 'dark' | 'light'; 
     <svg 
       width={size} 
       height={size} 
-      viewBox="0 0 48 48" 
+      viewBox="0 0 44 44" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={`shrink-0 transition-transform duration-300 group-hover:scale-105 ${className}`}
+      className={`shrink-0 transition-transform duration-300 group-hover:scale-[1.02] ${className}`}
       aria-hidden="true"
     >
-      {/* Outer Squircle Container */}
+      {/* Crisp 4px architectural square frame */}
       <rect 
-        width="48" 
-        height="48" 
-        rx="12" 
-        fill={isLight ? 'rgba(255,255,255,0.08)' : '#1a1712'} 
-        stroke={isLight ? 'rgba(255,255,255,0.15)' : 'rgba(26,23,18,0.1)'}
+        x="0.5" 
+        y="0.5" 
+        width="43" 
+        height="43" 
+        rx="3" 
+        fill={isLight ? 'rgba(251,250,247,0.06)' : '#252725'} 
+        stroke={isLight ? 'rgba(251,250,247,0.18)' : '#DFDDD6'}
         strokeWidth="1"
       />
       
       {/* Left Monolithic Glass Plane (Solid Optiwhite 10mm) */}
       <path 
-        d="M12 11H19L24 33.5L19 36L12 11Z" 
-        fill={isLight ? '#ffffff' : '#f4f2ec'} 
+        d="M11 11H17.5L22 31L17.5 33L11 11Z" 
+        fill={isLight ? '#FBFAF7' : '#F4F2EC'} 
       />
       
-      {/* Right Monolithic Glass Plane (Refractive & Translucent Glass) */}
+      {/* Right Monolithic Glass Plane (Refractive & Translucent) */}
       <path 
-        d="M36 11H29L24 33.5L29 36L36 11Z" 
-        fill={isLight ? '#ffffff' : '#f4f2ec'} 
+        d="M33 11H26.5L22 31L26.5 33L33 11Z" 
+        fill={isLight ? '#FBFAF7' : '#F4F2EC'} 
         fillOpacity="0.45" 
       />
       
-      {/* Precision Laser Focal Point (1mm calibration) */}
-      <circle cx="34" cy="13" r="2.2" fill="#FF2500" />
+      {/* Architectural Sage / Bronze Pivot Accent */}
+      <circle cx="31" cy="13" r="1.8" fill={isLight ? '#A68C70' : '#788173'} />
       
-      {/* Miter Joint Laser Alignment Hairline */}
-      <path d="M24 33.5V36.5" stroke="#FF2500" strokeWidth="1.8" strokeLinecap="round" />
+      {/* Center 1mm laser calibrated miter seam */}
+      <path d="M22 31V33.5" stroke={isLight ? '#A68C70' : '#788173'} strokeWidth="1.5" strokeLinecap="square" />
     </svg>
   );
 };
@@ -61,15 +63,15 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
   theme = 'dark',
   size = 'md',
   showSubtitle = true,
-  subtitleText = 'Стеклянные душевые • Москва',
+  subtitleText = 'Architectural Glass Studio • Душевые',
   className = '',
 }) => {
   const isLight = theme === 'light';
 
   const markSizes = {
-    sm: 32,
-    md: 38,
-    lg: 46,
+    sm: 30,
+    md: 36,
+    lg: 42,
   };
 
   const titleSizes = {
@@ -91,19 +93,24 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
       <div className="flex flex-col">
         <div className="flex items-center gap-1.5 leading-none">
           <span 
-            className={`font-sans font-extrabold tracking-tight ${titleSizes[size]} ${
-              isLight ? 'text-white' : 'text-[#1a1712]'
+            className={`font-sans font-bold tracking-[0.18em] ${titleSizes[size]} ${
+              isLight ? 'text-[#FBFAF7]' : 'text-[#252725]'
             }`}
           >
             VETRO
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#FF2500]" aria-hidden="true" />
+          <span 
+            className={`w-1 h-1 rounded-none rotate-45 ${
+              isLight ? 'bg-[#A68C70]' : 'bg-[#788173]'
+            }`} 
+            aria-hidden="true" 
+          />
         </div>
         
         {showSubtitle && (
           <span 
-            className={`font-mono tracking-wider mt-0.5 truncate uppercase ${subSizes[size]} ${
-              isLight ? 'text-white/50' : 'text-[#7c766c]'
+            className={`font-mono tracking-[0.14em] mt-0.5 truncate uppercase ${subSizes[size]} ${
+              isLight ? 'text-[#FBFAF7]/60' : 'text-[#777A74]'
             }`}
           >
             {subtitleText}

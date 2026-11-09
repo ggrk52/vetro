@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { 
-  Images, 
   ZoomIn, 
   ArrowDown
 } from 'lucide-react';
 import { 
   portfolioItems, 
-  PortfolioItem, 
   CabinCategory,
   getCabinCategoryLabel 
 } from '../../data/portfolioData';
@@ -28,14 +26,14 @@ export interface FilterTabOption {
 }
 
 export const GALLERY_TABS: FilterTabOption[] = [
-  { id: 'all', label: 'Все работы' },
+  { id: 'all', label: 'Все объекты' },
+  { id: 'walkin', label: 'Walk-In' },
   { id: 'corner', label: 'Угловые 90°' },
-  { id: 'walkin', label: 'Walk-in' },
-  { id: 'niche', label: 'Ниши' },
+  { id: 'niche', label: 'В нишу' },
   { id: 'sliding', label: 'Раздвижные' },
-  { id: 'bath_screen', label: 'На ванну' },
+  { id: 'bath_screen', label: 'Шторки на ванну' },
   { id: 'gold', label: 'Золото и латунь' },
-  { id: 'loft', label: 'Лофт и черный' },
+  { id: 'loft', label: 'Лофт и графит' },
 ];
 
 export interface PortfolioGalleryProps {
@@ -116,28 +114,28 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   const hasMore = visibleCount < filteredItems.length;
 
   return (
-    <section id="gallery" className="py-8 sm:py-10 md:py-14 bg-[#f4f2ec] text-[#1a1712] relative overflow-hidden border-t border-[rgba(26,23,18,0.06)]">
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative z-10">
+    <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] text-[#252725] border-b border-[#DFDDD6]">
+      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header: Minimalist Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
           <div>
-            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#7c766c] block mb-2 sm:mb-3">
-              THE ARCHIVE / 500+ PROJECTS
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+              ПОРТФОЛИО СТУДИИ / 500+ РЕАЛИЗАЦИЙ
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#1a1712] tracking-tight leading-[1.05] font-sans">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
               Реализованные объекты.<br />
-              <em className="font-serif italic font-normal text-[#1a1712]">Фотографии с реальных объектов.</em>
+              <span className="italic text-[#788173]">Чистая геометрия стекла.</span>
             </h2>
           </div>
 
-          <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.65)] max-w-sm leading-relaxed font-sans">
-            Реализованные проекты студии VETRO в квартирах и резиденциях Москвы. Только чистое стекло и фурнитура в интерьере.
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+            Реализованные проекты VETRO в интерьерах Москвы и Московской области. Чистая эстетика, отсутствие визуального шума и точность подгонки в каждый миллиметр.
           </p>
         </div>
 
         {/* 8 Category Filter Tabs */}
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-3 mb-6 sm:mb-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-3 mb-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {GALLERY_TABS.map((tab) => {
             const isActive = tab.id === activeTab;
             const count = tabCounts[tab.id];
@@ -146,15 +144,15 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
                 type="button"
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full font-mono text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-200 min-h-[36px] shrink-0 border ${
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-200 min-h-[34px] shrink-0 border ${
                   isActive
-                    ? 'bg-[#1a1712] border-[#1a1712] text-white shadow-sm'
-                    : 'bg-white border-[rgba(26,23,18,0.08)] text-[#7c766c] hover:text-[#1a1712] hover:bg-[#eae6dc]/40'
+                    ? 'bg-[#252725] border-[#252725] text-[#FBFAF7] font-medium'
+                    : 'bg-[#F4F2EC] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
                 }`}
               >
                 <span>{tab.label}</span>
-                <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${
-                  isActive ? 'bg-[#FF2500] text-white' : 'bg-[#f4f2ec] text-[#7c766c]'
+                <span className={`text-[9px] px-1.5 py-0.2 rounded-[2px] ${
+                  isActive ? 'bg-[#788173] text-[#FBFAF7]' : 'bg-[#DFDDD6] text-[#252725]'
                 }`}>
                   {count}
                 </span>
@@ -164,55 +162,55 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
         </div>
 
         {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 mb-10">
           {visibleItems.map((item, index) => (
             <div
               key={item.id}
               data-testid="portfolio-card"
               onClick={() => handleOpenPhoto(index)}
-              className="group relative bg-white rounded-[28px] overflow-hidden border border-[rgba(26,23,18,0.08)] hover:border-[rgba(26,23,18,0.2)] transition-all duration-300 cursor-pointer shadow-card hover:shadow-elevated hover:-translate-y-1 flex flex-col"
+              className="group relative bg-[#F4F2EC] rounded overflow-hidden border border-[#DFDDD6] hover:border-[#252725] transition-all duration-300 cursor-pointer flex flex-col"
             >
-              {/* Image with Aspect Ratio */}
-              <div className="relative aspect-[3/4] overflow-hidden bg-[#eae6dc]">
+              {/* Image Container with 3:4 Aspect Ratio */}
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E5DD]">
                 <img
                   src={item.imageSrc}
                   alt={item.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                 />
                 
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-70 group-hover:opacity-90 transition-opacity" />
+                {/* Architectural Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/85 via-transparent to-[#252725]/20 opacity-70 group-hover:opacity-90 transition-opacity" />
 
                 {/* Top Badge: Category */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/95 text-[#1a1712] border border-[rgba(26,23,18,0.08)] backdrop-blur-md shadow-sm">
+                <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
+                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] backdrop-blur-sm">
                     {getCabinCategoryLabel(item.category)}
                   </span>
 
-                  <span className="w-8 h-8 rounded-full bg-white/95 text-[#1a1712] group-hover:bg-[#FF2500] group-hover:text-white flex items-center justify-center transition-all duration-300 backdrop-blur-md shadow-sm">
+                  <span className="w-7 h-7 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] flex items-center justify-center transition-colors">
                     <ZoomIn className="w-3.5 h-3.5" />
                   </span>
                 </div>
 
                 {/* Bottom Overlay Content */}
-                <div className="absolute bottom-3 left-3 right-3 flex flex-col gap-1.5">
-                  <h3 className="text-sm font-bold text-white line-clamp-1">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 flex flex-col gap-1">
+                  <h3 className="text-xs sm:text-[13px] font-medium text-[#FBFAF7] line-clamp-1">
                     {item.title}
                   </h3>
 
                   {/* Spec Chips */}
-                  <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
-                    <span className="px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-sm line-clamp-1">
+                  <div className="flex flex-wrap items-center gap-1 text-[9px] font-mono">
+                    <span className="px-1.5 py-0.5 rounded-[2px] bg-[#252725]/80 text-[#FBFAF7]/90 backdrop-blur-sm border border-white/10 line-clamp-1">
                       {item.glassType}
                     </span>
-                    <span className="px-2 py-0.5 rounded-full bg-black/60 text-[#eae6dc] backdrop-blur-sm line-clamp-1">
+                    <span className="px-1.5 py-0.5 rounded-[2px] bg-[#252725]/80 text-[#A68C70] backdrop-blur-sm border border-white/10 line-clamp-1">
                       {item.hardwareFinish}
                     </span>
                   </div>
 
                   {item.approxDimensions && (
-                    <span className="text-[10px] text-white/80">
+                    <span className="text-[9px] font-mono text-[#FBFAF7]/70">
                       Размер: {item.approxDimensions}
                     </span>
                   )}
@@ -224,17 +222,17 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
 
         {/* Load More Button */}
         {hasMore && (
-          <div className="flex flex-col items-center justify-center pt-2 pb-6">
+          <div className="flex flex-col items-center justify-center pt-2 pb-4">
             <button
               onClick={handleLoadMore}
               type="button"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1a1712] hover:opacity-90 text-white font-semibold text-sm transition-all shadow-sm min-h-[46px] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider transition-all min-h-[44px]"
             >
-              <span>Показать еще работы</span>
-              <span className="text-xs text-[#FF2500] font-bold">
-                (осталось {filteredItems.length - visibleCount})
+              <span>Показать еще объекты</span>
+              <span className="text-[11px] font-mono text-[#A68C70]">
+                ({filteredItems.length - visibleCount})
               </span>
-              <ArrowDown className="w-4 h-4 text-white" />
+              <ArrowDown className="w-3.5 h-3.5 text-[#FBFAF7]" />
             </button>
           </div>
         )}

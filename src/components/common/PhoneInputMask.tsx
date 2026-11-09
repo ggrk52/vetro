@@ -14,6 +14,7 @@ export interface PhoneInputMaskProps {
   error?: string;
   label?: string;
   showIcon?: boolean;
+  theme?: 'dark' | 'light';
 }
 
 /**
@@ -90,7 +91,10 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
   error,
   label,
   showIcon = true,
+  theme = 'light',
 }) => {
+  const isDark = theme === 'dark';
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawInput = e.target.value;
     const digits = extractRawPhoneDigits(rawInput);
@@ -100,7 +104,6 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // If pressing Backspace when only "+7 (" is present, clear input
     if (e.key === 'Backspace') {
       const digits = extractRawPhoneDigits(value);
       if (digits.length <= 1) {
@@ -118,17 +121,24 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
   };
 
   return (
-    <div className="w-full flex flex-col gap-1.5 text-left">
+    <div className="w-full flex flex-col gap-1 text-left">
       {label && (
-        <label htmlFor={id} className="text-sm font-medium text-slate-200 flex items-center justify-between">
+        <label 
+          htmlFor={id} 
+          className={`text-xs font-medium flex items-center justify-between ${
+            isDark ? 'text-[#FBFAF7]/90' : 'text-[#252725]'
+          }`}
+        >
           <span>{label}</span>
-          {required && <span className="text-amber-400 text-xs font-normal">Обязательно</span>}
+          {required && <span className="text-[#A68C70] font-mono text-[10px] uppercase">Обязательно</span>}
         </label>
       )}
 
-      <div className="relative rounded-xl shadow-sm">
+      <div className="relative rounded">
         {showIcon && (
-          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none ${
+            isDark ? 'text-white/40' : 'text-[#777A74]'
+          }`}>
             <Phone className="w-4 h-4" />
           </div>
         )}
@@ -146,18 +156,20 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
           disabled={disabled}
           autoComplete="tel"
           inputMode="tel"
-          className={`w-full rounded-xl bg-slate-900/90 text-white placeholder-slate-500 border transition-colors py-3 ${
+          className={`w-full rounded border py-2.5 sm:py-3 text-sm transition-colors outline-none ${
             showIcon ? 'pl-10 pr-4' : 'px-4'
           } ${
-            error
-              ? 'border-red-500 focus:border-red-400 focus:ring-1 focus:ring-red-400'
-              : 'border-slate-700/80 hover:border-slate-600 focus:border-sky-500 focus:ring-1 focus:ring-sky-500'
-          } outline-none text-sm sm:text-base ${className}`}
+            isDark 
+              ? 'bg-[#1E201E] text-[#FBFAF7] placeholder-white/30 border-white/15 focus:border-[#FBFAF7]' 
+              : 'bg-[#FBFAF7] text-[#252725] placeholder-[#777A74] border-[#DFDDD6] focus:border-[#252725]'
+          } ${
+            error ? 'border-red-500 focus:border-red-500' : ''
+          } ${className}`}
         />
       </div>
 
       {error && (
-        <p className="text-xs text-red-400 mt-0.5 flex items-center gap-1" role="alert">
+        <p className="text-[11px] text-red-500 mt-0.5 flex items-center gap-1" role="alert">
           <span>{error}</span>
         </p>
       )}

@@ -110,30 +110,33 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
   ];
 
   return (
-    <section id="calculator" data-testid="calculator" className="py-8 sm:py-10 md:py-14 bg-[#f4f2ec] border-t border-[rgba(26,23,18,0.06)] text-[#1a1712] relative overflow-hidden">
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative z-10">
+    <section id="calculator" data-testid="calculator" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] border-b border-[#DFDDD6] text-[#252725] relative overflow-hidden">
+      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eae6dc] text-[#1a1712] text-xs font-semibold uppercase tracking-wider mb-3 border border-[rgba(26,23,18,0.08)]">
-            <Calculator className="w-3.5 h-3.5 text-[#1a1712]" />
-            <span>Интерактивный конфигуратор</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+              ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР / 5 ШАГОВ
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+              Калькулятор стоимости.<br />
+              <span className="italic text-[#788173]">Прозрачный расчет без скрытых доплат.</span>
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1a1712] tracking-tight mb-2 font-display">
-            Калькулятор стоимости душевой кабины
-          </h2>
-          <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.65)] leading-relaxed">
-            Настройте конструкцию под ваш санузел за 5 шагов. Получите прозрачный расчет без скрытых наценок.
+
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+            Сконфигурируйте конструкцию под параметры вашего помещения за 5 шагов. Итоговая смета фиксируется в договоре.
           </p>
         </div>
 
         {/* Stepper Navigation Bar */}
-        <div className="mb-6 sm:mb-8 max-w-3xl mx-auto">
+        <div className="mb-8 max-w-3xl mx-auto">
           <div className="flex items-center justify-between relative">
             {/* Progress line */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[#eae6dc] -translate-y-1/2 z-0" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[#DFDDD6] -translate-y-1/2 z-0" />
             <div 
-              className="absolute top-1/2 left-0 h-0.5 bg-[#1a1712] -translate-y-1/2 z-0 transition-all duration-300"
+              className="absolute top-1/2 left-0 h-0.5 bg-[#252725] -translate-y-1/2 z-0 transition-all duration-300"
               style={{ width: `${((currentStep - 1) / (stepsList.length - 1)) * 100}%` }}
             />
 
@@ -149,19 +152,19 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                   aria-label={`Шаг ${step.number}: ${step.label}`}
                 >
                   <div
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-300 ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-200 border ${
                       isCurrent
-                        ? 'bg-[#1a1712] text-white ring-4 ring-[#1a1712]/15 shadow-sm'
+                        ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
                         : isPassed
-                        ? 'bg-[#FF2500] text-white'
-                        : 'bg-white border border-[rgba(26,23,18,0.12)] text-[#7c766c] group-hover:border-[#1a1712]'
+                        ? 'bg-[#788173] text-[#FBFAF7] border-[#788173]'
+                        : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] group-hover:border-[#252725]'
                     }`}
                   >
-                    {isPassed ? <Check className="w-4 h-4 text-white" /> : step.number}
+                    {isPassed ? <Check className="w-4 h-4 text-[#FBFAF7]" /> : step.number}
                   </div>
                   <span
-                    className={`mt-2 text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-colors hidden sm:block ${
-                      isCurrent ? 'text-[#1a1712]' : isPassed ? 'text-[#7c766c]' : 'text-[#7c766c]/60'
+                    className={`mt-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider whitespace-nowrap transition-colors hidden sm:block ${
+                      isCurrent ? 'text-[#252725] font-semibold' : isPassed ? 'text-[#788173]' : 'text-[#777A74]'
                     }`}
                   >
                     {step.label}
@@ -176,7 +179,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Active Step Controls (8 cols) */}
-          <div className="lg:col-span-8 bg-white border border-[rgba(26,23,18,0.08)] rounded-[32px] p-6 sm:p-8 shadow-card">
+          <div className="lg:col-span-8 bg-[#FBFAF7] border border-[#DFDDD6] rounded p-6 sm:p-8">
             
             {/* STEP 1: CABIN TYPE */}
             {currentStep === 1 && (
@@ -739,9 +742,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <button
                         type="submit"
-                        className="flex-1 py-3.5 px-6 rounded-full font-semibold text-white bg-[#1a1712] hover:opacity-90 shadow-sm transition-all text-sm flex items-center justify-center gap-2 active:scale-[0.98]"
+                        className="flex-1 py-3 px-5 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
                       >
-                        <ShieldCheck className="w-4 h-4 text-[#FF2500]" />
+                        <ShieldCheck className="w-4 h-4 text-[#A68C70]" />
                         <span>Зафиксировать расчет и скидку</span>
                       </button>
 
@@ -749,9 +752,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         href={whatsappQuoteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-3.5 px-6 rounded-full font-semibold text-white bg-[#FF2500] hover:opacity-90 shadow-sm transition-all text-sm flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
+                        className="py-3 px-5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shrink-0"
                       >
-                        <MessageCircle className="w-4 h-4 text-white" />
+                        <MessageCircle className="w-4 h-4 text-[#788173]" />
                         <span>В WhatsApp</span>
                       </a>
                     </div>
@@ -761,15 +764,15 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             )}
 
             {/* Stepper Navigation Buttons (Back & Next) */}
-            <div className="flex items-center justify-between pt-8 border-t border-[rgba(26,23,18,0.06)] mt-8">
+            <div className="flex items-center justify-between pt-6 border-t border-[#DFDDD6] mt-8">
               <button
                 type="button"
                 onClick={handlePrevStep}
                 disabled={currentStep === 1}
-                className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-colors ${
+                className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded text-xs uppercase tracking-wider font-mono transition-colors border ${
                   currentStep === 1
-                    ? 'opacity-30 cursor-not-allowed text-[#7c766c]'
-                    : 'text-[#1a1712] hover:bg-[#eae6dc] bg-[#f4f2ec] border border-[rgba(26,23,18,0.08)]'
+                    ? 'opacity-30 cursor-not-allowed text-[#777A74] border-transparent'
+                    : 'text-[#252725] hover:bg-[#E8E5DD] bg-[#F4F2EC] border-[#DFDDD6]'
                 }`}
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -780,18 +783,18 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#1a1712] hover:opacity-90 shadow-sm transition-all active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all"
                 >
                   <span>Далее к шагу {currentStep + 1}</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 text-[#A68C70]" />
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={onOpenMeasurementModal}
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#FF2500] hover:opacity-90 shadow-sm transition-all active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all"
                 >
-                  <Ruler className="w-4 h-4 text-white" />
+                  <Ruler className="w-4 h-4 text-[#A68C70]" />
                   <span>Вызвать инженера на замер</span>
                 </button>
               )}
@@ -800,70 +803,70 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
           </div>
 
           {/* Right Column: Live Price Breakdown Ticket (4 cols) */}
-          <div className="lg:col-span-4 bg-white border border-[rgba(26,23,18,0.08)] rounded-[32px] p-6 sm:p-7 shadow-card sticky top-24">
+          <div className="lg:col-span-4 bg-[#FBFAF7] border border-[#DFDDD6] rounded p-6 shadow-none sticky top-24">
             
-            <div className="flex items-center justify-between pb-4 border-b border-[rgba(26,23,18,0.06)] mb-5">
-              <span className="text-xs font-semibold text-[#7c766c] uppercase tracking-wider">
-                Смета в реальном времени
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#DFDDD6] mb-4">
+              <span className="text-[11px] font-mono font-medium text-[#788173] uppercase tracking-wider">
+                СМЕТА В РЕАЛЬНОМ ВРЕМЕНИ
               </span>
-              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#eae6dc] text-[#1a1712] text-xs font-mono font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF2500] animate-pulse" />
+              <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-[10px] font-mono">
+                <span className="w-1.5 h-1.5 rounded-none rotate-45 bg-[#A68C70]" />
                 <span>LIVE</span>
               </div>
             </div>
 
             {/* Total Price Callout */}
-            <div className="mb-6">
-              <span className="text-xs text-[#7c766c] block mb-1">Ориентировочная стоимость:</span>
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#1a1712] font-mono tracking-tight">
+            <div className="mb-5">
+              <span className="text-xs text-[#777A74] block mb-1">Ориентировочная стоимость:</span>
+              <div className="text-3xl sm:text-4xl font-bold text-[#252725] font-mono tracking-tight">
                 {pricing.formattedTotal}
               </div>
-              <span className="text-[11px] text-[#7c766c] mt-1 block">
-                Точная стоимость фиксируется после лазерного замера
+              <span className="text-[11px] text-[#777A74] mt-1 block">
+                Точная стоимость фиксируется после лазерного 3D-замера
               </span>
             </div>
 
             {/* Micro Breakdown Items */}
-            <div className="space-y-2.5 text-xs text-[#1a1712] mb-6 pb-6 border-b border-[rgba(26,23,18,0.06)]">
+            <div className="space-y-2 text-xs text-[#252725] mb-5 pb-5 border-b border-[#DFDDD6]">
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Конструкция:</span>
-                <span className="font-medium text-[#1a1712] truncate max-w-[170px]">
+                <span className="text-[#777A74]">Конструкция:</span>
+                <span className="font-medium text-[#252725] truncate max-w-[170px]">
                   {cabinMeta.title}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Габариты:</span>
-                <span className="font-mono text-[#1a1712]">
+                <span className="text-[#777A74]">Габариты:</span>
+                <span className="font-mono text-[#252725]">
                   {calcState.width}×{calcState.height}{calcState.depth && cabinMeta.requiresDepth ? `×${calcState.depth}` : ''} см
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Площадь полотна:</span>
-                <span className="font-mono text-[#1a1712] font-semibold">
+                <span className="text-[#777A74]">Площадь полотна:</span>
+                <span className="font-mono text-[#252725] font-semibold">
                   ~{pricing.areaSqm} м²
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Стекло:</span>
-                <span className="font-medium text-[#1a1712] truncate max-w-[170px]">
+                <span className="text-[#777A74]">Стекло:</span>
+                <span className="font-medium text-[#252725] truncate max-w-[170px]">
                   {GLASS_METADATA[calcState.glassType].name}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Фурнитура:</span>
-                <span className="font-medium text-[#1a1712] truncate max-w-[170px]">
+                <span className="text-[#777A74]">Фурнитура:</span>
+                <span className="font-medium text-[#252725] truncate max-w-[170px]">
                   {HARDWARE_METADATA[calcState.hardwareFinish].name}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Монтаж:</span>
-                <span className="font-medium text-[#1a1712]">
+                <span className="text-[#777A74]">Монтаж:</span>
+                <span className="font-medium text-[#252725]">
                   {calcState.hasInstallation ? 'Включен' : 'Без монтажа'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7c766c]">Антикапля:</span>
-                <span className="font-medium text-[#1a1712]">
+                <span className="text-[#777A74]">Антикапля:</span>
+                <span className="font-medium text-[#252725]">
                   {calcState.hasHydrophobicCoating ? 'Включено' : 'Нет'}
                 </span>
               </div>
@@ -874,14 +877,14 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               href={whatsappQuoteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-full bg-[#1a1712] text-white hover:opacity-90 font-semibold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-[0.98]"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] text-[#FBFAF7] hover:bg-[#383B38] font-medium text-xs uppercase tracking-wider transition-all"
             >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <MessageCircle className="w-4 h-4 text-[#788173]" />
               <span>Отправить расчет инженеру</span>
             </a>
 
-            <div className="mt-4 pt-3 text-center">
-              <span className="text-[11px] text-[#7c766c]">
+            <div className="mt-3 text-center">
+              <span className="text-[11px] font-mono text-[#777A74]">
                 Ответ инженера студии VETRO в течение 15 минут
               </span>
             </div>

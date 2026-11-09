@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { 
   ShieldCheck, 
   Eye, 
-  CheckCircle2, 
+  Check, 
   ArrowRight, 
-  Layers, 
-  Sliders, 
   Sun,
-  Video
+  Video,
+  ArrowUpRight
 } from 'lucide-react';
 
 export interface GlassType {
@@ -33,15 +32,15 @@ export const glassTypesData: GlassType[] = [
     name: 'Optiwhite (Extra Clear)',
     russianLabel: 'Осветленное стекло',
     category: 'Кристальная прозрачность',
-    badge: 'Хит продаж',
+    badge: 'Архитектурный хит',
     thickness: '8–10 мм закаленное ESG',
     lightTransmission: '99% (максимальная)',
     privacy: 'Прозрачное (0%)',
-    description: 'Премиальное осветленное стекло с пониженным содержанием оксида железа. Полностью лишено зеленоватого бутылочного оттенка, характерного для обычного стекла.',
+    description: 'Премиальное осветленное стекло с пониженным содержанием оксидов железа. Полностью лишено зеленоватого бутылочного оттенка, характерного для обычного стекла.',
     keyBenefits: [
       'Абсолютно прозрачный торец без зеленого оттенка',
-      'Безупречная цветопередача светлой плитки и мозаики',
-      'Идеально сочетается с фурнитурой в цвете золото и хром',
+      'Безупречная цветопередача светлого керамогранита и мрамора',
+      'Идеально сочетается с фурнитурой в цвете золото, бронза и хром',
       'Закалка по ГОСТ 30698-2014 с полированной еврокромкой'
     ],
     recommendedFor: 'Белый мрамор, керамогранит светлых оттенков, премиальные дизайнерские санузлы',
@@ -61,7 +60,7 @@ export const glassTypesData: GlassType[] = [
       'Оптимальное соотношение премиального качества и цены',
       'Высокая механическая прочность к ударам и термоперепадам',
       'Универсально сочетается с любыми стилями и интерьерами',
-      '100% травмобезопасность при разрушении (мелкая крошка)'
+      '100% травмобезопасность при разрушении (мелкая безопасная крошка)'
     ],
     recommendedFor: 'Универсальное решение для любых санузлов, арендных квартир и семейных ванных комнат',
     imageSrc: '/portfolio/corner_03.jpg',
@@ -76,7 +75,7 @@ export const glassTypesData: GlassType[] = [
     thickness: '8–10 мм закаленное ESG',
     lightTransmission: '65% (рассеянный)',
     privacy: 'Высокая (силуэт размыт)',
-    description: 'Матовое стекло с бархатистой поверхностью, созданной методом заводского химического травления. В отличие от дешевого пескоструя, не оставляет пятен от пальцев и легко моется.',
+    description: 'Матовое стекло с бархатистой поверхностью, созданной методом заводского химического травления. В отличие от пескоструя, не оставляет пятен от пальцев и легко моется.',
     keyBenefits: [
       'Мягкое рассеивание света без видимости силуэта',
       'Химическое травление — не впитывает жир и известковый налет',
@@ -92,7 +91,7 @@ export const glassTypesData: GlassType[] = [
     name: 'Estriado / Fluted (Рифленое)',
     russianLabel: 'Рифленое фактурное',
     category: 'Дизайнерский тренд',
-    badge: 'Тренд 2025–2026',
+    badge: 'Тренд сезона',
     thickness: '8 мм закаленное ESG',
     lightTransmission: '85%',
     privacy: 'Средняя (объемное преломление)',
@@ -100,8 +99,8 @@ export const glassTypesData: GlassType[] = [
     keyBenefits: [
       'Фактурная полоса скрывает высохшие капли воды и брызги',
       'Эффектная игра световых бликов в интерьере',
-      'Идеально подчеркивает фурнитуру под брашированное золото и черный лофт',
-      'Придает ванной комнате статус дорогого бутик-отеля'
+      'Идеально подчеркивает фурнитуру под брашированное золото и графит',
+      'Придает ванной комнате статус европейского бутик-отеля'
     ],
     recommendedFor: 'Современные дизайнерские санузлы, ар-деко, сканди, стиль джапанди и лофт',
     imageSrc: '/portfolio/hero_estriado_black.jpg',
@@ -112,7 +111,7 @@ export const glassTypesData: GlassType[] = [
     id: 'graphite',
     name: 'Graphite / Grey (Графит)',
     russianLabel: 'Тонированное графитовое',
-    category: 'Лофт и хай-тек',
+    category: 'Лофт и минимализм',
     badge: 'Стиль Лофт',
     thickness: '8–10 мм закаленное ESG',
     lightTransmission: '45% (затемненное)',
@@ -199,28 +198,28 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
   };
 
   return (
-    <section id="materials" className="py-8 sm:py-10 md:py-14 bg-[#f4f2ec] text-[#1a1712] relative overflow-hidden border-t border-[rgba(26,23,18,0.06)]">
-      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative z-10">
+    <section id="materials" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] text-[#252725] border-b border-[#DFDDD6]">
+      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header: Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
           <div>
-            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#7c766c] block mb-2 sm:mb-3">
-              THE MATERIALS / 06 GLASS TYPES
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+              МАТЕРИАЛЫ СТУДИИ / 06 ТИПОВ СТЕКЛА
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#1a1712] tracking-tight leading-[1.05] font-sans">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
               Закаленное стекло.<br />
-              <em className="font-serif italic font-normal text-[#1a1712]">8–10 мм по стандарту ГОСТ.</em>
+              <span className="italic text-[#788173]">8–10 мм по стандарту ГОСТ 30698.</span>
             </h2>
           </div>
 
-          <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.65)] max-w-sm leading-relaxed font-sans">
-            Монолитное ударопрочное стекло ESG с полированной еврокромкой. Образцы инженер привозит на замер.
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+            Монолитное ударопрочное стекло ESG с полированной еврокромкой и гидрофобным покрытием. Физические образцы инженер привозит на замер.
           </p>
         </div>
 
         {/* Glass Switcher Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 mb-6 sm:mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-8">
           {glassTypesData.map((glass) => {
             const isActive = glass.id === selectedId;
             return (
@@ -228,25 +227,25 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
                 key={glass.id}
                 onClick={() => handleSelectGlass(glass.id)}
                 type="button"
-                className={`relative flex flex-col items-start p-3.5 sm:p-4 rounded-2xl border text-left transition-all duration-300 min-h-[48px] ${
+                className={`relative flex flex-col items-start p-3.5 rounded border text-left transition-all duration-200 min-h-[50px] ${
                   isActive
-                    ? 'bg-white border-[#1a1712] shadow-subtle'
-                    : 'bg-white/60 border-[rgba(26,23,18,0.08)] hover:border-[rgba(26,23,18,0.2)] hover:bg-white text-[#7c766c]'
+                    ? 'bg-[#252725] border-[#252725] text-[#FBFAF7]'
+                    : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
                 }`}
               >
                 {glass.badge && (
-                  <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full mb-2 ${
+                  <span className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.2 rounded-[2px] mb-1.5 ${
                     isActive 
-                      ? 'bg-[#1a1712] text-white' 
-                      : 'bg-[#eae6dc] text-[#7c766c]'
+                      ? 'bg-[#788173] text-[#FBFAF7]' 
+                      : 'bg-[#DFDDD6] text-[#252725]'
                   }`}>
                     {glass.badge}
                   </span>
                 )}
-                <span className="text-sm font-bold text-[#1a1712] block mb-0.5">
+                <span className={`text-xs sm:text-[13px] font-semibold block mb-0.5 ${isActive ? 'text-[#FBFAF7]' : 'text-[#252725]'}`}>
                   {glass.russianLabel}
                 </span>
-                <span className="text-xs text-[#7c766c] block truncate w-full">
+                <span className={`text-[10px] font-mono truncate w-full ${isActive ? 'text-[#FBFAF7]/70' : 'text-[#777A74]'}`}>
                   {glass.name}
                 </span>
               </button>
@@ -255,39 +254,39 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
         </div>
 
         {/* Active Glass Detailed Showcase Card */}
-        <div className="bg-white rounded-[32px] border border-[rgba(26,23,18,0.08)] p-6 sm:p-8 lg:p-10 mb-12 shadow-card">
+        <div className="bg-[#FBFAF7] rounded border border-[#DFDDD6] p-6 sm:p-8 lg:p-10 mb-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Visual Preview Column */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-[24px] overflow-hidden border border-[rgba(26,23,18,0.08)] aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] shadow-card group">
+              <div className="relative rounded overflow-hidden border border-[#DFDDD6] aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] bg-[#E8E5DD] group">
                 <img
                   src={activeGlass.imageSrc}
                   alt={activeGlass.russianLabel}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/75 via-transparent to-transparent pointer-events-none" />
                 
                 {/* Floating Specs on Image */}
-                <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2">
+                <div className="absolute bottom-3 left-3 right-3 flex flex-col gap-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/95 text-[#1a1712] border border-[rgba(26,23,18,0.08)] backdrop-blur-md shadow-sm">
+                    <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] backdrop-blur-sm">
                       {activeGlass.thickness}
                     </span>
                     {activeGlass.hasVideo && (
                       <button
                         onClick={() => onOpenVideoModal && onOpenVideoModal('estriado')}
                         type="button"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1a1712] text-white text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-[10px] font-mono uppercase tracking-wider hover:bg-[#383B38] transition-colors"
                       >
-                        <Video className="w-3.5 h-3.5 text-[#FF2500]" />
-                        <span>Видео в интерьере</span>
+                        <Video className="w-3.5 h-3.5 text-[#A68C70]" />
+                        <span>Видео</span>
                       </button>
                     )}
                   </div>
-                  <p className="text-xs text-white/90 bg-black/60 p-2.5 rounded-xl backdrop-blur-md">
-                    Реальное фото из проекта студии VETRO в Москве
+                  <p className="text-[11px] font-mono text-[#FBFAF7]/90 bg-[#252725]/80 p-2 rounded-[2px] backdrop-blur-sm border border-white/10">
+                    Реальная реализация VETRO в интерьере
                   </p>
                 </div>
               </div>
@@ -295,49 +294,49 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
 
             {/* Spec Details Column */}
             <div className="lg:col-span-7 flex flex-col">
-              <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#eae6dc] text-[#1a1712]">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-[#F4F2EC] text-[#788173] border border-[#DFDDD6]">
                   {activeGlass.category}
                 </span>
-                <span className="text-xs text-[#7c766c]">
-                  Толщина: <strong className="text-[#1a1712]">{activeGlass.thickness}</strong>
+                <span className="text-xs font-mono text-[#777A74]">
+                  Толщина: <strong className="text-[#252725]">{activeGlass.thickness}</strong>
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1a1712] mb-3 font-display">
-                {activeGlass.russianLabel} ({activeGlass.name})
+              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#252725] mb-3">
+                {activeGlass.russianLabel} <span className="text-lg text-[#777A74]">({activeGlass.name})</span>
               </h3>
               
-              <p className="text-[rgba(20,20,22,0.65)] text-sm sm:text-base leading-relaxed mb-6">
+              <p className="text-[#777A74] text-sm leading-relaxed mb-6 font-sans">
                 {activeGlass.description}
               </p>
 
-              {/* 3 Metric Pills */}
-              <div className="grid grid-cols-3 gap-3 mb-6 p-4 rounded-2xl bg-[#f4f2ec] border border-[rgba(26,23,18,0.06)]">
+              {/* 3 Metric Specs */}
+              <div className="grid grid-cols-3 gap-3 mb-6 p-4 rounded bg-[#F4F2EC] border border-[#DFDDD6]">
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-[#7c766c] mb-1">
-                    <Sun className="w-3.5 h-3.5 text-[#1a1712]" />
-                    <span>Свет</span>
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
+                    <Sun className="w-3.5 h-3.5 text-[#788173]" />
+                    <span className="font-mono text-[10px]">СВЕТ</span>
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-[#1a1712] block">
+                  <span className="text-xs sm:text-[13px] font-semibold text-[#252725] block">
                     {activeGlass.lightTransmission}
                   </span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-[#7c766c] mb-1">
-                    <Eye className="w-3.5 h-3.5 text-[#1a1712]" />
-                    <span>Приватность</span>
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
+                    <Eye className="w-3.5 h-3.5 text-[#788173]" />
+                    <span className="font-mono text-[10px]">ПРИВАТНОСТЬ</span>
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-[#1a1712] block">
+                  <span className="text-xs sm:text-[13px] font-semibold text-[#252725] block">
                     {activeGlass.privacy}
                   </span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs text-[#7c766c] mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#FF2500]" />
-                    <span>Стандарт</span>
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#A68C70]" />
+                    <span className="font-mono text-[10px]">СТАНДАРТ</span>
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-[#1a1712] block">
+                  <span className="text-xs sm:text-[13px] font-semibold text-[#252725] block">
                     ГОСТ 30698
                   </span>
                 </div>
@@ -345,13 +344,13 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
 
               {/* Key Benefits List */}
               <div className="mb-6">
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#7c766c] mb-3">
-                  Преимущества и особенности обработки:
-                </h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-[#788173] block mb-3">
+                  ПРЕИМУЩЕСТВА И ОСОБЕННОСТИ ОБРАБОТКИ
+                </span>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {activeGlass.keyBenefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#1a1712]">
-                      <CheckCircle2 className="w-4 h-4 text-[#FF2500] shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-2 text-xs text-[#252725]">
+                      <Check className="w-3.5 h-3.5 text-[#788173] shrink-0 mt-0.5" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -359,11 +358,11 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
               </div>
 
               {/* Recommended For Box */}
-              <div className="p-4 rounded-2xl bg-[#eae6dc]/60 border border-[rgba(26,23,18,0.06)] mb-8">
-                <span className="text-xs font-bold text-[#1a1712] uppercase tracking-wider block mb-1">
-                  Рекомендуемое применение:
+              <div className="p-3.5 rounded bg-[#F4F2EC] border border-[#DFDDD6] mb-6">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#788173] block mb-1">
+                  РЕКОМЕНДУЕМОЕ ПРИМЕНЕНИЕ
                 </span>
-                <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.7)] leading-relaxed">
+                <p className="text-xs text-[#777A74] leading-relaxed">
                   {activeGlass.recommendedFor}
                 </p>
               </div>
@@ -373,28 +372,28 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
                 <a
                   href="#calculator"
                   onClick={handleScrollToCalculator}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1a1712] text-white font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all shadow-sm min-h-[46px]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider transition-all min-h-[42px]"
                 >
-                  <Sliders className="w-4 h-4 text-[#FF2500]" />
                   <span>Выбрать в калькуляторе</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#A68C70]" />
                 </a>
                 
                 <a
                   href="#gallery"
                   onClick={handleScrollToGallery}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#eae6dc] text-[#1a1712] font-semibold text-sm transition-all border border-[rgba(26,23,18,0.12)] shadow-card min-h-[46px]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs uppercase tracking-wider transition-all min-h-[42px]"
                 >
                   <span>Посмотреть работы</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#777A74]" />
                 </a>
 
                 {onOpenMeasurementModal && (
                   <button
                     onClick={onOpenMeasurementModal}
                     type="button"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-transparent hover:bg-black/5 text-[#1a1712] font-semibold text-sm transition-all min-h-[46px]"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono uppercase tracking-wider text-[#777A74] hover:text-[#252725] transition-colors"
                   >
-                    <span>Заказать замер с образцами</span>
+                    <span>Заказать замер с образцами →</span>
                   </button>
                 )}
               </div>

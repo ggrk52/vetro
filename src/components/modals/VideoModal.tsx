@@ -3,7 +3,6 @@ import {
   X, 
   Play, 
   Sparkles, 
-  CheckCircle2, 
   Ruler, 
   MessageCircle,
   Video
@@ -115,20 +114,20 @@ export const VideoModal: React.FC<VideoModalProps> = ({
       aria-modal="true"
       aria-label="Видеообзор конструкции"
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-4xl bg-[#141414] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col my-auto"
+        className="relative w-full max-w-4xl bg-vetro-graphite rounded border border-white/10 shadow-2xl overflow-hidden flex flex-col my-auto"
       >
         {/* Top Header */}
-        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-[#141414]">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-[#FF2500]/10 border border-[#FF2500]/25 flex items-center justify-center text-[#FF2500]">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-[#1E201E]">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded border border-white/15 bg-white/5 flex items-center justify-center text-white/80">
               <Video className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-tight font-display">
+              <h3 className="text-sm sm:text-base font-semibold text-white tracking-tight leading-tight font-sans">
                 Видеообзор готовой работы
               </h3>
               <p className="text-xs text-white/50">
@@ -141,14 +140,14 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             onClick={onClose}
             type="button"
             aria-label="Закрыть (Escape)"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors min-w-[40px] min-h-[40px] flex items-center justify-center border border-white/10"
+            className="p-2 rounded bg-white/5 hover:bg-white/15 text-white/80 hover:text-white transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center border border-white/10"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Video Switcher Tabs */}
-        <div className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-[#181818] border-b border-white/10 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-[#1A1C1A] border-b border-white/10 overflow-x-auto no-scrollbar">
           {(Object.values(VIDEOS_DATA) as VideoInfo[]).map((v) => {
             const isActive = v.id === activeVideoId;
             return (
@@ -156,10 +155,10 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 key={v.id}
                 onClick={() => setActiveVideoId(v.id)}
                 type="button"
-                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap min-h-[36px] ${
+                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded text-xs font-medium transition-all whitespace-nowrap min-h-[36px] border ${
                   isActive
-                    ? 'bg-[#FF2500] text-white shadow-sm'
-                    : 'bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10'
+                    ? 'bg-white text-vetro-graphite border-white font-semibold'
+                    : 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -185,19 +184,19 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         </div>
 
         {/* Bottom Details & Conversion CTA */}
-        <div className="p-5 sm:p-6 bg-[#141414] border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 bg-[#1E201E] border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FF2500]/10 text-[#FF5533] text-[11px] font-semibold mb-1.5 border border-[#FF2500]/25">
-              <Sparkles className="w-3 h-3" />
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/10 text-white/90 text-[11px] font-medium tracking-wide mb-1.5 border border-white/15">
+              <Sparkles className="w-3 h-3 text-vetro-stone" />
               <span>{currentVideo.badge}</span>
             </div>
-            <h4 className="text-sm sm:text-base font-bold text-white mb-1 font-display">
+            <h4 className="text-sm sm:text-base font-semibold text-white mb-1">
               {currentVideo.title}
             </h4>
-            <p className="text-xs text-white/60 mb-1 leading-relaxed">
+            <p className="text-xs text-white/60 mb-1.5 leading-relaxed">
               {currentVideo.description}
             </p>
-            <p className="text-[11px] text-white/40 font-medium">
+            <p className="text-[11px] font-mono text-white/40 tracking-wider">
               {currentVideo.specs}
             </p>
           </div>
@@ -210,7 +209,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   onOpenMeasurementModal();
                 }}
                 type="button"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#FF2500] hover:bg-[#e02000] text-white font-medium text-xs tracking-tight transition-colors shadow-sm min-h-[44px]"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white hover:bg-vetro-ivory text-vetro-graphite font-semibold text-xs tracking-tight transition-colors min-h-[42px]"
               >
                 <Ruler className="w-4 h-4" />
                 <span>Заказать такую же</span>
@@ -221,7 +220,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               href={`${businessConfig.whatsappUrl}&text=${encodeURIComponent(`Здравствуйте! Посмотрел видео «${currentVideo.title}». Хочу рассчитать стоимость такой конструкции.`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-xs tracking-tight transition-colors border border-white/10 min-h-[44px]"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white/10 hover:bg-white/15 text-white font-medium text-xs tracking-tight transition-colors border border-white/15 min-h-[42px]"
             >
               <MessageCircle className="w-4 h-4" />
               <span>WhatsApp</span>

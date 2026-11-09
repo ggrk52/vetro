@@ -39,10 +39,10 @@ export const FloatingMessengers: React.FC = () => {
     >
       {/* Expanded Messenger Options */}
       <div
-        className={`flex flex-col items-end gap-2.5 mb-3 transition-all duration-300 origin-bottom-right ${
+        className={`flex flex-col items-end gap-2 mb-2.5 transition-all duration-200 origin-bottom-right ${
           isOpen
             ? 'opacity-100 scale-100 pointer-events-auto translate-y-0'
-            : 'opacity-0 scale-90 pointer-events-none translate-y-4'
+            : 'opacity-0 scale-95 pointer-events-none translate-y-2'
         }`}
         aria-hidden={!isOpen}
       >
@@ -51,12 +51,12 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] shadow-elevated hover:bg-[#f4f2ec] transition-all hover:scale-105 group"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm"
           aria-label="Написать в WhatsApp"
         >
-          <span className="text-xs font-semibold whitespace-nowrap">WhatsApp</span>
-          <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center">
-            <MessageCircle className="w-4 h-4" />
+          <span className="text-xs font-medium whitespace-nowrap">WhatsApp</span>
+          <div className="w-7 h-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
+            <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
           </div>
         </a>
 
@@ -65,24 +65,24 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.telegramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] shadow-elevated hover:bg-[#f4f2ec] transition-all hover:scale-105 group"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm"
           aria-label="Написать в Telegram"
         >
-          <span className="text-xs font-semibold whitespace-nowrap">Telegram</span>
-          <div className="w-8 h-8 rounded-full bg-[#0088cc] text-white flex items-center justify-center">
-            <Send className="w-4 h-4 -translate-x-0.5" />
+          <span className="text-xs font-medium whitespace-nowrap">Telegram</span>
+          <div className="w-7 h-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
+            <Send className="w-3.5 h-3.5 text-[#788173]" />
           </div>
         </a>
 
         {/* Direct Phone Call Option */}
         <a
           href={`tel:${businessConfig.phoneRaw}`}
-          className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] shadow-elevated hover:bg-[#f4f2ec] transition-all hover:scale-105 group"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm"
           aria-label={`Позвонить в студию VETRO: ${businessConfig.phone}`}
         >
-          <span className="text-xs font-semibold whitespace-nowrap">Позвонить ({businessConfig.phone})</span>
-          <div className="w-8 h-8 rounded-full bg-[#1a1712] text-white flex items-center justify-center">
-            <Phone className="w-4 h-4" />
+          <span className="text-xs font-medium whitespace-nowrap">Позвонить ({businessConfig.phone})</span>
+          <div className="w-7 h-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
+            <Phone className="w-3.5 h-3.5 text-[#A68C70]" />
           </div>
         </a>
       </div>
@@ -94,16 +94,16 @@ export const FloatingMessengers: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Закрыть контакты' : 'Написать в студию VETRO'}
-          className={`relative w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white shadow-elevated transition-all duration-300 focus:outline-none ${
+          className={`relative w-12 h-12 rounded flex items-center justify-center text-[#FBFAF7] transition-all duration-200 focus:outline-none border shadow-md ${
             isOpen
-              ? 'bg-[#1a1712] text-white'
-              : 'bg-[#FF2500] text-white hover:opacity-90 hover:scale-105'
+              ? 'bg-[#252725] border-[#252725]'
+              : 'bg-[#252725] border-white/20 hover:bg-[#383B38]'
           }`}
         >
           {isOpen ? (
-            <X className="w-5 h-5 text-white" />
+            <X className="w-5 h-5 text-[#FBFAF7]" />
           ) : (
-            <MessageCircle className="w-6 h-6 text-white" />
+            <MessageCircle className="w-5 h-5 text-[#A68C70]" />
           )}
         </button>
       </div>

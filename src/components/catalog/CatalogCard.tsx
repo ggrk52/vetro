@@ -3,7 +3,7 @@ import {
   Sliders, 
   Video, 
   ArrowUpRight,
-  Plus
+  ArrowRight
 } from 'lucide-react';
 import { CabinCategory } from '../../data/portfolioData';
 
@@ -73,22 +73,22 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({
   return (
     <article 
       onClick={handleCardClick}
-      className="group relative flex flex-col bg-white rounded-3xl border border-[rgba(26,23,18,0.08)] hover:border-[rgba(26,23,18,0.22)] transition-all duration-500 overflow-hidden shadow-card hover:shadow-elevated hover:-translate-y-1 cursor-pointer"
+      className="group relative flex flex-col bg-[#FBFAF7] rounded border border-[#DFDDD6] hover:border-[#252725] transition-all duration-300 overflow-hidden cursor-pointer"
     >
       {/* Top Image Container */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-[#eae6dc]">
+      <div className="relative aspect-[16/11] overflow-hidden bg-[#E8E5DD]">
         <img
           src={item.imageSrc}
           alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-103"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/60 via-transparent to-transparent pointer-events-none" />
 
         {/* Top Badges & Index */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
-          <span className="font-mono text-[10px] font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 text-white backdrop-blur-md">
-            {formattedIndex} / 08
+          <span className="font-mono text-[10px] font-medium tracking-wider px-2 py-0.5 rounded-[2px] bg-[#252725]/85 text-[#FBFAF7] backdrop-blur-sm border border-white/10 uppercase">
+            {formattedIndex} / VETRO
           </span>
 
           <div className="flex items-center gap-1.5 pointer-events-auto">
@@ -99,66 +99,75 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({
                   onOpenVideoModal && onOpenVideoModal(item.videoType!);
                 }}
                 type="button"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/75 hover:bg-black text-white text-[10px] font-mono tracking-wider transition-opacity shadow-sm backdrop-blur-md"
-                title="Смотреть видео"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[2px] bg-[#252725]/85 text-[#FBFAF7] text-[10px] font-mono uppercase tracking-wider backdrop-blur-sm border border-white/10 hover:bg-[#252725] transition-colors"
               >
-                <Video className="w-3 h-3 text-[#FF2500]" />
-                <span>ВИДЕО</span>
+                <Video className="w-3 h-3 text-[#A68C70]" />
+                <span className="hidden sm:inline">Видео</span>
               </button>
             )}
 
             {item.badge && (
-              <span className="px-2.5 py-1 rounded-full bg-white/95 text-[#1a1712] font-mono text-[10px] uppercase tracking-wider font-semibold shadow-sm backdrop-blur-md">
+              <span className="font-mono text-[10px] tracking-wider px-2 py-0.5 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] uppercase">
                 {item.badge}
               </span>
             )}
           </div>
         </div>
 
-        {/* Floating Price Pill at Bottom of Photo */}
-        <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between pointer-events-none">
-          <div className="bg-white/95 border border-[rgba(26,23,18,0.08)] px-3 py-1 rounded-full backdrop-blur-md shadow-sm">
-            <span className="text-xs sm:text-sm font-extrabold text-[#1a1712] font-display">{item.priceFormatted}</span>
-          </div>
-
-          <span className="font-mono text-[10px] text-white/90 bg-black/50 px-2.5 py-1 rounded-full backdrop-blur-md">
-            {item.specs.productionTime}
-          </span>
+        {/* Bottom Image Overlay Tag */}
+        <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[#FBFAF7] font-mono text-[10px] pointer-events-none">
+          <span className="tracking-wider text-[#FBFAF7]/90">{item.specs.thickness}</span>
+          <span className="tracking-wider text-[#A68C70]">{item.specs.productionTime}</span>
         </div>
       </div>
 
-      {/* Card Content Body: Ultra-Clean Minimalist Editorial */}
-      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+      {/* Card Content */}
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-base sm:text-lg font-bold text-[#1a1712] mb-1.5 font-display group-hover:text-[#FF2500] transition-colors leading-snug">
-            {item.title}
-          </h3>
-          <p className="text-xs text-[rgba(20,20,22,0.65)] line-clamp-1 mb-4">
+          <div className="flex items-start justify-between gap-2 mb-1.5">
+            <h3 className="text-base sm:text-[17px] font-semibold text-[#252725] leading-snug group-hover:text-[#788173] transition-colors">
+              {item.title}
+            </h3>
+            <span className="shrink-0 font-mono text-[13px] font-semibold text-[#252725] tracking-tight whitespace-nowrap">
+              {item.priceFormatted}
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-[13px] text-[#777A74] line-clamp-2 leading-relaxed mb-4">
             {item.subtitle}
           </p>
+
+          {/* Quick specs pill list */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {item.hardwareOptions.slice(0, 3).map((opt, i) => (
+              <span key={i} className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-[2px] bg-[#F4F2EC] text-[#777A74] border border-[#DFDDD6]/70">
+                {opt}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* Minimalist Action Controls */}
-        <div className="pt-3 border-t border-[rgba(26,23,18,0.06)] flex items-center justify-between gap-2">
+        {/* Card Actions Footer */}
+        <div className="pt-3 border-t border-[#DFDDD6] flex items-center justify-between gap-2">
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               handleCardClick();
             }}
-            type="button"
-            className="inline-flex items-center gap-1 text-xs font-mono tracking-wider uppercase text-[#7c766c] group-hover:text-[#1a1712] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#252725] hover:text-[#788173] transition-colors"
           >
-            <span>Детали</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <span>Характеристики</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
 
           <button
-            onClick={handleCalculate}
             type="button"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1a1712] hover:bg-[#FF2500] text-white text-xs font-medium transition-all shadow-sm"
+            onClick={handleCalculate}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] text-[11px] font-mono uppercase tracking-wider text-[#252725] bg-[#F4F2EC] hover:bg-[#252725] hover:text-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] transition-all"
           >
             <Sliders className="w-3 h-3" />
-            <span>Рассчитать</span>
+            <span>Расчет</span>
           </button>
         </div>
       </div>

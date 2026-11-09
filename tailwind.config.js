@@ -7,49 +7,100 @@ export default {
   theme: {
     extend: {
       colors: {
-        orange: {
-          DEFAULT: '#FF2500',
-          hover: '#e02000',
-          soft: 'rgba(255, 37, 0, 0.08)',
-          glow: 'rgba(255, 37, 0, 0.25)',
+        // VETRO Architectural Glass Studio Design System
+        ivory: {
+          DEFAULT: '#F4F2EC',
+          50: '#FAF9F6',
+          100: '#F4F2EC',
+          200: '#E8E5DD',
+        },
+        snow: '#FBFAF7',
+        graphite: {
+          DEFAULT: '#252725',
+          light: '#323532',
+          deep: '#1A1C1A',
+        },
+        sage: {
+          DEFAULT: '#788173',
+          hover: '#687163',
+          light: '#8E9889',
+          soft: 'rgba(120, 129, 115, 0.12)',
+        },
+        stone: {
+          DEFAULT: '#D8D3C9',
+          light: '#E5E1D8',
+          dark: '#BDB7AA',
+        },
+        muted: {
+          DEFAULT: '#777A74',
+          light: '#91948E',
+          dark: '#5E615B',
+        },
+        border: {
+          DEFAULT: '#DFDDD6',
+          subtle: '#ECEAE4',
+          dark: 'rgba(37, 39, 37, 0.12)',
+        },
+        bronze: {
+          DEFAULT: '#A68C70',
+          hover: '#957C60',
+          light: '#BAA287',
+          soft: 'rgba(166, 140, 112, 0.12)',
+        },
+
+        // Backward compatibility mappings
+        brand: {
+          dark: '#252725',
+          navy: '#1A1C1A',
+          accent: '#788173',
+          accentHover: '#687163',
+          gold: '#A68C70',
+          goldLight: '#FBFAF7',
         },
         ink: {
-          DEFAULT: '#1a1712',
-          2: '#14141a',
-          dim: 'rgba(20, 20, 22, 0.65)',
+          DEFAULT: '#252725',
+          2: '#1A1C1A',
+          dim: 'rgba(37, 39, 37, 0.7)',
         },
         paper: {
-          DEFAULT: '#f4f2ec',
-          2: '#eae6dc',
-          card: '#ffffff',
-          line: 'rgba(26, 23, 18, 0.1)',
-          lineHover: 'rgba(26, 23, 18, 0.2)',
-          muted: '#7c766c',
+          DEFAULT: '#F4F2EC',
+          2: '#E8E5DD',
+          card: '#FBFAF7',
+          line: '#DFDDD6',
+          lineHover: '#BDB7AA',
+          muted: '#777A74',
         },
-        brand: {
-          dark: '#1a1712',
-          navy: '#22201c',
-          accent: '#FF2500',
-          accentHover: '#e02000',
-          gold: '#c5a880',
-          goldLight: '#fbf7ee',
+        orange: {
+          DEFAULT: '#788173',
+          hover: '#687163',
+          soft: 'rgba(120, 129, 115, 0.12)',
+          glow: 'rgba(120, 129, 115, 0.25)',
         }
       },
       fontFamily: {
-        sans: ['Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Inter Tight"', 'Manrope', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         mono: ['"DM Mono"', 'monospace'],
       },
       borderRadius: {
-        'pill': '100px',
-        'r': '26px',
-        'rlg': '36px',
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '6px',
+        'lg': '8px',
+        'pill': '9999px',
+        'r': '4px',
+        'rlg': '6px',
       },
       boxShadow: {
-        'subtle': '0 4px 16px -6px rgba(30, 28, 24, 0.12)',
-        'elevated': '0 20px 50px -20px rgba(38, 34, 28, 0.22)',
-        'card': '0 2px 10px -2px rgba(26, 23, 18, 0.05)',
+        'subtle': '0 2px 8px -2px rgba(37, 39, 37, 0.05)',
+        'elevated': '0 12px 32px -12px rgba(37, 39, 37, 0.08)',
+        'card': '0 1px 3px 0 rgba(37, 39, 37, 0.04)',
+      },
+      maxWidth: {
+        'studio': '1280px',
+        'editorial': '1320px',
       }
     },
   },
