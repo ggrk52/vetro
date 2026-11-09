@@ -104,7 +104,7 @@ export const glassTypesData: GlassType[] = [
       'Придает ванной комнате статус дорогого бутик-отеля'
     ],
     recommendedFor: 'Современные дизайнерские санузлы, ар-деко, сканди, стиль джапанди и лофт',
-    imageSrc: '/portfolio/walkin_01.jpg',
+    imageSrc: '/portfolio/hero_estriado_black.jpg',
     accentColor: 'from-amber-500/20 to-yellow-500/10',
     hasVideo: true,
   },
@@ -144,7 +144,7 @@ export const glassTypesData: GlassType[] = [
       'Устойчиво к ультрафиолету и влаге на весь срок службы'
     ],
     recommendedFor: 'Теплые интерьеры с деревом, натуральным камнем, травертином и латунью',
-    imageSrc: '/portfolio/sliding_05.jpg',
+    imageSrc: '/portfolio/hero_bronze_titanium.jpg',
     accentColor: 'from-orange-500/20 to-amber-700/10',
   },
 ];
