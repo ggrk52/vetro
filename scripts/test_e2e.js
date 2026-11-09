@@ -224,7 +224,7 @@ async function main() {
 
     await runCheck('T1.06', 1, 'Header navigation rendered with brand name and links', async () => {
       const headerText = await page.$eval('header', el => el.innerText).catch(() => '');
-      if (!headerText.toLowerCase().includes('влад') && !headerText.toLowerCase().includes('душев')) {
+      if (!headerText.toLowerCase().includes('vetro') && !headerText.toLowerCase().includes('душев')) {
         throw new Error(`Header does not contain brand name: "${headerText.slice(0, 100)}"`);
       }
       const navLinks = await page.$$('header a, nav a');

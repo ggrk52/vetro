@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, MessageCircle, Send, MapPin, Clock, ShieldCheck, ArrowUp } from 'lucide-react';
 import { businessConfig } from '../../data/businessConfig';
+import { VetroLogo } from '../common/VetroLogo';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -44,21 +45,9 @@ export const Footer: React.FC = () => {
       {/* Main Footer Container */}
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-10 sm:pt-12 pb-8 sm:pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Column 1: Brand & Master Vladislav */}
+          {/* Column 1: Brand & Studio VETRO */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-white text-[#141414] font-extrabold text-lg flex items-center justify-center">
-                V
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xl text-white tracking-tight leading-none">
-                  VETRO
-                </h3>
-                <p className="text-xs text-[rgba(255,255,255,0.5)] font-medium mt-1">
-                  Студия стеклянных душевых
-                </p>
-              </div>
-            </div>
+            <VetroLogo theme="light" size="md" subtitleText="Студия авторского стекла" />
 
             <p className="text-xs sm:text-sm text-[rgba(255,255,255,0.6)] leading-relaxed">
               Производство и профессиональный чистовой монтаж стеклянных душевых перегородок, кабин и зеркал по индивидуальным размерам. Собственное производство студии VETRO и контроль качества по ГОСТ.

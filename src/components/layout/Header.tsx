@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, Send, Menu, X, Ruler, ChevronRight } from 'lucide-react';
 import { businessConfig } from '../../data/businessConfig';
+import { VetroLogo } from '../common/VetroLogo';
 
 export interface HeaderProps {
   onOpenMeasurementModal?: () => void;
@@ -79,19 +80,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
           {/* Logo & Brand Title: VETRO */}
           <a
             href="#"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#1a1712] rounded-lg p-1"
+            className="focus:outline-none focus:ring-2 focus:ring-[#1a1712] rounded-lg p-0.5"
+            aria-label="На главную VETRO"
           >
-            <div className="w-9 h-9 rounded-xl bg-[#1a1712] text-[#f4f2ec] flex items-center justify-center font-bold text-base tracking-tighter shadow-sm transition-transform group-hover:scale-105">
-              V
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-lg sm:text-xl text-[#1a1712] tracking-tight leading-none">
-                VETRO
-              </span>
-              <span className="text-[11px] text-[#7c766c] font-medium tracking-wide mt-0.5">
-                Душевые кабины • Москва и МО
-              </span>
-            </div>
+            <VetroLogo size="md" subtitleText="Стеклянные душевые • Москва" />
           </a>
 
           {/* Desktop Navigation */}
@@ -204,15 +196,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
           <div>
             {/* Drawer Header */}
             <div className="flex items-center justify-between pb-4 border-b border-[rgba(26,23,18,0.08)]">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-[#1a1712] text-white flex items-center justify-center font-bold text-sm">
-                  V
-                </div>
-                <div>
-                  <div className="font-bold text-base text-[#1a1712]">VETRO</div>
-                  <div className="text-[11px] text-[#7c766c]">Студия стеклянных душевых</div>
-                </div>
-              </div>
+              <VetroLogo size="sm" subtitleText="Студия авторского стекла" />
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(false)}

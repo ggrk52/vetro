@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Outer Dark Container -->
+  <rect width="48" height="48" rx="12" fill="#1a1712"/>
+  <!-- Left Glass Monolith -->
+  <path d="M12 11H19L24 33.5L19 36L12 11Z" fill="#f4f2ec"/>
+  <!-- Right Glass Monolith with optical refraction -->
+  <path d="M36 11H29L24 33.5L29 36L36 11Z" fill="#f4f2ec" fill-opacity="0.45"/>
+  <!-- Precision Laser Focal Dot -->
+  <circle cx="34" cy="13" r="2.2" fill="#FF2500"/>
+  <!-- Miter joint hairline -->
+  <path d="M24 33.5V36.5" stroke="#FF2500" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
