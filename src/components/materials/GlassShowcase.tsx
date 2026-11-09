@@ -215,7 +215,7 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
           </div>
 
           <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.65)] max-w-sm leading-relaxed font-sans">
-            Монолитное ударопрочное стекло ESG с полированной еврокромкой. Образцы мастер привозит на замер.
+            Монолитное ударопрочное стекло ESG с полированной еврокромкой. Образцы инженер привозит на замер.
           </p>
         </div>
 
@@ -287,7 +287,7 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
                     )}
                   </div>
                   <p className="text-xs text-white/90 bg-black/60 p-2.5 rounded-xl backdrop-blur-md">
-                    Реальное фото из проекта мастера Владислава в Москве
+                    Реальное фото из проекта студии VETRO в Москве
                   </p>
                 </div>
               </div>

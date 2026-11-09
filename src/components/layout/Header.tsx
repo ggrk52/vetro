@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
     { label: 'Материалы', href: '#materials' },
     { label: 'Калькулятор', href: '#calculator' },
     { label: 'Портфолио', href: '#gallery' },
-    { label: 'О мастере', href: '#master' },
+    { label: 'Философия', href: '#philosophy' },
     { label: 'Контакты', href: '#contacts' },
   ];
 
@@ -112,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={`tel:${businessConfig.phoneRaw}`}
-              aria-label="Позвонить Владиславу"
+              aria-label="Позвонить в студию VETRO"
               className="min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] hover:bg-[#1a1712] hover:text-white flex items-center justify-center transition-colors shadow-sm"
             >
               <Phone className="w-4 h-4" />
@@ -138,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 href={businessConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Написать в WhatsApp Владиславу"
+                title="Написать в WhatsApp студии VETRO"
                 aria-label="Написать в WhatsApp"
                 className="w-8 h-8 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] hover:bg-[#1a1712] hover:text-white flex items-center justify-center transition-all hover:scale-105 shadow-sm"
               >
@@ -148,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 href={businessConfig.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Написать в Telegram Владиславу"
+                title="Написать в Telegram студии VETRO"
                 aria-label="Написать в Telegram"
                 className="w-8 h-8 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] hover:bg-[#1a1712] hover:text-white flex items-center justify-center transition-all hover:scale-105 shadow-sm"
               >

@@ -7,7 +7,7 @@ import { GlassShowcase } from './components/materials/GlassShowcase';
 import { HardwareShowcase } from './components/materials/HardwareShowcase';
 import { CalculatorSection } from './components/calculator/CalculatorSection';
 import { PortfolioGallery, GalleryFilterType } from './components/gallery/PortfolioGallery';
-import { MasterPersona } from './components/trust/MasterPersona';
+import { CompanyPhilosophy } from './components/trust/CompanyPhilosophy';
 import { WorkflowGuarantees } from './components/trust/WorkflowGuarantees';
 import { FAQSection } from './components/faq/FAQSection';
 import { ContactSection } from './components/contacts/ContactSection';
@@ -126,7 +126,7 @@ export const App: React.FC = () => {
         </div>
 
         {/* 7. Interactive 5-Step Cost Calculator & Lead Capture */}
-        <CalculatorSection onOpenMeasurementModal={() => handleOpenMeasurement('Вызов мастера из калькулятора')} />
+        <CalculatorSection onOpenMeasurementModal={() => handleOpenMeasurement('Вызов инженера из калькулятора')} />
 
         {/* 8. Portfolio Gallery: 60 Authentic Finished Projects with Lightbox */}
         <div id="reviews" className="scroll-mt-20">
@@ -136,8 +136,8 @@ export const App: React.FC = () => {
           />
         </div>
 
-        {/* 9. Master Persona: Vladislav Personal Guarantee & Tools */}
-        <MasterPersona onOpenMeasurementModal={() => handleOpenMeasurement('Личный вызов мастера Владислава')} />
+        {/* 9. Company Philosophy: VETRO Atelier Standards & In-house Production */}
+        <CompanyPhilosophy onOpenMeasurementModal={() => handleOpenMeasurement('Консультация по философии VETRO')} />
 
         {/* 10. Workflow & Guarantees: 6-Step Journey & Contract Guarantees */}
         <WorkflowGuarantees onOpenMeasurementModal={() => handleOpenMeasurement('Замер по договору')} />

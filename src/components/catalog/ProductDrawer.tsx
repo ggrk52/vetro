@@ -165,7 +165,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                 ОПИСАНИЕ КОНСТРУКЦИИ
               </span>
               <p className="text-sm text-[rgba(20,20,22,0.75)] leading-relaxed">
-                {item.subtitle}. Индивидуальный проект по вашим размерам с выездом мастера Владислава на 3D-замер.
+                {item.subtitle}. Индивидуальный проект по вашим размерам с выездом инженера студии VETRO на 3D-замер.
               </p>
             </div>
 
@@ -266,7 +266,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
               </button>
 
               <a
-                href={`${businessConfig.whatsappUrl}&text=${encodeURIComponent(`Здравствуйте, Владислав! Интересует конструкция: ${item.title}`)}`}
+                href={`${businessConfig.whatsappUrl}&text=${encodeURIComponent(`Здравствуйте! Интересует конструкция VETRO: ${item.title}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1 px-3 py-2.5 rounded-full bg-white hover:bg-[#f4f2ec] text-[#1a1712] border border-[rgba(26,23,18,0.12)] font-medium text-xs transition-colors min-h-[40px]"

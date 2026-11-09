@@ -272,12 +272,12 @@ async function main() {
       }
     });
 
-    await runCheck('T1.11', 1, 'Master Vladislav persona section rendered with credentials', async () => {
+    await runCheck('T1.11', 1, 'Company philosophy section rendered with credentials & values', async () => {
       const pageText = await page.evaluate(() => document.body.innerText);
-      const hasVlad = /владислав|влад/i.test(pageText);
-      const hasExperienceOrTrust = /опыт|лет|монтаж|мастер/i.test(pageText);
-      if (!hasVlad || !hasExperienceOrTrust) {
-        throw new Error('Master Vladislav persona credentials not found on page');
+      const hasBrand = /vetro|философия/i.test(pageText);
+      const hasExperienceOrTrust = /опыт|лет|монтаж|производств/i.test(pageText);
+      if (!hasBrand || !hasExperienceOrTrust) {
+        throw new Error('Company philosophy section credentials not found on page');
       }
     });
 

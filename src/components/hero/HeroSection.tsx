@@ -114,7 +114,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
 
             {/* Subtitle: Short, Authoritative */}
             <p className="text-sm sm:text-base md:text-lg text-[rgba(20,20,22,0.7)] leading-relaxed max-w-xl mb-5 sm:mb-7 font-sans">
-              Душевые кабины и перегородки по вашим размерам в Москве и МО. Монолитное закаленное стекло 8–10 мм, итальянская фурнитура Boheme Milano и личный авторский монтаж мастера Владислава.
+              Душевые кабины и перегородки по вашим размерам в Москве и МО. Монолитное закаленное стекло 8–10 мм, итальянская фурнитура Boheme Milano, собственное производство и официальная гарантия студии VETRO.
             </p>
 
             {/* Action Buttons */}

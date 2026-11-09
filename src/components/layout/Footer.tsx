@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-[rgba(255,255,255,0.6)] leading-relaxed">
-              Производство и профессиональный чистовой монтаж стеклянных душевых перегородок, кабин и зеркал по индивидуальным размерам. Личная работа мастера Владислава без посредников и салонных наценок.
+              Производство и профессиональный чистовой монтаж стеклянных душевых перегородок, кабин и зеркал по индивидуальным размерам. Собственное производство студии VETRO и контроль качества по ГОСТ.
             </p>
 
             <div className="pt-2 flex items-center gap-2 text-xs text-[rgba(255,255,255,0.7)]">
@@ -166,7 +166,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
             <span>© 2026 VETRO. Все права защищены.</span>
             <span className="hidden sm:inline">•</span>
-            <span>Мастер Владислав (Москва и Московская область)</span>
+            <span>Студия VETRO (Москва и Московская область)</span>
           </div>
 
           <div className="flex items-center gap-4">

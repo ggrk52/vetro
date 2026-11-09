@@ -75,7 +75,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
   // WhatsApp formatted link generation with full calculated details
   const whatsappQuoteUrl = useMemo(() => {
     const lines = [
-      `Здравствуйте, Владислав! Рассчитал душевую кабину на сайте VETRO:`,
+      `Здравствуйте! Рассчитал душевую кабину на сайте студии VETRO:`,
       `• Тип: ${CABIN_TYPE_METADATA[calcState.cabinType].title}`,
       `• Размеры: ${calcState.width}×${calcState.height}${calcState.depth && cabinMeta.requiresDepth ? `×${calcState.depth}` : ''} см (площадь ~${pricing.areaSqm} м²)`,
       `• Стекло: ${GLASS_METADATA[calcState.glassType].name}`,
@@ -241,7 +241,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     Шаг 2. Размеры конструкции (см)
                   </h3>
                   <p className="text-xs sm:text-sm text-[#7c766c]">
-                    Укажите ориентировочные габариты для расчета. Точный замер лазером мастер проведет на объекте бесплатно.
+                    Укажите ориентировочные габариты для расчета. Точный лазерный 3D-замер инженер проведет на объекте бесплатно.
                   </p>
                 </div>
 
@@ -522,7 +522,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-[#1a1712] flex items-center gap-1.5">
                           <Wrench className="w-4 h-4 text-[#1a1712]" />
-                          Чистовой монтаж под ключ мастером
+                          Чистовой монтаж под ключ инженерной бригадой VETRO
                         </span>
                         <span className="font-mono text-[#FF2500] font-bold">
                           +{formatPrice(OPTION_PRICES.installation)}
@@ -602,7 +602,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                   </div>
 
                   <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[rgba(26,23,18,0.08)]">
-                    <span className="text-[#7c766c]">Монтаж мастером:</span>
+                    <span className="text-[#7c766c]">Монтаж инженерами VETRO:</span>
                     <span className="font-mono text-[#1a1712]">
                       {calcState.hasInstallation ? formatPrice(OPTION_PRICES.installation) : 'Без монтажа'}
                     </span>
@@ -636,7 +636,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                       Расчет зафиксирован! Скидка 5% закреплена за вами.
                     </h4>
                     <p className="text-xs sm:text-sm text-[#7c766c] max-w-md mx-auto">
-                      Владислав свяжется с вами по номеру <strong className="text-[#1a1712]">{clientPhone}</strong> в течение 15 минут.
+                      Инженер VETRO свяжется с вами по номеру <strong className="text-[#1a1712]">{clientPhone}</strong> в течение 15 минут.
                     </p>
                     <div className="pt-2">
                       <a
@@ -792,7 +792,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                   className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#FF2500] hover:opacity-90 shadow-sm transition-all active:scale-[0.98]"
                 >
                   <Ruler className="w-4 h-4 text-white" />
-                  <span>Вызвать мастера на замер</span>
+                  <span>Вызвать инженера на замер</span>
                 </button>
               )}
             </div>
@@ -877,12 +877,12 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-full bg-[#1a1712] text-white hover:opacity-90 font-semibold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-[0.98]"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>Отправить расчет мастеру</span>
+              <span>Отправить расчет инженеру</span>
             </a>
 
             <div className="mt-4 pt-3 text-center">
               <span className="text-[11px] text-[#7c766c]">
-                Ответ мастера Владислава в течение 15 минут
+                Ответ инженера студии VETRO в течение 15 минут
               </span>
             </div>
 

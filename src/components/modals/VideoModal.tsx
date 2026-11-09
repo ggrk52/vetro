@@ -132,7 +132,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 Видеообзор готовой работы
               </h3>
               <p className="text-xs text-white/50">
-                Съемка мастера Владислава на объекте в Москве
+                Съемка на сданном объекте студии VETRO в Москве
               </p>
             </div>
           </div>

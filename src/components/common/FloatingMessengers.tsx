@@ -78,7 +78,7 @@ export const FloatingMessengers: React.FC = () => {
         <a
           href={`tel:${businessConfig.phoneRaw}`}
           className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white border border-[rgba(26,23,18,0.1)] text-[#1a1712] shadow-elevated hover:bg-[#f4f2ec] transition-all hover:scale-105 group"
-          aria-label={`Позвонить мастеру: ${businessConfig.phone}`}
+          aria-label={`Позвонить в студию VETRO: ${businessConfig.phone}`}
         >
           <span className="text-xs font-semibold whitespace-nowrap">Позвонить ({businessConfig.phone})</span>
           <div className="w-8 h-8 rounded-full bg-[#1a1712] text-white flex items-center justify-center">
@@ -93,7 +93,7 @@ export const FloatingMessengers: React.FC = () => {
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
-          aria-label={isOpen ? 'Закрыть контакты' : 'Написать мастеру'}
+          aria-label={isOpen ? 'Закрыть контакты' : 'Написать в студию VETRO'}
           className={`relative w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white shadow-elevated transition-all duration-300 focus:outline-none ${
             isOpen
               ? 'bg-[#1a1712] text-white'

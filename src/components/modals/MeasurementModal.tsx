@@ -161,7 +161,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
                 Заявка на замер принята!
               </h3>
               <p className="text-sm text-[rgba(20,20,22,0.65)] leading-relaxed max-w-md mb-6">
-                Владислав свяжется с вами в течение 15 минут для подтверждения удобного времени выезда и деталей проекта.
+                Инженер студии VETRO свяжется с вами в течение 15 минут для подтверждения удобного времени выезда и деталей проекта.
               </p>
               
               <div className="w-full bg-[#f4f2ec] rounded-2xl p-4 border border-[rgba(26,23,18,0.06)] text-left mb-6 space-y-2">
@@ -195,7 +195,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
               {/* Trust Callout */}
               <div className="bg-[#f4f2ec] border border-[rgba(26,23,18,0.06)] rounded-2xl p-4 flex items-start gap-3 text-xs text-[#1a1712]">
                 <p>
-                  Мастер лично приедет с лазерным 3D-нивелиром и чемоданом реальных образцов стекла (Optiwhite, сатинат, Estriado) и фурнитуры Boheme.
+                  Инженер студии приедет с лазерным 3D-нивелиром и чемоданом реальных образцов стекла (Optiwhite, сатинат, Estriado) и фурнитуры Boheme.
                 </p>
               </div>
 
@@ -362,7 +362,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
               </button>
 
               <p className="text-[11px] text-[#7c766c] text-center">
-                Нажимая кнопку, вы соглашаетесь на обработку персональных данных мастером {businessConfig.masterName}.
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных студией VETRO.
               </p>
             </form>
           )}

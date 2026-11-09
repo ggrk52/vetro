@@ -127,12 +127,12 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#1a1712] tracking-tight leading-[1.05] font-sans">
               Реализованные объекты.<br />
-              <em className="font-serif italic font-normal text-[#1a1712]">Фотографии мастера на объектах.</em>
+              <em className="font-serif italic font-normal text-[#1a1712]">Фотографии с реальных объектов.</em>
             </h2>
           </div>
 
           <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.65)] max-w-sm leading-relaxed font-sans">
-            Реальные работы мастера Владислава в квартирах и домах Москвы. Никаких 3D-рендеров — только стекло и фурнитура в интерьере.
+            Реализованные проекты студии VETRO в квартирах и резиденциях Москвы. Только чистое стекло и фурнитура в интерьере.
           </p>
         </div>
 

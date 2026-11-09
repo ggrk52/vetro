@@ -56,13 +56,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eae6dc] text-[#1a1712] text-xs font-semibold uppercase tracking-wider mb-2 sm:mb-3 border border-[rgba(26,23,18,0.08)]">
             <MapPin className="w-3.5 h-3.5 text-[#1a1712]" />
-            <span>Прямая связь с мастером</span>
+            <span>Инженерный отдел VETRO</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a1712] tracking-tight mb-2 sm:mb-3 font-display">
             Контакты и территория выезда
           </h2>
           <p className="text-xs sm:text-sm text-[rgba(20,20,22,0.65)] leading-relaxed">
-            Свяжитесь напрямую с мастером Владиславом. Без диспетчеров, операторов и наценок салонов.
+            Свяжитесь напрямую с ведущими инженерами студии VETRO. Без диспетчеров и наценок салонов.
           </p>
         </div>
 
@@ -73,10 +73,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
           <div className="lg:col-span-4 bg-white border border-[rgba(26,23,18,0.08)] rounded-[32px] p-6 sm:p-7 shadow-card space-y-6">
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#eae6dc] text-[#1a1712] text-xs font-semibold uppercase tracking-wider mb-2">
-                <span>Мастер на связи</span>
+                <span>Студия на связи</span>
               </div>
               <h3 className="text-xl font-bold text-[#1a1712] mb-1 font-display">
-                {businessConfig.masterName}
+                Инженерный отдел VETRO
               </h3>
               <p className="text-xs text-[#7c766c]">
                 Студия авторских стеклянных перегородок VETRO
@@ -130,7 +130,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                   <Send className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-[11px] text-[#7c766c] block">Telegram мастера:</span>
+                  <span className="text-[11px] text-[#7c766c] block">Telegram студии:</span>
                   <span className="font-bold text-sm sm:text-base text-[#1a1712]">
                     @{businessConfig.telegramUsername}
                   </span>
@@ -249,7 +249,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                   Задайте вопрос или закажите расчет
                 </h3>
                 <p className="text-xs text-[#7c766c]">
-                  Оставьте контакты — Владислав перезвонит или ответит в мессенджере в течение 15 минут.
+                  Оставьте контакты — инженер студии перезвонит или ответит в мессенджере в течение 15 минут.
                 </p>
               </div>
 
@@ -262,7 +262,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                     Спасибо! Ваше обращение принято.
                   </h4>
                   <p className="text-xs sm:text-sm text-[#7c766c] max-w-md mx-auto">
-                    Мастер свяжется с вами по номеру <strong className="text-[#1a1712]">{phone}</strong> для консультации.
+                    Инженер свяжется с вами по номеру <strong className="text-[#1a1712]">{phone}</strong> для консультации.
                   </p>
                   <button
                     type="button"

@@ -62,7 +62,7 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
       numericYears: businessConfig.guarantees.installationYears,
       title: 'Монтаж и герметичность',
       subtitle: 'Аквастоп-защита',
-      desc: '100% герметичность примыканий к плитке и полу. Бесплатный выезд мастера и регулировка узлов.',
+      desc: '100% герметичность примыканий к плитке и полу. Бесплатный гарантийный выезд инженера и регулировка узлов.',
       icon: Droplets,
     },
     {
