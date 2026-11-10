@@ -15,6 +15,7 @@ import { Footer } from './components/layout/Footer';
 import { MeasurementModal } from './components/modals/MeasurementModal';
 import { VideoModal, VideoType } from './components/modals/VideoModal';
 import { FloatingMessengers } from './components/common/FloatingMessengers';
+import { ScrollToTop } from './components/common/ScrollToTop';
 import { MobileStickyCta } from './components/common/MobileStickyCta';
 import { CabinCategory } from './data/portfolioData';
 
@@ -167,6 +168,7 @@ export const App: React.FC = () => {
       />
 
       {/* Global Sticky / Floating Controls */}
+      <ScrollToTop />
       <FloatingMessengers />
       <MobileStickyCta onOpenMeasurementModal={() => handleOpenMeasurement('Быстрый вызов с мобильного')} />
     </div>
