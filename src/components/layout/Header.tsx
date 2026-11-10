@@ -30,14 +30,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
     };
   }, [isMobileMenuOpen]);
 
-  const navLinks = [
+  interface NavItem {
+    label: string;
+    href: string;
+    className?: string;
+  }
+
+  const navLinks: NavItem[] = [
     { label: 'Каталог', href: '#catalog' },
-    { label: 'Преимущества', href: '#advantages' },
     { label: 'Материалы', href: '#materials' },
     { label: 'Калькулятор', href: '#calculator' },
     { label: 'Портфолио', href: '#gallery' },
+    { label: 'Преимущества', href: '#advantages', className: 'hidden xl:inline-block' },
     { label: 'О студии', href: '#about' },
-    { label: 'Процесс', href: '#workflow' },
+    { label: 'Процесс', href: '#workflow', className: 'hidden xl:inline-block' },
     { label: 'Контакты', href: '#contacts' },
   ];
 
@@ -87,18 +93,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <VetroLogo 
               size="md" 
               subtitleText="Architectural Glass Studio • Душевые" 
-              subtitleClassName="hidden xl:block"
+              subtitleClassName="hidden 2xl:block"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2.5 xl:gap-5 2xl:gap-7 shrink min-w-0">
+          <nav className="hidden lg:flex items-center justify-center gap-2.5 xl:gap-3.5 2xl:gap-5 shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xs xl:text-[13px] font-medium tracking-[0.01em] text-[#252725]/80 hover:text-[#252725] transition-colors relative py-1 whitespace-nowrap"
+                className={`text-xs xl:text-[13px] font-medium tracking-[0.01em] text-[#252725]/80 hover:text-[#252725] transition-colors relative py-1 whitespace-nowrap shrink-0 ${link.className || ''}`}
               >
                 {link.label}
               </a>
@@ -161,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
               >
                 {businessConfig.phone}
               </a>
-              <span className="text-[10px] font-mono tracking-wider uppercase text-[#777A74] whitespace-nowrap hidden sm:block">
+              <span className="text-[10px] font-mono tracking-wider uppercase text-[#777A74] whitespace-nowrap hidden xl:block">
                 Москва и МО • 9-21
               </span>
             </div>
@@ -170,10 +176,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <button
               type="button"
               onClick={handleCtaClick}
-              className="inline-flex items-center gap-1.5 xl:gap-2 px-3.5 xl:px-4 py-2 xl:py-2.5 text-[11px] xl:text-[12px] font-medium tracking-[0.04em] uppercase text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] rounded border border-[#252725] transition-transform active:scale-[0.97] shrink-0 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-2 xl:py-2.5 text-[11px] xl:text-[12px] font-medium tracking-[0.04em] uppercase text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] rounded border border-[#252725] transition-transform active:scale-[0.97] shrink-0 whitespace-nowrap"
             >
               <span>Обсудить проект</span>
-              <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-1.5 xl:pl-2 hidden sm:inline">Замер</span>
+              <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-1.5 xl:pl-2 hidden xl:inline">Замер</span>
               <ArrowUpRight className="size-3.5 text-[#A68C70]" />
             </button>
           </div>

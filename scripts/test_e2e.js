@@ -15,7 +15,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 const CHROME_PATH = process.env.CHROME_BIN || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const CANDIDATE_PORTS = [4173, 5173, 3000, 8080];
+const CANDIDATE_PORTS = [4173, 5173];
 
 // Test tracking state
 let totalChecks = 0;
