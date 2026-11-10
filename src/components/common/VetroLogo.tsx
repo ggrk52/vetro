@@ -6,6 +6,7 @@ export interface VetroLogoProps {
   showSubtitle?: boolean;
   subtitleText?: string;
   className?: string;
+  subtitleClassName?: string;
 }
 
 export const VetroLogoMark: React.FC<{ size?: number; theme?: 'dark' | 'light'; className?: string }> = ({
@@ -65,6 +66,7 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
   showSubtitle = true,
   subtitleText = 'Architectural Glass Studio • Душевые',
   className = '',
+  subtitleClassName = '',
 }) => {
   const isLight = theme === 'light';
 
@@ -87,20 +89,20 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
   };
 
   return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 group ${className}`}>
+    <div className={`flex items-center gap-2.5 sm:gap-3 group shrink-0 ${className}`}>
       <VetroLogoMark size={markSizes[size]} theme={theme} />
       
       <div className="flex flex-col">
         <div className="flex items-center gap-1.5 leading-none">
           <span 
-            className={`font-sans font-bold tracking-[0.18em] ${titleSizes[size]} ${
+            className={`font-sans font-bold tracking-[0.18em] whitespace-nowrap ${titleSizes[size]} ${
               isLight ? 'text-[#FBFAF7]' : 'text-[#252725]'
             }`}
           >
             VETRO
           </span>
           <span 
-            className={`w-1 h-1 rounded-none rotate-45 ${
+            className={`w-1 h-1 rounded-none rotate-45 shrink-0 ${
               isLight ? 'bg-[#A68C70]' : 'bg-[#788173]'
             }`} 
             aria-hidden="true" 
@@ -109,9 +111,9 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
         
         {showSubtitle && (
           <span 
-            className={`font-mono tracking-[0.14em] mt-0.5 truncate uppercase ${subSizes[size]} ${
+            className={`font-mono tracking-[0.14em] mt-0.5 truncate uppercase whitespace-nowrap ${subSizes[size]} ${
               isLight ? 'text-[#FBFAF7]/60' : 'text-[#777A74]'
-            }`}
+            } ${subtitleClassName}`}
           >
             {subtitleText}
           </span>

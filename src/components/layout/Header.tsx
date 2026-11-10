@@ -77,24 +77,28 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
       }`}
     >
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-3 xl:gap-6">
           {/* Logo & Brand Title: VETRO */}
           <a
             href="#"
-            className="focus:outline-none focus:ring-1 focus:ring-[#252725] rounded p-0.5"
+            className="focus:outline-none focus:ring-1 focus:ring-[#252725] rounded p-0.5 shrink-0"
             aria-label="На главную VETRO Architectural Glass Studio"
           >
-            <VetroLogo size="md" subtitleText="Architectural Glass Studio • Душевые" />
+            <VetroLogo 
+              size="md" 
+              subtitleText="Architectural Glass Studio • Душевые" 
+              subtitleClassName="hidden xl:block"
+            />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <nav className="hidden lg:flex items-center gap-2.5 xl:gap-5 2xl:gap-7 shrink min-w-0">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[13px] font-medium tracking-[0.02em] text-[#252725]/75 hover:text-[#252725] transition-colors relative py-1"
+                className="text-xs xl:text-[13px] font-medium tracking-[0.01em] text-[#252725]/80 hover:text-[#252725] transition-colors relative py-1 whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -124,9 +128,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
           </div>
 
           {/* Right Action Block (Desktop) */}
-          <div className="hidden lg:flex items-center gap-5">
-            {/* Direct Messengers */}
-            <div className="flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
+            {/* Direct Messengers (shown on 2xl+) */}
+            <div className="hidden 2xl:flex items-center gap-1.5 shrink-0">
               <a
                 href={businessConfig.whatsappUrl}
                 target="_blank"
@@ -150,24 +154,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             </div>
 
             {/* Direct Phone */}
-            <div className="flex flex-col text-right">
+            <div className="flex flex-col text-right shrink-0 min-w-max">
               <a
                 href={`tel:${businessConfig.phoneRaw}`}
-                className="text-[13px] font-semibold text-[#252725] hover:text-[#788173] transition-colors tabular-nums"
+                className="text-xs xl:text-[13px] font-semibold text-[#252725] hover:text-[#788173] transition-colors tabular-nums whitespace-nowrap"
               >
                 {businessConfig.phone}
               </a>
-              <span className="text-[10px] font-mono tracking-wider uppercase text-[#777A74]">Москва и МО • 9-21</span>
+              <span className="text-[10px] font-mono tracking-wider uppercase text-[#777A74] whitespace-nowrap hidden sm:block">
+                Москва и МО • 9-21
+              </span>
             </div>
 
             {/* CTA Button: Architectural Graphite with 4px radius */}
             <button
               type="button"
               onClick={handleCtaClick}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-[12px] font-medium tracking-[0.04em] uppercase text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] rounded border border-[#252725] transition-transform active:scale-[0.97]"
+              className="inline-flex items-center gap-1.5 xl:gap-2 px-3.5 xl:px-4 py-2 xl:py-2.5 text-[11px] xl:text-[12px] font-medium tracking-[0.04em] uppercase text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] rounded border border-[#252725] transition-transform active:scale-[0.97] shrink-0 whitespace-nowrap"
             >
               <span>Обсудить проект</span>
-              <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-2">Замер</span>
+              <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-1.5 xl:pl-2 hidden sm:inline">Замер</span>
               <ArrowUpRight className="size-3.5 text-[#A68C70]" />
             </button>
           </div>
