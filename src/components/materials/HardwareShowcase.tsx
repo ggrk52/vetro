@@ -162,13 +162,13 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
               КОЛЛЕКЦИЯ ФУРНИТУРЫ / BOHEME MILANO
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Фурнитура Boheme.<br />
               <span className="italic text-[#788173]">Итальянская латунь и сталь AISI 304.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
             Монолитная нержавеющая сталь, прецизионные петли с доводчиком ±25° и PVD-напыление с официальной гарантией до 10 лет.
           </p>
         </div>
@@ -192,7 +192,7 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
                   key={finish.id}
                   onClick={() => handleSelectFinish(finish.id)}
                   type="button"
-                  className={`group relative flex flex-col items-center p-3 rounded border transition-all duration-200 min-h-[50px] ${
+                  className={`group relative flex flex-col items-center p-3 rounded border transition-all duration-150 min-h-[50px] active:scale-[0.97] ${
                     isActive
                       ? 'bg-[#252725] border-[#252725] text-[#FBFAF7]'
                       : 'bg-[#F4F2EC] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
@@ -201,13 +201,13 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
                   {/* Swatch circle */}
                   <div className="relative mb-2">
                     <div 
-                      className={`w-9 h-9 rounded-full border transition-transform duration-200 group-hover:scale-105 bg-gradient-to-tr ${finish.gradient} ${
+                      className={`size-9 rounded-full border transition-transform duration-200 group-hover:scale-105 bg-gradient-to-tr ${finish.gradient} ${
                         isActive ? 'border-[#A68C70] ring-1 ring-[#A68C70]' : 'border-black/10'
                       }`}
                     />
                     {isActive && (
-                      <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#A68C70] rounded-full flex items-center justify-center text-white">
-                        <Check className="w-2.5 h-2.5" />
+                      <span className="absolute -top-1 -right-1 size-3.5 bg-[#A68C70] rounded-full flex items-center justify-center text-white">
+                        <Check className="size-2.5" />
                       </span>
                     )}
                   </div>

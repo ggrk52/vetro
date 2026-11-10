@@ -1,17 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import { 
-  Calculator, 
+  Calculator as CalcIcon, 
+  Check, 
   ChevronRight, 
   ChevronLeft, 
-  Check, 
-  ShieldCheck, 
   Ruler, 
-  MessageCircle, 
-  Send, 
-  Phone, 
-  CheckCircle2, 
+  ShieldCheck, 
+  Droplets, 
   Wrench, 
-  Droplets
+  MessageCircle, 
+  Phone, 
+  Send,
+  CheckCircle2
 } from 'lucide-react';
 import { 
   CalculatorState, 
@@ -102,80 +102,71 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
   };
 
   const stepsList = [
-    { number: 1, label: 'Тип кабины' },
-    { number: 2, label: 'Размеры' },
-    { number: 3, label: 'Стекло' },
-    { number: 4, label: 'Фурнитура' },
-    { number: 5, label: 'Смета' },
+    { num: 1, title: 'Конструкция', desc: 'Тип кабины' },
+    { num: 2, title: 'Габариты', desc: 'Ширина и высота' },
+    { num: 3, title: 'Стекло', desc: 'Оттенок полотна' },
+    { num: 4, title: 'Фурнитура', desc: 'Цвет и опции' },
+    { num: 5, title: 'Смета', desc: 'Фиксация цены' },
   ];
 
   return (
-    <section id="calculator" data-testid="calculator" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] border-b border-[#DFDDD6] text-[#252725] relative overflow-hidden">
-      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="calculator" className="py-16 sm:py-24 bg-[#F4F2EC] border-b border-[#DFDDD6] scroll-mt-20">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#DFDDD6] gap-6">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
-              ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР / 5 ШАГОВ
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
-              Калькулятор стоимости.<br />
-              <span className="italic text-[#788173]">Прозрачный расчет без скрытых доплат.</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-3 rounded-[2px] border border-[#DFDDD6] bg-[#FBFAF7] text-[11px] font-mono tracking-[0.14em] uppercase text-[#777A74]">
+              <CalcIcon className="size-3.5 text-[#788173]" />
+              <span>Интерактивный расчет</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#252725] tracking-tight text-balance">
+              Калькулятор стоимости VETRO
             </h2>
+            <p className="text-sm sm:text-base text-[#777A74] mt-2 max-w-xl text-pretty">
+              Рассчитайте предварительную смету с учетом закаленного стекла 8–10 мм, итальянской фурнитуры Boheme Milano и чистового монтажа.
+            </p>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
-            Сконфигурируйте конструкцию под параметры вашего помещения за 5 шагов. Итоговая смета фиксируется в договоре.
-          </p>
+          <div className="hidden sm:flex items-center gap-3 font-mono text-xs text-[#777A74]">
+            <span className="w-2 h-2 rounded-none rotate-45 bg-[#788173]" />
+            <span>Точность расчета 95% • Фиксация цены в договоре</span>
+          </div>
         </div>
 
-        {/* Stepper Navigation Bar */}
-        <div className="mb-8 max-w-3xl mx-auto">
-          <div className="flex items-center justify-between relative">
-            {/* Progress line */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[#DFDDD6] -translate-y-1/2 z-0" />
-            <div 
-              className="absolute top-1/2 left-0 h-0.5 bg-[#252725] -translate-y-1/2 z-0 transition-all duration-300"
-              style={{ width: `${((currentStep - 1) / (stepsList.length - 1)) * 100}%` }}
-            />
-
-            {stepsList.map((step) => {
-              const isPassed = currentStep > step.number;
-              const isCurrent = currentStep === step.number;
-              return (
-                <button
-                  key={step.number}
-                  type="button"
-                  onClick={() => setCurrentStep(step.number)}
-                  className="relative z-10 flex flex-col items-center group focus:outline-none"
-                  aria-label={`Шаг ${step.number}: ${step.label}`}
-                >
-                  <div
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded flex items-center justify-center font-bold text-xs sm:text-sm transition-all duration-200 border ${
-                      isCurrent
-                        ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
-                        : isPassed
-                        ? 'bg-[#788173] text-[#FBFAF7] border-[#788173]'
-                        : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] group-hover:border-[#252725]'
-                    }`}
-                  >
-                    {isPassed ? <Check className="w-4 h-4 text-[#FBFAF7]" /> : step.number}
-                  </div>
-                  <span
-                    className={`mt-2 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider whitespace-nowrap transition-colors hidden sm:block ${
-                      isCurrent ? 'text-[#252725] font-semibold' : isPassed ? 'text-[#788173]' : 'text-[#777A74]'
-                    }`}
-                  >
-                    {step.label}
+        {/* 5-Step Process Indicator Bar */}
+        <div className="grid grid-cols-5 gap-2 sm:gap-3 mb-8">
+          {stepsList.map((s) => {
+            const isPassed = s.num < currentStep;
+            const isCurrent = s.num === currentStep;
+            return (
+              <button
+                key={s.num}
+                type="button"
+                onClick={() => setCurrentStep(s.num)}
+                className={`text-left p-2.5 sm:p-3 rounded border transition-all text-xs flex flex-col justify-between min-h-[58px] ${
+                  isCurrent
+                    ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
+                    : isPassed
+                    ? 'bg-[#FBFAF7] text-[#252725] border-[#DFDDD6] hover:border-[#252725]'
+                    : 'bg-[#F4F2EC] text-[#777A74] border-[#DFDDD6]/70 hover:border-[#DFDDD6]'
+                }`}
+              >
+                <div className="flex items-center justify-between w-full">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">
+                    0{s.num}
                   </span>
-                </button>
-              );
-            })}
-          </div>
+                  {isPassed && <Check className="size-3 text-[#788173]" />}
+                </div>
+                <div className="font-medium text-[11px] sm:text-xs truncate">
+                  {s.title}
+                </div>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Main Calculator Workspace */}
+        {/* Main Calculator Layout: 2 Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Active Step Controls (8 cols) */}
@@ -185,10 +176,10 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             {currentStep === 1 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1a1712] mb-1 font-display">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#252725] mb-1 font-sans">
                     Шаг 1. Выберите тип конструкции
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#7c766c]">
+                  <p className="text-xs sm:text-sm text-[#777A74]">
                     Каждая модель изготавливается по индивидуальным размерам с точностью до 1 мм.
                   </p>
                 </div>
@@ -203,30 +194,30 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         data-testid="cabin-type-option"
                         type="button"
                         onClick={() => handleSelectCabinType(typeKey)}
-                        className={`text-left p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between ${
+                        className={`text-left p-5 rounded border transition-all duration-150 flex flex-col justify-between active:scale-[0.98] ${
                           isSelected
-                            ? 'bg-[#f4f2ec] border-[#1a1712] ring-1 ring-[#1a1712] shadow-sm'
-                            : 'bg-white border-[rgba(26,23,18,0.08)] hover:border-[rgba(26,23,18,0.2)] hover:bg-[#f4f2ec]/30'
+                            ? 'bg-[#F4F2EC] border-[#252725] ring-1 ring-[#252725]'
+                            : 'bg-[#FBFAF7] border-[#DFDDD6] hover:border-[#252725]'
                         }`}
                       >
                         <div className="flex items-start justify-between w-full mb-2">
-                          <span className="font-bold text-sm sm:text-base text-[#1a1712]">
+                          <span className="font-semibold text-sm sm:text-base text-[#252725]">
                             {item.title}
                           </span>
                           <div
-                            className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
+                            className={`size-5 rounded-[2px] border flex items-center justify-center shrink-0 ${
                               isSelected
-                                ? 'border-[#1a1712] bg-[#1a1712] text-white'
-                                : 'border-[#d8d4c8] bg-white'
+                                ? 'border-[#252725] bg-[#252725] text-[#FBFAF7]'
+                                : 'border-[#DFDDD6] bg-[#FBFAF7]'
                             }`}
                           >
-                            {isSelected && <Check className="w-3.5 h-3.5" />}
+                            {isSelected && <Check className="size-3.5" />}
                           </div>
                         </div>
-                        <span className="text-xs font-semibold text-[#FF2500] mb-1">
+                        <span className="text-xs font-mono text-[#788173] mb-1 uppercase tracking-wider">
                           {item.subtitle}
                         </span>
-                        <p className="text-xs text-[#7c766c] leading-relaxed">
+                        <p className="text-xs text-[#777A74] leading-relaxed">
                           {item.description}
                         </p>
                       </button>
@@ -240,18 +231,18 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1a1712] mb-1 font-display">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#252725] mb-1 font-sans">
                     Шаг 2. Размеры конструкции (см)
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#7c766c]">
+                  <p className="text-xs sm:text-sm text-[#777A74]">
                     Укажите ориентировочные габариты для расчета. Точный лазерный 3D-замер инженер проведет на объекте бесплатно.
                   </p>
                 </div>
 
                 {/* Width Slider */}
-                <div className="bg-[#f4f2ec] rounded-2xl p-5 border border-[rgba(26,23,18,0.06)] space-y-3">
+                <div className="bg-[#FBFAF7] rounded p-5 border border-[#DFDDD6] space-y-3">
                   <div className="flex items-center justify-between">
-                    <label htmlFor="range-width" className="text-sm font-semibold text-[#1a1712]">
+                    <label htmlFor="range-width" className="text-sm font-semibold text-[#252725]">
                       Ширина (см):
                     </label>
                     <div className="flex items-center gap-2">
@@ -266,9 +257,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                             width: Math.min(cabinMeta.maxDimensions.width, Math.max(cabinMeta.minDimensions.width, Number(e.target.value) || 60)),
                           }))
                         }
-                        className="w-20 px-2.5 py-1 text-center bg-white border border-[rgba(26,23,18,0.12)] rounded-lg text-[#1a1712] font-mono font-bold text-sm focus:border-[#1a1712] outline-none"
+                        className="w-20 px-2.5 py-1 text-center bg-white border border-[#DFDDD6] rounded text-[#252725] font-mono font-bold text-sm focus:border-[#252725] outline-none tabular-nums"
                       />
-                      <span className="text-xs text-[#7c766c] font-mono">см</span>
+                      <span className="text-xs text-[#777A74] font-mono">см</span>
                     </div>
                   </div>
                   <input
@@ -281,18 +272,18 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     onChange={(e) =>
                       setCalcState((prev) => ({ ...prev, width: Number(e.target.value) }))
                     }
-                    className="w-full accent-[#FF2500] cursor-pointer h-2 bg-[#eae6dc] rounded-lg"
+                    className="w-full accent-[#252725] cursor-pointer h-2 bg-[#E8E5DD] rounded"
                   />
-                  <div className="flex justify-between text-[11px] text-[#7c766c] font-mono">
+                  <div className="flex justify-between text-[11px] text-[#777A74] font-mono tabular-nums">
                     <span>от {cabinMeta.minDimensions.width} см</span>
                     <span>до {cabinMeta.maxDimensions.width} см</span>
                   </div>
                 </div>
 
                 {/* Height Slider */}
-                <div className="bg-[#f4f2ec] rounded-2xl p-5 border border-[rgba(26,23,18,0.06)] space-y-3">
+                <div className="bg-[#FBFAF7] rounded p-5 border border-[#DFDDD6] space-y-3">
                   <div className="flex items-center justify-between">
-                    <label htmlFor="range-height" className="text-sm font-semibold text-[#1a1712]">
+                    <label htmlFor="range-height" className="text-sm font-semibold text-[#252725]">
                       Высота (см):
                     </label>
                     <div className="flex items-center gap-2">
@@ -307,9 +298,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                             height: Math.min(cabinMeta.maxDimensions.height, Math.max(cabinMeta.minDimensions.height, Number(e.target.value) || 140)),
                           }))
                         }
-                        className="w-20 px-2.5 py-1 text-center bg-white border border-[rgba(26,23,18,0.12)] rounded-lg text-[#1a1712] font-mono font-bold text-sm focus:border-[#1a1712] outline-none"
+                        className="w-20 px-2.5 py-1 text-center bg-white border border-[#DFDDD6] rounded text-[#252725] font-mono font-bold text-sm focus:border-[#252725] outline-none tabular-nums"
                       />
-                      <span className="text-xs text-[#7c766c] font-mono">см</span>
+                      <span className="text-xs text-[#777A74] font-mono">см</span>
                     </div>
                   </div>
                   <input
@@ -322,9 +313,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     onChange={(e) =>
                       setCalcState((prev) => ({ ...prev, height: Number(e.target.value) }))
                     }
-                    className="w-full accent-[#FF2500] cursor-pointer h-2 bg-[#eae6dc] rounded-lg"
+                    className="w-full accent-[#252725] cursor-pointer h-2 bg-[#E8E5DD] rounded"
                   />
-                  <div className="flex justify-between text-[11px] text-[#7c766c] font-mono">
+                  <div className="flex justify-between text-[11px] text-[#777A74] font-mono tabular-nums">
                     <span>от {cabinMeta.minDimensions.height} см</span>
                     <span>стандарт: 200 см</span>
                     <span>до {cabinMeta.maxDimensions.height} см</span>
@@ -333,9 +324,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
 
                 {/* Depth Slider (only if cabin requires depth) */}
                 {cabinMeta.requiresDepth && (
-                  <div className="bg-[#f4f2ec] rounded-2xl p-5 border border-[rgba(26,23,18,0.06)] space-y-3">
+                  <div className="bg-[#FBFAF7] rounded p-5 border border-[#DFDDD6] space-y-3">
                     <div className="flex items-center justify-between">
-                      <label htmlFor="range-depth" className="text-sm font-semibold text-[#1a1712]">
+                      <label htmlFor="range-depth" className="text-sm font-semibold text-[#252725]">
                         Глубина второй стороны (см):
                       </label>
                       <div className="flex items-center gap-2">
@@ -350,9 +341,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                               depth: Math.min(cabinMeta.maxDimensions.depth ?? 150, Math.max(cabinMeta.minDimensions.depth ?? 70, Number(e.target.value) || 70)),
                             }))
                           }
-                          className="w-20 px-2.5 py-1 text-center bg-white border border-[rgba(26,23,18,0.12)] rounded-lg text-[#1a1712] font-mono font-bold text-sm focus:border-[#1a1712] outline-none"
+                          className="w-20 px-2.5 py-1 text-center bg-white border border-[#DFDDD6] rounded text-[#252725] font-mono font-bold text-sm focus:border-[#252725] outline-none tabular-nums"
                         />
-                        <span className="text-xs text-[#7c766c] font-mono">см</span>
+                        <span className="text-xs text-[#777A74] font-mono">см</span>
                       </div>
                     </div>
                     <input
@@ -365,9 +356,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                       onChange={(e) =>
                         setCalcState((prev) => ({ ...prev, depth: Number(e.target.value) }))
                       }
-                      className="w-full accent-[#FF2500] cursor-pointer h-2 bg-[#eae6dc] rounded-lg"
+                      className="w-full accent-[#252725] cursor-pointer h-2 bg-[#E8E5DD] rounded"
                     />
-                    <div className="flex justify-between text-[11px] text-[#7c766c] font-mono">
+                    <div className="flex justify-between text-[11px] text-[#777A74] font-mono tabular-nums">
                       <span>от {cabinMeta.minDimensions.depth ?? 70} см</span>
                       <span>до {cabinMeta.maxDimensions.depth ?? 150} см</span>
                     </div>
@@ -375,12 +366,12 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 )}
 
                 {/* Area preview banner */}
-                <div className="p-4 rounded-2xl bg-[#eae6dc] flex items-center justify-between text-xs sm:text-sm">
-                  <div className="flex items-center gap-2 text-[#1a1712]">
-                    <Ruler className="w-4 h-4 text-[#FF2500]" />
+                <div className="p-4 rounded bg-[#F4F2EC] border border-[#DFDDD6] flex items-center justify-between text-xs sm:text-sm">
+                  <div className="flex items-center gap-2 text-[#252725]">
+                    <Ruler className="size-4 text-[#788173]" />
                     <span className="font-medium">Расчетная площадь стеклянного полотна:</span>
                   </div>
-                  <span className="font-mono font-bold text-[#1a1712] text-base">
+                  <span className="font-mono font-bold text-[#252725] text-base tabular-nums">
                     ~{pricing.areaSqm} м²
                   </span>
                 </div>
@@ -391,10 +382,10 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1a1712] mb-1 font-display">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#252725] mb-1 font-sans">
                     Шаг 3. Тип и оттенок закаленного стекла
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#7c766c]">
+                  <p className="text-xs sm:text-sm text-[#777A74]">
                     Все виды стекла термически закалены по ГОСТ 30698-2014 и безопасны для дома.
                   </p>
                 </div>
@@ -408,47 +399,47 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         key={glassKey}
                         type="button"
                         onClick={() => setCalcState((prev) => ({ ...prev, glassType: glassKey }))}
-                        className={`text-left p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between ${
+                        className={`text-left p-5 rounded border transition-all duration-150 flex flex-col justify-between active:scale-[0.98] ${
                           isSelected
-                            ? 'bg-[#f4f2ec] border-[#1a1712] ring-1 ring-[#1a1712] shadow-sm'
-                            : 'bg-white border-[rgba(26,23,18,0.08)] hover:border-[rgba(26,23,18,0.2)] hover:bg-[#f4f2ec]/30'
+                            ? 'bg-[#F4F2EC] border-[#252725] ring-1 ring-[#252725]'
+                            : 'bg-[#FBFAF7] border-[#DFDDD6] hover:border-[#252725]'
                         }`}
                       >
                         <div>
                           <div className="flex items-start justify-between w-full mb-1">
-                            <span className="font-bold text-sm sm:text-base text-[#1a1712]">
+                            <span className="font-semibold text-sm sm:text-base text-[#252725]">
                               {item.name}
                             </span>
                             <span
-                              className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                              className={`text-[10px] font-mono px-2 py-0.5 rounded-[2px] border ${
                                 isSelected
-                                  ? 'bg-[#1a1712] text-white'
-                                  : 'bg-[#eae6dc] text-[#7c766c]'
+                                  ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
+                                  : 'bg-[#F4F2EC] text-[#777A74] border-[#DFDDD6]'
                               }`}
                             >
                               {item.badge}
                             </span>
                           </div>
-                          <span className="text-[11px] font-mono text-[#7c766c] block mb-2">
+                          <span className="text-[11px] font-mono text-[#777A74] block mb-2 tabular-nums">
                             Толщина: {item.thickness}
                           </span>
-                          <p className="text-xs text-[#7c766c] leading-relaxed">
+                          <p className="text-xs text-[#777A74] leading-relaxed">
                             {item.description}
                           </p>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-[rgba(26,23,18,0.06)] flex items-center justify-between text-xs">
-                          <span className="text-[#7c766c]">
+                        <div className="mt-4 pt-3 border-t border-[#DFDDD6] flex items-center justify-between text-xs">
+                          <span className="text-[#777A74]">
                             {isSelected ? 'Выбрано' : 'Нажмите для выбора'}
                           </span>
                           <div
-                            className={`w-5 h-5 rounded-full border flex items-center justify-center ${
+                            className={`size-5 rounded-[2px] border flex items-center justify-center ${
                               isSelected
-                                ? 'border-[#1a1712] bg-[#1a1712] text-white'
-                                : 'border-[#d8d4c8] bg-white'
+                                ? 'border-[#252725] bg-[#252725] text-[#FBFAF7]'
+                                : 'border-[#DFDDD6] bg-[#FBFAF7]'
                             }`}
                           >
-                            {isSelected && <Check className="w-3.5 h-3.5" />}
+                            {isSelected && <Check className="size-3.5" />}
                           </div>
                         </div>
                       </button>
@@ -462,10 +453,10 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             {currentStep === 4 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1a1712] mb-1 font-display">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#252725] mb-1 font-sans">
                     Шаг 4. Цвет фурнитуры и доп. опции
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#7c766c]">
+                  <p className="text-xs sm:text-sm text-[#777A74]">
                     Итальянская фурнитура BOHÉME Milano из нержавеющей стали AISI 304 и латуни с PVD-покрытием.
                   </p>
                 </div>
@@ -482,22 +473,22 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         onClick={() =>
                           setCalcState((prev) => ({ ...prev, hardwareFinish: finishKey }))
                         }
-                        className={`text-left p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between ${
+                        className={`text-left p-4 rounded border transition-all duration-150 flex flex-col justify-between active:scale-[0.98] ${
                           isSelected
-                            ? 'bg-[#f4f2ec] border-[#1a1712] ring-1 ring-[#1a1712] shadow-sm'
-                            : 'bg-white border-[rgba(26,23,18,0.08)] hover:border-[rgba(26,23,18,0.2)]'
+                            ? 'bg-[#F4F2EC] border-[#252725] ring-1 ring-[#252725]'
+                            : 'bg-[#FBFAF7] border-[#DFDDD6] hover:border-[#252725]'
                         }`}
                       >
                         <div className="flex items-center gap-2.5 mb-2">
                           <span
-                            className="w-5 h-5 rounded-full border border-black/20 shrink-0 shadow-sm"
+                            className="size-4 rounded-full border border-black/20 shrink-0 shadow-sm"
                             style={{ backgroundColor: item.colorHex }}
                           />
-                          <span className="font-semibold text-xs sm:text-sm text-[#1a1712]">
+                          <span className="font-semibold text-xs sm:text-sm text-[#252725]">
                             {item.name}
                           </span>
                         </div>
-                        <span className="text-[11px] font-mono text-[#7c766c] font-medium">
+                        <span className="text-[11px] font-mono text-[#788173] font-medium">
                           {item.priceBadge}
                         </span>
                       </button>
@@ -506,39 +497,39 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 </div>
 
                 {/* Add-ons Checkboxes */}
-                <div className="pt-4 border-t border-[rgba(26,23,18,0.06)] space-y-3">
-                  <h4 className="text-sm font-bold text-[#1a1712]">
+                <div className="pt-4 border-t border-[#DFDDD6] space-y-3">
+                  <h4 className="text-sm font-semibold text-[#252725]">
                     Дополнительные услуги и покрытия:
                   </h4>
 
                   {/* Installation Option */}
-                  <label className="flex items-start gap-3 p-4 rounded-2xl bg-[#f4f2ec] border border-[rgba(26,23,18,0.06)] hover:border-[rgba(26,23,18,0.15)] cursor-pointer">
+                  <label className="flex items-start gap-3 p-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] cursor-pointer transition-colors">
                     <input
                       type="checkbox"
                       checked={calcState.hasInstallation}
                       onChange={(e) =>
                         setCalcState((prev) => ({ ...prev, hasInstallation: e.target.checked }))
                       }
-                      className="mt-1 w-4 h-4 rounded text-[#FF2500] focus:ring-[#FF2500] border-gray-300 accent-[#FF2500]"
+                      className="mt-1 size-4 rounded text-[#252725] focus:ring-[#252725] border-[#DFDDD6] accent-[#252725]"
                     />
                     <div className="flex-1 text-xs sm:text-sm">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-[#1a1712] flex items-center gap-1.5">
-                          <Wrench className="w-4 h-4 text-[#1a1712]" />
+                        <span className="font-medium text-[#252725] flex items-center gap-1.5">
+                          <Wrench className="size-4 text-[#788173]" />
                           Чистовой монтаж под ключ инженерной бригадой VETRO
                         </span>
-                        <span className="font-mono text-[#FF2500] font-bold">
+                        <span className="font-mono text-[#788173] font-semibold tabular-nums">
                           +{formatPrice(OPTION_PRICES.installation)}
                         </span>
                       </div>
-                      <p className="text-xs text-[#7c766c] mt-1">
+                      <p className="text-xs text-[#777A74] mt-1">
                         Установка с лазерным нивелиром, проклейка магнитных уплотнителей, гидротест и гарантия 3 года.
                       </p>
                     </div>
                   </label>
 
                   {/* Hydrophobic Coating Option */}
-                  <label className="flex items-start gap-3 p-4 rounded-2xl bg-[#f4f2ec] border border-[rgba(26,23,18,0.06)] hover:border-[rgba(26,23,18,0.15)] cursor-pointer">
+                  <label className="flex items-start gap-3 p-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] cursor-pointer transition-colors">
                     <input
                       type="checkbox"
                       checked={calcState.hasHydrophobicCoating}
@@ -548,19 +539,19 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                           hasHydrophobicCoating: e.target.checked,
                         }))
                       }
-                      className="mt-1 w-4 h-4 rounded text-[#FF2500] focus:ring-[#FF2500] border-gray-300 accent-[#FF2500]"
+                      className="mt-1 size-4 rounded text-[#252725] focus:ring-[#252725] border-[#DFDDD6] accent-[#252725]"
                     />
                     <div className="flex-1 text-xs sm:text-sm">
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-[#1a1712] flex items-center gap-1.5">
-                          <Droplets className="w-4 h-4 text-[#1a1712]" />
+                        <span className="font-medium text-[#252725] flex items-center gap-1.5">
+                          <Droplets className="size-4 text-[#788173]" />
                           Нанопокрытие «Антикапля» (Easy Clean)
                         </span>
-                        <span className="font-mono text-[#FF2500] font-bold">
+                        <span className="font-mono text-[#788173] font-semibold tabular-nums">
                           +{formatPrice(OPTION_PRICES.hydrophobicCoating)}
                         </span>
                       </div>
-                      <p className="text-xs text-[#7c766c] mt-1">
+                      <p className="text-xs text-[#777A74] mt-1">
                         Вода скатывается каплями, не оставляя известкового налета и мыльных разводов на стекле.
                       </p>
                     </div>
@@ -573,57 +564,57 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             {currentStep === 5 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1a1712] mb-1 font-display">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#252725] mb-1 font-sans">
                     Шаг 5. Итоговая смета и фиксация скидки 5%
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#7c766c]">
+                  <p className="text-xs sm:text-sm text-[#777A74]">
                     Детальная спецификация вашего проекта. Оставьте контакт, чтобы зафиксировать цену при замере.
                   </p>
                 </div>
 
                 {/* Itemized Specification Table */}
-                <div className="bg-[#f4f2ec] rounded-2xl p-5 border border-[rgba(26,23,18,0.06)] space-y-3">
-                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[rgba(26,23,18,0.08)]">
-                    <span className="text-[#7c766c]">Конструкция:</span>
-                    <strong className="text-[#1a1712] text-right font-medium">
+                <div className="bg-[#FBFAF7] rounded p-5 border border-[#DFDDD6] space-y-3">
+                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6]">
+                    <span className="text-[#777A74]">Конструкция:</span>
+                    <strong className="text-[#252725] text-right font-medium">
                       {cabinMeta.title} ({calcState.width}×{calcState.height}{calcState.depth && cabinMeta.requiresDepth ? `×${calcState.depth}` : ''} см)
                     </strong>
                   </div>
 
-                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[rgba(26,23,18,0.08)]">
-                    <span className="text-[#7c766c]">Стекло:</span>
-                    <strong className="text-[#1a1712] text-right font-medium">
+                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6]">
+                    <span className="text-[#777A74]">Стекло:</span>
+                    <strong className="text-[#252725] text-right font-medium">
                       {GLASS_METADATA[calcState.glassType].name} (8–10 мм закаленное)
                     </strong>
                   </div>
 
-                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[rgba(26,23,18,0.08)]">
-                    <span className="text-[#7c766c]">Фурнитура:</span>
-                    <strong className="text-[#1a1712] text-right font-medium">
+                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6]">
+                    <span className="text-[#777A74]">Фурнитура:</span>
+                    <strong className="text-[#252725] text-right font-medium">
                       BOHÉME ({HARDWARE_METADATA[calcState.hardwareFinish].name})
                     </strong>
                   </div>
 
-                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[rgba(26,23,18,0.08)]">
-                    <span className="text-[#7c766c]">Монтаж инженерами VETRO:</span>
-                    <span className="font-mono text-[#1a1712]">
+                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6]">
+                    <span className="text-[#777A74]">Монтаж инженерами VETRO:</span>
+                    <span className="font-mono text-[#252725] tabular-nums">
                       {calcState.hasInstallation ? formatPrice(OPTION_PRICES.installation) : 'Без монтажа'}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[rgba(26,23,18,0.08)]">
-                    <span className="text-[#7c766c]">Покрытие «Антикапля»:</span>
-                    <span className="font-mono text-[#1a1712]">
+                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6]">
+                    <span className="text-[#777A74]">Покрытие «Антикапля»:</span>
+                    <span className="font-mono text-[#252725] tabular-nums">
                       {calcState.hasHydrophobicCoating ? formatPrice(OPTION_PRICES.hydrophobicCoating) : 'Не выбрано'}
                     </span>
                   </div>
 
                   <div className="pt-2 flex justify-between items-center">
                     <div>
-                      <span className="text-xs text-[#7c766c] block">Расчетная стоимость проекта:</span>
-                      <span className="text-xs text-[#FF2500] font-semibold">Без скрытых доплат</span>
+                      <span className="text-xs text-[#777A74] block">Расчетная стоимость проекта:</span>
+                      <span className="text-xs text-[#788173] font-semibold">Без скрытых доплат</span>
                     </div>
-                    <span className="text-2xl sm:text-3xl font-extrabold text-[#1a1712] font-mono">
+                    <span className="text-2xl sm:text-3xl font-bold text-[#252725] font-mono tabular-nums">
                       {pricing.formattedTotal}
                     </span>
                   </div>
@@ -631,37 +622,37 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
 
                 {/* Lead Form or Submitted State */}
                 {formSubmitted ? (
-                  <div className="p-6 rounded-2xl bg-[#eae6dc] border border-[rgba(26,23,18,0.08)] text-center space-y-3">
-                    <div className="w-12 h-12 rounded-full bg-[#1a1712] text-white flex items-center justify-center mx-auto">
-                      <CheckCircle2 className="w-6 h-6 text-[#FF2500]" />
+                  <div className="p-6 rounded bg-[#F4F2EC] border border-[#DFDDD6] text-center space-y-3">
+                    <div className="size-10 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="size-5 text-[#A68C70]" />
                     </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#1a1712]">
+                    <h4 className="text-base sm:text-lg font-semibold text-[#252725]">
                       Расчет зафиксирован! Скидка 5% закреплена за вами.
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#7c766c] max-w-md mx-auto">
-                      Инженер VETRO свяжется с вами по номеру <strong className="text-[#1a1712]">{clientPhone}</strong> в течение 15 минут.
+                    <p className="text-xs sm:text-sm text-[#777A74] max-w-md mx-auto">
+                      Инженер VETRO свяжется с вами по номеру <strong className="text-[#252725] tabular-nums">{clientPhone}</strong> в течение 15 минут.
                     </p>
                     <div className="pt-2">
                       <a
                         href={whatsappQuoteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FF2500] text-white font-semibold text-xs sm:text-sm shadow-sm hover:opacity-90"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#252725] text-[#FBFAF7] font-medium text-xs sm:text-sm hover:bg-[#383B38] active:scale-[0.98] transition-transform"
                       >
-                        <MessageCircle className="w-4 h-4" />
+                        <MessageCircle className="size-4" />
                         <span>Открыть расчет прямо в WhatsApp</span>
                       </a>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleLeadSubmit} className="space-y-4 pt-2">
-                    <div className="bg-[#eae6dc] border border-[rgba(26,23,18,0.08)] rounded-2xl p-4 flex items-center gap-2 text-xs text-[#1a1712]">
-                      <span className="font-semibold">При отправке расчета через сайт — скидка 5% на фурнитуру при заказе!</span>
+                    <div className="bg-[#F4F2EC] border border-[#DFDDD6] rounded p-4 flex items-center gap-2 text-xs text-[#252725]">
+                      <span className="font-medium">При отправке расчета через сайт — скидка 5% на фурнитуру при заказе!</span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="calc-name" className="text-xs font-semibold text-[#1a1712] block mb-1">
+                        <label htmlFor="calc-name" className="text-xs font-semibold text-[#252725] block mb-1">
                           Ваше имя:
                         </label>
                         <input
@@ -670,7 +661,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                           value={clientName}
                           onChange={(e) => setClientName(e.target.value)}
                           placeholder="Александр"
-                          className="w-full rounded-full bg-[#f4f2ec] border border-[rgba(26,23,18,0.1)] focus:border-[#1a1712] px-4 py-3 text-sm text-[#1a1712] placeholder-[#7c766c] outline-none"
+                          className="w-full rounded bg-[#FBFAF7] border border-[#DFDDD6] focus:border-[#252725] px-4 py-3 text-sm text-[#252725] placeholder-[#777A74] outline-none transition-colors"
                         />
                       </div>
 
@@ -693,46 +684,46 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
 
                     {/* Preferred messenger selector */}
                     <div>
-                      <span className="text-xs font-semibold text-[#1a1712] block mb-2">
+                      <span className="text-xs font-semibold text-[#252725] block mb-2">
                         Куда прислать расчет и проект:
                       </span>
                       <div className="grid grid-cols-3 gap-2">
                         <button
                           type="button"
                           onClick={() => setPreferredMessenger('whatsapp')}
-                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded-full border text-xs font-semibold transition-colors ${
+                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-all active:scale-[0.98] ${
                             preferredMessenger === 'whatsapp'
-                              ? 'bg-[#1a1712] text-white border-[#1a1712]'
-                              : 'bg-white border-[rgba(26,23,18,0.1)] text-[#7c766c] hover:text-[#1a1712]'
+                              ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
+                              : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725]'
                           }`}
                         >
-                          <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                          <MessageCircle className="size-3.5 text-[#25D366]" />
                           <span>WhatsApp</span>
                         </button>
 
                         <button
                           type="button"
                           onClick={() => setPreferredMessenger('telegram')}
-                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded-full border text-xs font-semibold transition-colors ${
+                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-all active:scale-[0.98] ${
                             preferredMessenger === 'telegram'
-                              ? 'bg-[#1a1712] text-white border-[#1a1712]'
-                              : 'bg-white border-[rgba(26,23,18,0.1)] text-[#7c766c] hover:text-[#1a1712]'
+                              ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
+                              : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725]'
                           }`}
                         >
-                          <Send className="w-3.5 h-3.5 text-[#0088cc]" />
+                          <Send className="size-3.5 text-[#0088cc]" />
                           <span>Telegram</span>
                         </button>
 
                         <button
                           type="button"
                           onClick={() => setPreferredMessenger('phone')}
-                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded-full border text-xs font-semibold transition-colors ${
+                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-all active:scale-[0.98] ${
                             preferredMessenger === 'phone'
-                              ? 'bg-[#1a1712] text-white border-[#1a1712]'
-                              : 'bg-white border-[rgba(26,23,18,0.1)] text-[#7c766c] hover:text-[#1a1712]'
+                              ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
+                              : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725]'
                           }`}
                         >
-                          <Phone className="w-3.5 h-3.5" />
+                          <Phone className="size-3.5" />
                           <span>Звонок</span>
                         </button>
                       </div>
@@ -742,9 +733,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <button
                         type="submit"
-                        className="flex-1 py-3 px-5 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+                        className="flex-1 py-3 px-5 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs uppercase tracking-wider transition-transform duration-120 flex items-center justify-center gap-2 active:scale-[0.98]"
                       >
-                        <ShieldCheck className="w-4 h-4 text-[#A68C70]" />
+                        <ShieldCheck className="size-4 text-[#A68C70]" />
                         <span>Зафиксировать расчет и скидку</span>
                       </button>
 
@@ -752,9 +743,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         href={whatsappQuoteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-3 px-5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shrink-0"
+                        className="py-3 px-5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs uppercase tracking-wider transition-transform duration-120 flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
                       >
-                        <MessageCircle className="w-4 h-4 text-[#788173]" />
+                        <MessageCircle className="size-4 text-[#788173]" />
                         <span>В WhatsApp</span>
                       </a>
                     </div>
@@ -769,13 +760,13 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 type="button"
                 onClick={handlePrevStep}
                 disabled={currentStep === 1}
-                className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded text-xs uppercase tracking-wider font-mono transition-colors border ${
+                className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded text-xs uppercase tracking-wider font-mono transition-transform duration-120 active:scale-[0.98] border ${
                   currentStep === 1
                     ? 'opacity-30 cursor-not-allowed text-[#777A74] border-transparent'
                     : 'text-[#252725] hover:bg-[#E8E5DD] bg-[#F4F2EC] border-[#DFDDD6]'
                 }`}
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="size-4" />
                 <span>Назад</span>
               </button>
 
@@ -783,18 +774,18 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-transform duration-120 active:scale-[0.98]"
                 >
                   <span>Далее к шагу {currentStep + 1}</span>
-                  <ChevronRight className="w-4 h-4 text-[#A68C70]" />
+                  <ChevronRight className="size-4 text-[#A68C70]" />
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={onOpenMeasurementModal}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-transform duration-120 active:scale-[0.98]"
                 >
-                  <Ruler className="w-4 h-4 text-[#A68C70]" />
+                  <Ruler className="size-4 text-[#A68C70]" />
                   <span>Вызвать инженера на замер</span>
                 </button>
               )}
@@ -810,7 +801,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 СМЕТА В РЕАЛЬНОМ ВРЕМЕНИ
               </span>
               <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-[10px] font-mono">
-                <span className="w-1.5 h-1.5 rounded-none rotate-45 bg-[#A68C70]" />
+                <span className="size-1.5 rounded-none rotate-45 bg-[#A68C70]" />
                 <span>LIVE</span>
               </div>
             </div>
@@ -818,7 +809,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
             {/* Total Price Callout */}
             <div className="mb-5">
               <span className="text-xs text-[#777A74] block mb-1">Ориентировочная стоимость:</span>
-              <div className="text-3xl sm:text-4xl font-bold text-[#252725] font-mono tracking-tight">
+              <div className="text-3xl sm:text-4xl font-bold text-[#252725] font-mono tracking-tight tabular-nums">
                 {pricing.formattedTotal}
               </div>
               <span className="text-[11px] text-[#777A74] mt-1 block">
@@ -836,13 +827,13 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               </div>
               <div className="flex justify-between">
                 <span className="text-[#777A74]">Габариты:</span>
-                <span className="font-mono text-[#252725]">
+                <span className="font-mono text-[#252725] tabular-nums">
                   {calcState.width}×{calcState.height}{calcState.depth && cabinMeta.requiresDepth ? `×${calcState.depth}` : ''} см
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#777A74]">Площадь полотна:</span>
-                <span className="font-mono text-[#252725] font-semibold">
+                <span className="font-mono text-[#252725] font-semibold tabular-nums">
                   ~{pricing.areaSqm} м²
                 </span>
               </div>
@@ -877,9 +868,9 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               href={whatsappQuoteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] text-[#FBFAF7] hover:bg-[#383B38] font-medium text-xs uppercase tracking-wider transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] text-[#FBFAF7] hover:bg-[#383B38] font-medium text-xs uppercase tracking-wider transition-transform duration-120 active:scale-[0.98]"
             >
-              <MessageCircle className="w-4 h-4 text-[#788173]" />
+              <MessageCircle className="size-4 text-[#788173]" />
               <span>Отправить расчет инженеру</span>
             </a>
 

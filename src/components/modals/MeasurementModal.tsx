@@ -127,8 +127,8 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
         {/* Header Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#DFDDD6] bg-[#F4F2EC]">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] flex items-center justify-center">
-              <Ruler className="w-4 h-4 text-[#788173]" />
+            <div className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] flex items-center justify-center">
+              <Ruler className="size-4 text-[#788173]" />
             </div>
             <div>
               <span className="text-[10px] font-mono text-[#788173] uppercase tracking-wider block">
@@ -142,10 +142,10 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
           <button
             type="button"
             onClick={handleClose}
-            className="w-8 h-8 rounded flex items-center justify-center text-[#777A74] hover:text-[#252725] hover:bg-[#FBFAF7] border border-transparent hover:border-[#DFDDD6] transition-colors"
+            className="size-8 rounded flex items-center justify-center text-[#777A74] hover:text-[#252725] hover:bg-[#FBFAF7] border border-transparent hover:border-[#DFDDD6] transition-transform active:scale-95"
             aria-label="Закрыть окно"
           >
-            <X className="w-4 h-4" />
+            <X className="size-4" />
           </button>
         </div>
 
@@ -154,28 +154,28 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
           {isSubmitted ? (
             /* Success Feedback View */
             <div className="py-6 text-center flex flex-col items-center">
-              <div className="w-14 h-14 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center mb-4">
-                <Check className="w-7 h-7 text-[#A68C70]" />
+              <div className="size-14 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center mb-4">
+                <Check className="size-7 text-[#A68C70]" />
               </div>
-              <h3 className="text-xl font-serif font-normal text-[#252725] mb-2">
+              <h3 className="text-xl font-serif font-normal text-[#252725] mb-2 text-balance">
                 Заявка на 3D-замер принята
               </h3>
-              <p className="text-xs sm:text-sm text-[#777A74] leading-relaxed max-w-md mb-6">
+              <p className="text-xs sm:text-sm text-[#777A74] leading-relaxed max-w-md mb-6 text-pretty">
                 Инженер студии VETRO свяжется с вами в течение 15 минут для подтверждения удобного времени выезда и деталей проекта.
               </p>
               
               <div className="w-full bg-[#F4F2EC] rounded p-4 border border-[#DFDDD6] text-left mb-6 space-y-2">
                 <div className="text-xs text-[#777A74] flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-[#252725]" />
+                  <User className="size-3.5 text-[#252725]" />
                   <span>Клиент:</span> <strong className="text-[#252725]">{name}</strong>
                 </div>
                 <div className="text-xs text-[#777A74] flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#788173]" />
-                  <span>Телефон:</span> <strong className="text-[#252725]">{phone}</strong>
+                  <Clock className="size-3.5 text-[#788173]" />
+                  <span>Телефон:</span> <strong className="text-[#252725] tabular-nums">{phone}</strong>
                 </div>
                 {address && (
                   <div className="text-xs text-[#777A74] flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#252725]" />
+                    <MapPin className="size-3.5 text-[#252725]" />
                     <span>Адрес:</span> <strong className="text-[#252725]">{address}</strong>
                   </div>
                 )}
@@ -184,7 +184,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
               <button
                 type="button"
                 onClick={handleClose}
-                className="w-full py-3 px-6 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all text-xs uppercase tracking-wider"
+                className="w-full py-3 px-6 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-transform active:scale-[0.98] text-xs uppercase tracking-wider"
               >
                 Закрыть
               </button>

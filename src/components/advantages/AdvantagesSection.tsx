@@ -49,13 +49,13 @@ export const AdvantagesSection: React.FC = () => {
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
               ИНЖЕНЕРНЫЕ СТАНДАРТЫ / 01 — 04
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Точность исполнения.<br />
               <span className="italic text-[#788173]">Безупречная геометрия.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
             Мы отказались от типового масс-маркета. Каждое изделие VETRO создается под конкретные размеры вашего помещения с точностью до миллиметра.
           </p>
         </div>
@@ -67,15 +67,15 @@ export const AdvantagesSection: React.FC = () => {
             return (
               <article 
                 key={idx}
-                className="group p-6 rounded bg-[#F4F2EC] border border-[#DFDDD6] hover:border-[#252725] transition-all duration-300 flex flex-col justify-between min-h-[260px]"
+                className="group p-6 rounded bg-[#F4F2EC] border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 flex flex-col justify-between min-h-[260px]"
               >
                 <div>
                   <div className="flex items-center justify-between text-[#777A74] mb-6">
-                    <span className="font-mono text-[12px] tracking-wider text-[#788173] font-medium">
+                    <span className="font-mono text-[12px] tracking-wider text-[#788173] font-medium tabular-nums">
                       {card.num}
                     </span>
-                    <div className="w-8 h-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] group-hover:border-[#252725] transition-colors flex items-center justify-center text-[#252725]">
-                      <Icon className="w-4 h-4" />
+                    <div className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] group-hover:border-[#252725] transition-colors flex items-center justify-center text-[#252725]">
+                      <Icon className="size-4" />
                     </div>
                   </div>
 

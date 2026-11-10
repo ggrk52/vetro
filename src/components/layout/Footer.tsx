@@ -105,24 +105,24 @@ export const Footer: React.FC = () => {
             <div className="space-y-3 text-xs sm:text-[13px]">
               <a
                 href={`tel:${businessConfig.phoneRaw}`}
-                className="flex items-center gap-2.5 text-white hover:text-[#A68C70] transition-colors font-medium"
+                className="flex items-center gap-2.5 text-white hover:text-[#A68C70] transition-colors font-medium tabular-nums"
               >
-                <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-white shrink-0">
-                  <Phone className="w-3.5 h-3.5" />
+                <div className="size-8 rounded bg-white/10 flex items-center justify-center text-white shrink-0">
+                  <Phone className="size-3.5" />
                 </div>
                 <span>{businessConfig.phone}</span>
               </a>
 
               <div className="flex items-center gap-2.5 text-white/60">
-                <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-white shrink-0">
-                  <Clock className="w-3.5 h-3.5 text-[#788173]" />
+                <div className="size-8 rounded bg-white/10 flex items-center justify-center text-white shrink-0">
+                  <Clock className="size-3.5 text-[#788173]" />
                 </div>
                 <span>{businessConfig.workingHours}</span>
               </div>
 
               <div className="flex items-start gap-2.5 text-white/60">
-                <div className="w-8 h-8 rounded bg-white/10 flex items-center justify-center text-white shrink-0 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#788173]" />
+                <div className="size-8 rounded bg-white/10 flex items-center justify-center text-white shrink-0 mt-0.5">
+                  <MapPin className="size-3.5 text-[#788173]" />
                 </div>
                 <span>{businessConfig.serviceRegion}</span>
               </div>
@@ -134,18 +134,18 @@ export const Footer: React.FC = () => {
                 href={businessConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider transition-all"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider transition-transform active:scale-[0.98]"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
+                <MessageCircle className="size-3.5 text-[#788173]" />
                 <span>WhatsApp</span>
               </a>
               <a
                 href={businessConfig.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider transition-all"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider transition-transform active:scale-[0.98]"
               >
-                <Send className="w-3.5 h-3.5 text-[#788173]" />
+                <Send className="size-3.5 text-[#788173]" />
                 <span>Telegram</span>
               </a>
             </div>
@@ -169,9 +169,9 @@ export const Footer: React.FC = () => {
               type="button"
               onClick={scrollToTop}
               aria-label="Вернуться наверх страницы"
-              className="w-9 h-9 rounded bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+              className="size-9 rounded bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-transform active:scale-95"
             >
-              <ArrowUp className="w-4 h-4" />
+              <ArrowUp className="size-4" />
             </button>
           </div>
         </div>

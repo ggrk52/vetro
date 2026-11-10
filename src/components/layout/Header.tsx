@@ -106,9 +106,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <a
               href={`tel:${businessConfig.phoneRaw}`}
               aria-label="Позвонить в студию VETRO"
-              className="min-w-[40px] min-h-[40px] p-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-colors"
+              className="min-w-[40px] min-h-[40px] p-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-colors active:scale-[0.97]"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="size-4" />
             </a>
 
             <button
@@ -117,9 +117,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
               aria-expanded={isMobileMenuOpen}
-              className="min-w-[40px] min-h-[40px] p-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#252725]"
+              className="min-w-[40px] min-h-[40px] p-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-colors focus:outline-none focus:ring-1 focus:ring-[#252725] active:scale-[0.97]"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
           </div>
 
@@ -133,9 +133,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 rel="noopener noreferrer"
                 title="Написать в WhatsApp студии VETRO"
                 aria-label="Написать в WhatsApp"
-                className="w-8 h-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-all hover:scale-105"
+                className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-all hover:scale-105 active:scale-95"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
+                <MessageCircle className="size-3.5" />
               </a>
               <a
                 href={businessConfig.telegramUrl}
@@ -143,9 +143,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 rel="noopener noreferrer"
                 title="Написать в Telegram студии VETRO"
                 aria-label="Написать в Telegram"
-                className="w-8 h-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-all hover:scale-105"
+                className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-all hover:scale-105 active:scale-95"
               >
-                <Send className="w-3.5 h-3.5" />
+                <Send className="size-3.5" />
               </a>
             </div>
 
@@ -153,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <div className="flex flex-col text-right">
               <a
                 href={`tel:${businessConfig.phoneRaw}`}
-                className="text-[13px] font-semibold text-[#252725] hover:text-[#788173] transition-colors"
+                className="text-[13px] font-semibold text-[#252725] hover:text-[#788173] transition-colors tabular-nums"
               >
                 {businessConfig.phone}
               </a>
@@ -164,11 +164,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <button
               type="button"
               onClick={handleCtaClick}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-[12px] font-medium tracking-[0.04em] uppercase text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] rounded border border-[#252725] transition-all active:scale-[0.99]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 text-[12px] font-medium tracking-[0.04em] uppercase text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] rounded border border-[#252725] transition-transform active:scale-[0.97]"
             >
               <span>Обсудить проект</span>
               <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-2">Замер</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#A68C70]" />
+              <ArrowUpRight className="size-3.5 text-[#A68C70]" />
             </button>
           </div>
         </div>

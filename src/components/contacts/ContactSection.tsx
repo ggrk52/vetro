@@ -61,13 +61,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
               <span className="w-1.5 h-1.5 bg-[#A68C70] rounded-none rotate-45" />
               <span>ФИНАЛЬНЫЙ CTA · VETRO ATELIER</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#FBFAF7] tracking-tight leading-[1.06]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#FBFAF7] tracking-tight leading-[1.06] text-balance">
               Создадим решение<br />
               <span className="italic text-[#A68C70]">для вашего пространства.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-white/70 max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-white/70 max-w-md leading-relaxed font-sans text-pretty">
             Расскажите о проекте — обсудим подходящий вариант стеклянной конструкции, согласуем образцы и подготовим точный расчет в день обращения.
           </p>
         </div>
@@ -91,14 +91,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
 
             {isSubmitted ? (
               <div className="p-8 rounded bg-[#252725] border border-white/20 text-center space-y-4">
-                <div className="w-12 h-12 rounded bg-[#788173] text-[#FBFAF7] flex items-center justify-center mx-auto">
-                  <Check className="w-6 h-6" />
+                <div className="size-12 rounded bg-[#788173] text-[#FBFAF7] flex items-center justify-center mx-auto">
+                  <Check className="size-6" />
                 </div>
                 <h4 className="text-xl font-serif text-[#FBFAF7]">
                   Благодарим за обращение в VETRO.
                 </h4>
-                <p className="text-xs sm:text-sm text-white/70 max-w-md mx-auto leading-relaxed">
-                  Заявка принята. Инженер свяжется с вами по номеру <strong className="text-[#FBFAF7]">{phone}</strong> для уточнения деталей и выезда на 3D-замер.
+                <p className="text-xs sm:text-sm text-white/70 max-w-md mx-auto leading-relaxed text-pretty">
+                  Заявка принята. Инженер свяжется с вами по номеру <strong className="text-[#FBFAF7] tabular-nums">{phone}</strong> для уточнения деталей и выезда на 3D-замер.
                 </p>
                 <button
                   type="button"
@@ -108,7 +108,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                     setPhone('');
                     setMessage('');
                   }}
-                  className="mt-2 px-6 py-2.5 rounded bg-[#FBFAF7] text-[#252725] text-xs font-mono uppercase tracking-wider hover:bg-white transition-colors"
+                  className="mt-2 px-6 py-2.5 rounded bg-[#FBFAF7] text-[#252725] text-xs font-mono uppercase tracking-wider hover:bg-white active:scale-95 transition-transform"
                 >
                   Отправить другую заявку
                 </button>
@@ -201,14 +201,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                   <button
                     type="submit"
                     disabled={isSubmitting || !agreed}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded bg-[#FBFAF7] hover:bg-white text-[#252725] font-medium text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-50 min-h-[44px]"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded bg-[#FBFAF7] hover:bg-white text-[#252725] font-medium text-xs uppercase tracking-wider transition-transform duration-120 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 min-h-[44px]"
                   >
                     {isSubmitting ? (
                       <span>Отправка...</span>
                     ) : (
                       <>
                         <span>Отправить заявку</span>
-                        <ArrowUpRight className="w-4 h-4 text-[#A68C70]" />
+                        <ArrowUpRight className="size-4 text-[#A68C70]" />
                       </>
                     )}
                   </button>

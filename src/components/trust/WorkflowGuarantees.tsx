@@ -82,13 +82,13 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
               ПРОЦЕСС РАБОТЫ / 01 — 05
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Архитектурный процесс.<br />
               <span className="italic text-[#788173]">От первой идеи до финального гидротеста.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
             Фиксированная смета и прозрачные сроки в официальном договоре. Итоговая стоимость после замера не изменится ни на рубль.
           </p>
         </div>
@@ -98,14 +98,14 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
           {steps.map((item, idx) => (
             <div
               key={idx}
-              className="group p-5 rounded bg-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] transition-all duration-300 flex flex-col justify-between min-h-[220px]"
+              className="group p-5 rounded bg-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 flex flex-col justify-between min-h-[220px]"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-2xl font-bold text-[#252725] group-hover:text-[#788173] transition-colors">
+                  <span className="font-mono text-2xl font-bold text-[#252725] group-hover:text-[#788173] transition-colors tabular-nums">
                     {item.step}
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-[#F4F2EC] text-[#788173] border border-[#DFDDD6]">
+                  <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-[#F4F2EC] text-[#788173] border border-[#DFDDD6] tabular-nums">
                     {item.time}
                   </span>
                 </div>

@@ -33,9 +33,9 @@ export const MobileStickyCta: React.FC<MobileStickyCtaProps> = ({ onOpenMeasurem
         <a
           href="#calculator"
           onClick={handleScrollToCalculator}
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs uppercase tracking-wider active:scale-[0.99] transition-transform"
+          className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs uppercase tracking-wider active:scale-[0.97] transition-transform"
         >
-          <Calculator className="w-3.5 h-3.5 text-[#A68C70]" />
+          <Calculator className="size-3.5 text-[#A68C70]" />
           <span>Калькулятор</span>
         </a>
 
@@ -44,10 +44,10 @@ export const MobileStickyCta: React.FC<MobileStickyCtaProps> = ({ onOpenMeasurem
           href={businessConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs uppercase tracking-wider active:scale-[0.99] transition-transform shrink-0"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs uppercase tracking-wider active:scale-[0.97] transition-transform shrink-0"
           aria-label="Написать в WhatsApp"
         >
-          <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
+          <MessageCircle className="size-3.5 text-[#788173]" />
           <span>WhatsApp</span>
         </a>
 
@@ -56,10 +56,10 @@ export const MobileStickyCta: React.FC<MobileStickyCtaProps> = ({ onOpenMeasurem
           <button
             type="button"
             onClick={onOpenMeasurementModal}
-            className="w-10 h-10 flex items-center justify-center rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-[#252725] shrink-0 active:scale-[0.99] transition-transform"
+            className="size-10 flex items-center justify-center rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-[#252725] shrink-0 active:scale-[0.97] transition-transform"
             aria-label="Заказать бесплатный замер"
           >
-            <Ruler className="w-4 h-4 text-[#788173]" />
+            <Ruler className="size-4 text-[#788173]" />
           </button>
         )}
       </div>

@@ -236,13 +236,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
               ПРОДУКЦИЯ СТУДИИ / 001 — 008
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Каталог решений.<br />
               <span className="italic text-[#788173]">Архитектурные пропорции.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
             Закаленное монолитное стекло 8–10 мм и фурнитура Boheme Milano. Все подробности и технические характеристики доступны внутри карточки каждого объекта.
           </p>
         </div>
@@ -256,7 +256,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
                 type="button"
-                className={`whitespace-nowrap px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-200 min-h-[34px] shrink-0 border ${
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-150 min-h-[34px] shrink-0 border active:scale-[0.97] ${
                   isActive
                     ? 'bg-[#252725] text-[#FBFAF7] border-[#252725] font-medium'
                     : 'bg-[#FBFAF7] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD] border-[#DFDDD6]'

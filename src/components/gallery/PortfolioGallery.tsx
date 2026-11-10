@@ -123,13 +123,13 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
               ПОРТФОЛИО СТУДИИ / 500+ РЕАЛИЗАЦИЙ
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Реализованные объекты.<br />
               <span className="italic text-[#788173]">Чистая геометрия стекла.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
             Реализованные проекты VETRO в интерьерах Москвы и Московской области. Чистая эстетика, отсутствие визуального шума и точность подгонки в каждый миллиметр.
           </p>
         </div>
@@ -144,14 +144,14 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
                 type="button"
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-200 min-h-[34px] shrink-0 border ${
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-150 min-h-[34px] shrink-0 border active:scale-[0.97] ${
                   isActive
                     ? 'bg-[#252725] border-[#252725] text-[#FBFAF7] font-medium'
                     : 'bg-[#F4F2EC] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
                 }`}
               >
                 <span>{tab.label}</span>
-                <span className={`text-[9px] px-1.5 py-0.2 rounded-[2px] ${
+                <span className={`text-[9px] px-1.5 py-0.2 rounded-[2px] tabular-nums ${
                   isActive ? 'bg-[#788173] text-[#FBFAF7]' : 'bg-[#DFDDD6] text-[#252725]'
                 }`}>
                   {count}
@@ -168,7 +168,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
               key={item.id}
               data-testid="portfolio-card"
               onClick={() => handleOpenPhoto(index)}
-              className="group relative bg-[#F4F2EC] rounded overflow-hidden border border-[#DFDDD6] hover:border-[#252725] transition-all duration-300 cursor-pointer flex flex-col"
+              className="group relative bg-[#F4F2EC] rounded overflow-hidden border border-[#DFDDD6] hover:border-[#252725] transition-all duration-200 cursor-pointer flex flex-col active:scale-[0.99]"
             >
               {/* Image Container with 3:4 Aspect Ratio */}
               <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E5DD]">
@@ -188,8 +188,8 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                     {getCabinCategoryLabel(item.category)}
                   </span>
 
-                  <span className="w-7 h-7 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] flex items-center justify-center transition-colors">
-                    <ZoomIn className="w-3.5 h-3.5" />
+                  <span className="size-7 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] flex items-center justify-center transition-colors">
+                    <ZoomIn className="size-3.5" />
                   </span>
                 </div>
 

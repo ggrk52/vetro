@@ -96,7 +96,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div 
           onClick={(e) => e.stopPropagation()}
-          className="w-screen max-w-full sm:max-w-md md:max-w-lg bg-[#F4F2EC] text-[#252725] border-l border-[#DFDDD6] shadow-xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-300"
+          className="w-screen max-w-full sm:max-w-md md:max-w-lg bg-[#F4F2EC] text-[#252725] border-l border-[#DFDDD6] shadow-xl flex flex-col justify-between overflow-y-auto drawer-ease animate-in slide-in-from-right"
         >
           {/* Header */}
           <div className="p-4 sm:p-6 border-b border-[#DFDDD6] bg-[#FBFAF7] sticky top-0 z-10 flex items-center justify-between">
@@ -112,9 +112,9 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
               onClick={onClose}
               type="button"
               aria-label="Закрыть"
-              className="p-2 rounded bg-[#F4F2EC] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center shrink-0"
+              className="p-2 rounded bg-[#F4F2EC] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] transition-transform active:scale-[0.95] min-w-[36px] min-h-[36px] flex items-center justify-center shrink-0"
             >
-              <X className="w-4 h-4" />
+              <X className="size-4" />
             </button>
           </div>
 
@@ -138,9 +138,9 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                 <button
                   onClick={() => onOpenVideoModal && onOpenVideoModal(item.videoType!)}
                   type="button"
-                  className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-xs font-mono uppercase tracking-wider hover:bg-[#383B38] transition-colors"
+                  className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-xs font-mono uppercase tracking-wider hover:bg-[#383B38] transition-transform active:scale-[0.97]"
                 >
-                  <Video className="w-3.5 h-3.5 text-[#A68C70]" />
+                  <Video className="size-3.5 text-[#A68C70]" />
                   <span>Видео конструкции</span>
                 </button>
               )}
@@ -150,9 +150,9 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
             <div className="p-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] flex items-center justify-between">
               <div>
                 <span className="font-mono text-[10px] uppercase tracking-wider text-[#777A74] block">Стоимость от:</span>
-                <span className="text-xl sm:text-2xl font-bold text-[#252725] font-sans">{item.priceFormatted}</span>
+                <span className="text-xl sm:text-2xl font-bold text-[#252725] font-sans tabular-nums">{item.priceFormatted}</span>
               </div>
-              <span className="px-3 py-1 rounded-[2px] bg-[#F4F2EC] text-[#252725] font-mono text-xs border border-[#DFDDD6]">
+              <span className="px-3 py-1 rounded-[2px] bg-[#F4F2EC] text-[#252725] font-mono text-xs border border-[#DFDDD6] tabular-nums">
                 {item.specs.productionTime}
               </span>
             </div>

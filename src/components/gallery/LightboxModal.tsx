@@ -94,7 +94,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
       <div className="flex items-center justify-between px-4 sm:px-6 py-4 z-20 border-b border-white/10 bg-[#252725]/80">
         <div className="flex items-center gap-3">
           {/* Counter Badge */}
-          <span className="text-[11px] font-mono text-[#FBFAF7]/90 bg-white/10 border border-white/10 px-2.5 py-0.5 rounded-[2px]">
+          <span className="text-[11px] font-mono text-[#FBFAF7]/90 bg-white/10 border border-white/10 px-2.5 py-0.5 rounded-[2px] tabular-nums">
             {currentIndex + 1} / {items.length}
           </span>
           {/* Category Badge */}
@@ -108,9 +108,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           onClick={onClose}
           type="button"
           aria-label="Закрыть (Escape)"
-          className="p-2 rounded bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors border border-white/10 min-w-[36px] min-h-[36px] flex items-center justify-center"
+          className="p-2 rounded bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-transform active:scale-95 border border-white/10 min-w-[36px] min-h-[36px] flex items-center justify-center"
         >
-          <X className="w-4 h-4" />
+          <X className="size-4" />
         </button>
       </div>
 
@@ -125,9 +125,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           }}
           type="button"
           aria-label="Назад (Previous image)"
-          className="absolute left-2 sm:left-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-all border border-white/20 shadow-xl flex items-center justify-center min-w-[42px] min-h-[42px]"
+          className="absolute left-2 sm:left-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-transform active:scale-95 border border-white/20 shadow-xl flex items-center justify-center min-w-[42px] min-h-[42px]"
         >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 lucide-chevron-left" />
+          <ChevronLeft className="size-5 sm:size-6 lucide-chevron-left" />
         </button>
 
         {/* Image Display */}
@@ -139,7 +139,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
             key={currentItem.id}
             src={currentItem.imageSrc}
             alt={currentItem.title}
-            className="max-h-[72vh] max-w-full object-contain rounded border border-white/10 shadow-2xl"
+            className="max-h-[72vh] max-w-full object-contain rounded border border-white/10 shadow-2xl animate-in fade-in zoom-in-95 duration-150"
           />
         </div>
 
@@ -151,9 +151,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           }}
           type="button"
           aria-label="Вперед (Next image)"
-          className="absolute right-2 sm:right-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-all border border-white/20 shadow-xl flex items-center justify-center min-w-[42px] min-h-[42px]"
+          className="absolute right-2 sm:right-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-transform active:scale-95 border border-white/20 shadow-xl flex items-center justify-center min-w-[42px] min-h-[42px]"
         >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 lucide-chevron-right" />
+          <ChevronRight className="size-5 sm:size-6 lucide-chevron-right" />
         </button>
       </div>
 

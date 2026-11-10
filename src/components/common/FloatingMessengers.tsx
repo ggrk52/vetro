@@ -51,12 +51,12 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm active:scale-[0.98]"
           aria-label="Написать в WhatsApp"
         >
           <span className="text-xs font-medium whitespace-nowrap">WhatsApp</span>
-          <div className="w-7 h-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
-            <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
+          <div className="size-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
+            <MessageCircle className="size-3.5 text-[#788173]" />
           </div>
         </a>
 
@@ -65,24 +65,24 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.telegramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm active:scale-[0.98]"
           aria-label="Написать в Telegram"
         >
           <span className="text-xs font-medium whitespace-nowrap">Telegram</span>
-          <div className="w-7 h-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
-            <Send className="w-3.5 h-3.5 text-[#788173]" />
+          <div className="size-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
+            <Send className="size-3.5 text-[#788173]" />
           </div>
         </a>
 
         {/* Direct Phone Call Option */}
         <a
           href={`tel:${businessConfig.phoneRaw}`}
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm active:scale-[0.98]"
           aria-label={`Позвонить в студию VETRO: ${businessConfig.phone}`}
         >
-          <span className="text-xs font-medium whitespace-nowrap">Позвонить ({businessConfig.phone})</span>
-          <div className="w-7 h-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
-            <Phone className="w-3.5 h-3.5 text-[#A68C70]" />
+          <span className="text-xs font-medium whitespace-nowrap tabular-nums">Позвонить ({businessConfig.phone})</span>
+          <div className="size-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
+            <Phone className="size-3.5 text-[#A68C70]" />
           </div>
         </a>
       </div>
@@ -94,7 +94,7 @@ export const FloatingMessengers: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Закрыть контакты' : 'Написать в студию VETRO'}
-          className={`relative w-12 h-12 rounded flex items-center justify-center text-[#FBFAF7] transition-all duration-200 focus:outline-none border shadow-md ${
+          className={`relative size-12 rounded flex items-center justify-center text-[#FBFAF7] transition-transform duration-150 active:scale-95 focus:outline-none border shadow-md ${
             isOpen
               ? 'bg-[#252725] border-[#252725]'
               : 'bg-[#252725] border-white/20 hover:bg-[#383B38]'

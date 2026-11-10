@@ -139,7 +139,7 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
           <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none ${
             isDark ? 'text-white/40' : 'text-[#777A74]'
           }`}>
-            <Phone className="w-4 h-4" />
+            <Phone className="size-4" />
           </div>
         )}
         <input
@@ -156,7 +156,7 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
           disabled={disabled}
           autoComplete="tel"
           inputMode="tel"
-          className={`w-full rounded border py-2.5 sm:py-3 text-sm transition-colors outline-none ${
+          className={`w-full rounded border py-2.5 sm:py-3 text-sm transition-colors outline-none tabular-nums ${
             showIcon ? 'pl-10 pr-4' : 'px-4'
           } ${
             isDark 

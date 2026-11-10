@@ -118,12 +118,12 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
               <span>Инженерная культура и собственное производство</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] mb-4 text-balance">
               Философия VETRO.<br />
               <span className="italic text-[#788173]">Бескомпромиссная чистота формы.</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#777A74] leading-relaxed mb-6 max-w-2xl font-sans">
+            <p className="text-sm sm:text-base text-[#777A74] leading-relaxed mb-6 max-w-2xl font-sans text-pretty">
               В VETRO мы относимся к стеклянной душевой перегородке не как к сантехнике, а как к элементу архитектурного пространства. Собственное производство в Москве, многолетний опыт инженеров, 3D-контроль геометрии проемов и итальянская фурнитура Boheme Milano обеспечивают эталонную прозрачность и надежность конструкции на десятилетия.
             </p>
 
@@ -156,7 +156,7 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
                   key={idx}
                   className="p-3 rounded bg-[#F4F2EC] border border-[#DFDDD6] flex flex-col justify-between"
                 >
-                  <div className="text-lg sm:text-xl font-bold text-[#252725] font-mono">
+                  <div className="text-lg sm:text-xl font-bold text-[#252725] font-mono tabular-nums">
                     {m.value}
                   </div>
                   <div className="mt-1">
@@ -172,9 +172,9 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
               <button
                 type="button"
                 onClick={onOpenMeasurementModal}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider transition-all min-h-[42px]"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider transition-transform duration-120 active:scale-[0.98] min-h-[42px]"
               >
-                <Ruler className="w-3.5 h-3.5 text-[#A68C70]" />
+                <Ruler className="size-3.5 text-[#A68C70]" />
                 <span>Заказать 3D-замер</span>
               </button>
 
@@ -182,11 +182,11 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
                 href={businessConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs uppercase tracking-wider transition-all min-h-[42px]"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs uppercase tracking-wider transition-transform duration-120 active:scale-[0.98] min-h-[42px]"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
+                <MessageCircle className="size-3.5 text-[#788173]" />
                 <span>Консультация студии</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#788173]" />
+                <ArrowUpRight className="size-3.5 text-[#788173]" />
               </a>
             </div>
 

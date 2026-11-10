@@ -139,12 +139,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
             </div>
 
             {/* Main H1 Title: Cormorant Garamond */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-serif font-normal text-[#252725] tracking-tight leading-[1.06] mb-5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-serif font-normal text-[#252725] tracking-tight leading-[1.06] mb-5 text-balance">
               Стекло, которое открывает пространство.
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-[#777A74] font-sans font-normal leading-relaxed max-w-xl mb-8">
+            <p className="text-base sm:text-lg text-[#777A74] font-sans font-normal leading-relaxed max-w-xl mb-8 text-pretty">
               Душевые кабины и перегородки по индивидуальным размерам. Эстетика минимализма, европейская фурнитура Boheme Milano и точность исполнения до миллиметра.
             </p>
 
@@ -153,20 +153,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
               <button
                 type="button"
                 onClick={onOpenMeasurementModal}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded font-medium text-xs sm:text-sm uppercase tracking-[0.06em] text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] border border-[#252725] transition-all active:scale-[0.99] min-h-[46px]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded font-medium text-xs sm:text-sm uppercase tracking-[0.06em] text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] border border-[#252725] transition-transform duration-150 active:scale-[0.98] min-h-[46px]"
               >
                 <span>Обсудить проект</span>
                 <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-2">Заказать замер</span>
-                <ArrowUpRight className="w-4 h-4 text-[#A68C70]" />
+                <ArrowUpRight className="size-4 text-[#A68C70]" />
               </button>
 
               <a
                 href="#gallery"
                 onClick={handleScrollToGallery}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded font-medium text-xs sm:text-sm uppercase tracking-[0.06em] text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] transition-all active:scale-[0.99] min-h-[46px]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded font-medium text-xs sm:text-sm uppercase tracking-[0.06em] text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] transition-transform duration-150 active:scale-[0.98] min-h-[46px]"
               >
                 <span>Смотреть наши работы</span>
-                <ArrowDown className="w-4 h-4 text-[#777A74]" />
+                <ArrowDown className="size-4 text-[#777A74]" />
               </a>
 
               <a
@@ -182,10 +182,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-5 border-t border-[#DFDDD6]">
               {metaSpecs.map((spec, idx) => (
                 <div key={idx} className="flex flex-col">
-                  <span className="font-mono text-[10px] text-[#788173] uppercase tracking-wider">
+                  <span className="font-mono text-[10px] text-[#788173] uppercase tracking-wider tabular-nums">
                     {spec.num} · {spec.label}
                   </span>
-                  <span className="text-xs sm:text-[13px] font-medium text-[#252725] mt-0.5">
+                  <span className="text-xs sm:text-[13px] font-medium text-[#252725] mt-0.5 tabular-nums">
                     {spec.val}
                   </span>
                 </div>

@@ -128,12 +128,12 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({
             <h3 className="text-base sm:text-[17px] font-semibold text-[#252725] leading-snug group-hover:text-[#788173] transition-colors">
               {item.title}
             </h3>
-            <span className="shrink-0 font-mono text-[13px] font-semibold text-[#252725] tracking-tight whitespace-nowrap">
+            <span className="shrink-0 font-mono text-[13px] font-semibold text-[#252725] tracking-tight whitespace-nowrap tabular-nums">
               {item.priceFormatted}
             </span>
           </div>
 
-          <p className="text-xs sm:text-[13px] text-[#777A74] line-clamp-2 leading-relaxed mb-4">
+          <p className="text-xs sm:text-[13px] text-[#777A74] line-clamp-2 leading-relaxed mb-4 text-pretty">
             {item.subtitle}
           </p>
 
@@ -155,18 +155,18 @@ export const CatalogCard: React.FC<CatalogCardProps> = ({
               e.stopPropagation();
               handleCardClick();
             }}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#252725] hover:text-[#788173] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#252725] hover:text-[#788173] transition-colors active:scale-[0.98]"
           >
             <span>Характеристики</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="size-3.5" />
           </button>
 
           <button
             type="button"
             onClick={handleCalculate}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] text-[11px] font-mono uppercase tracking-wider text-[#252725] bg-[#F4F2EC] hover:bg-[#252725] hover:text-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] transition-all"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] text-[11px] font-mono uppercase tracking-wider text-[#252725] bg-[#F4F2EC] hover:bg-[#252725] hover:text-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] transition-transform active:scale-[0.97]"
           >
-            <Sliders className="w-3 h-3" />
+            <Sliders className="size-3" />
             <span>Расчет</span>
           </button>
         </div>

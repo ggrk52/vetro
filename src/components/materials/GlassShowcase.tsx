@@ -207,13 +207,13 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
               МАТЕРИАЛЫ СТУДИИ / 06 ТИПОВ СТЕКЛА
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Закаленное стекло.<br />
               <span className="italic text-[#788173]">8–10 мм по стандарту ГОСТ 30698.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
             Монолитное ударопрочное стекло ESG с полированной еврокромкой и гидрофобным покрытием. Физические образцы инженер привозит на замер.
           </p>
         </div>
@@ -227,7 +227,7 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
                 key={glass.id}
                 onClick={() => handleSelectGlass(glass.id)}
                 type="button"
-                className={`relative flex flex-col items-start p-3.5 rounded border text-left transition-all duration-200 min-h-[50px] ${
+                className={`relative flex flex-col items-start p-3.5 rounded border text-left transition-all duration-150 min-h-[50px] active:scale-[0.98] ${
                   isActive
                     ? 'bg-[#252725] border-[#252725] text-[#FBFAF7]'
                     : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
