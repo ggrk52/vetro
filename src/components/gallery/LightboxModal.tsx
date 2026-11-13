@@ -94,11 +94,11 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
       <div className="flex items-center justify-between px-4 sm:px-6 py-4 z-20 border-b border-white/10 bg-[#252725]/80">
         <div className="flex items-center gap-3">
           {/* Counter Badge */}
-          <span className="text-[11px] font-mono text-[#FBFAF7]/90 bg-white/10 border border-white/10 px-2.5 py-0.5 rounded-[2px] tabular-nums">
+          <span className="text-[11px] font-mono text-[#FBFAF7]/90 bg-white/10 border border-white/10 px-2.5 py-0.5 rounded tabular-nums">
             {currentIndex + 1} / {items.length}
           </span>
           {/* Category Badge */}
-          <span className="text-[11px] font-mono uppercase text-[#A68C70] bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-[2px] hidden sm:inline-block">
+          <span className="text-[11px] font-mono text-[#A68C70] bg-white/5 border border-white/10 px-2.5 py-0.5 rounded hidden sm:inline-block">
             {categoryLabel}
           </span>
         </div>
@@ -125,7 +125,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           }}
           type="button"
           aria-label="Назад (Previous image)"
-          className="absolute left-2 sm:left-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-transform active:scale-95 border border-white/20 shadow-xl flex items-center justify-center min-w-[42px] min-h-[42px]"
+          className="absolute left-2 sm:left-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-transform active:scale-95 border border-white/20 shadow-xl flex items-center justify-center min-w-[44px] min-h-[44px]"
         >
           <ChevronLeft className="size-5 sm:size-6 lucide-chevron-left" />
         </button>
@@ -151,7 +151,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           }}
           type="button"
           aria-label="Вперед (Next image)"
-          className="absolute right-2 sm:right-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-transform active:scale-95 border border-white/20 shadow-xl flex items-center justify-center min-w-[42px] min-h-[42px]"
+          className="absolute right-2 sm:right-4 z-20 p-2 sm:p-2.5 rounded bg-[#252725]/80 hover:bg-[#252725] text-white transition-transform active:scale-95 border border-white/20 shadow-xl flex items-center justify-center min-w-[44px] min-h-[44px]"
         >
           <ChevronRight className="size-5 sm:size-6 lucide-chevron-right" />
         </button>
@@ -172,18 +172,18 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
             {/* Spec Chips */}
             <div className="flex flex-wrap items-center gap-2 mb-1.5 text-xs font-mono">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] bg-white/10 text-white/90 border border-white/10">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/10 text-white/90 border border-white/10">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#788173]" />
                 <span>{currentItem.glassType}</span>
               </span>
 
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] bg-white/10 text-[#A68C70] border border-white/10">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/10 text-[#A68C70] border border-white/10">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{currentItem.hardwareFinish}</span>
               </span>
 
               {currentItem.approxDimensions && (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] bg-white/10 text-white/80 border border-white/10">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/10 text-white/80 border border-white/10">
                   <Ruler className="w-3.5 h-3.5" />
                   <span>{currentItem.approxDimensions}</span>
                 </span>

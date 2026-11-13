@@ -256,7 +256,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
                 type="button"
-                className={`whitespace-nowrap px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-150 min-h-[34px] shrink-0 border active:scale-[0.97] ${
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded font-mono text-xs transition-colors duration-150 min-h-[32px] shrink-0 border active:scale-[0.98] ${
                   isActive
                     ? 'bg-[#252725] text-[#FBFAF7] border-[#252725] font-medium'
                     : 'bg-[#FBFAF7] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD] border-[#DFDDD6]'
@@ -286,8 +286,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         {/* Bottom Custom Project Callout: Sleek Editorial Strip */}
         <div className="rounded bg-[#FBFAF7] border border-[#DFDDD6] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex-1 text-center md:text-left">
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#788173] font-medium block mb-1">
-              ИНДИВИДУАЛЬНОЕ ПРОЕКТИРОВАНИЕ · BESPOKE
+            <span className="font-mono text-xs text-[#788173] font-medium block mb-1">
+              Индивидуальное проектирование · Bespoke
             </span>
             <h3 className="text-lg sm:text-xl font-semibold text-[#252725] font-sans">
               Нестандартные размеры и фигурный раскрой под геометрию стен
@@ -302,7 +302,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               <button
                 onClick={onOpenMeasurementModal}
                 type="button"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider transition-all min-h-[42px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
               >
                 <Ruler className="w-3.5 h-3.5 text-[#A68C70]" />
                 <span>Заказать замер 24ч</span>
@@ -313,7 +313,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               href={businessConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs uppercase tracking-wider transition-all min-h-[42px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
               <span>Консультация</span>

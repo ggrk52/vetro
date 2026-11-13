@@ -122,7 +122,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
       {/* Modal Dialog Container */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-xl bg-[#FBFAF7] border border-[#DFDDD6] rounded shadow-2xl overflow-hidden z-10 transition-all text-[#252725] my-auto"
+        className="relative w-full max-w-xl bg-[#FBFAF7] border border-[#DFDDD6] rounded shadow-2xl overflow-hidden z-10 transition-transform duration-200 text-[#252725] my-auto"
       >
         {/* Header Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#DFDDD6] bg-[#F4F2EC]">
@@ -131,8 +131,8 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
               <Ruler className="size-4 text-[#788173]" />
             </div>
             <div>
-              <span className="text-[10px] font-mono text-[#788173] uppercase tracking-wider block">
-                БЕСПЛАТНЫЙ ВЫЕЗД 24Ч
+              <span className="text-[10px] font-mono text-[#788173] block">
+                Бесплатный выезд 24ч
               </span>
               <h2 id="modal-title" className="text-base font-semibold text-[#252725]">
                 Заказать лазерный 3D-замер
@@ -348,7 +348,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 px-6 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.99]"
+                className="w-full py-3.5 px-6 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-colors duration-150 text-xs flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.99] min-h-[48px]"
               >
                 {isSubmitting ? (
                   <span>Отправка заявки...</span>

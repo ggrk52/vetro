@@ -144,14 +144,14 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
                 type="button"
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] font-mono text-[11px] uppercase tracking-wider transition-all duration-150 min-h-[34px] shrink-0 border active:scale-[0.97] ${
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded font-mono text-xs transition-colors duration-150 min-h-[32px] shrink-0 border active:scale-[0.98] ${
                   isActive
                     ? 'bg-[#252725] border-[#252725] text-[#FBFAF7] font-medium'
                     : 'bg-[#F4F2EC] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
                 }`}
               >
                 <span>{tab.label}</span>
-                <span className={`text-[9px] px-1.5 py-0.2 rounded-[2px] tabular-nums ${
+                <span className={`text-[10px] px-1.5 py-0.5 rounded tabular-nums ${
                   isActive ? 'bg-[#788173] text-[#FBFAF7]' : 'bg-[#DFDDD6] text-[#252725]'
                 }`}>
                   {count}
@@ -168,7 +168,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
               key={item.id}
               data-testid="portfolio-card"
               onClick={() => handleOpenPhoto(index)}
-              className="group relative bg-[#F4F2EC] rounded overflow-hidden border border-[#DFDDD6] hover:border-[#252725] transition-all duration-200 cursor-pointer flex flex-col active:scale-[0.99]"
+              className="group relative bg-[#F4F2EC] rounded overflow-hidden border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 cursor-pointer flex flex-col active:scale-[0.99]"
             >
               {/* Image Container with 3:4 Aspect Ratio */}
               <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E5DD]">
@@ -176,19 +176,19 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                   src={item.imageSrc}
                   alt={item.title}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                  className="w-full h-full object-cover transition-opacity duration-300"
                 />
                 
                 {/* Architectural Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/85 via-transparent to-[#252725]/20 opacity-70 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/85 via-transparent to-[#252725]/20 opacity-70 group-hover:opacity-90 transition-opacity duration-150" />
 
                 {/* Top Badge: Category */}
                 <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] backdrop-blur-sm">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] backdrop-blur-sm">
                     {getCabinCategoryLabel(item.category)}
                   </span>
 
-                  <span className="size-7 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] flex items-center justify-center transition-colors">
+                  <span className="size-7 rounded bg-[#FBFAF7]/95 text-[#252725] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] flex items-center justify-center transition-colors duration-150">
                     <ZoomIn className="size-3.5" />
                   </span>
                 </div>
@@ -201,10 +201,10 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
 
                   {/* Spec Chips */}
                   <div className="flex flex-wrap items-center gap-1 text-[9px] font-mono">
-                    <span className="px-1.5 py-0.5 rounded-[2px] bg-[#252725]/80 text-[#FBFAF7]/90 backdrop-blur-sm border border-white/10 line-clamp-1">
+                    <span className="px-1.5 py-0.5 rounded bg-[#252725]/80 text-[#FBFAF7]/90 backdrop-blur-sm border border-white/10 line-clamp-1">
                       {item.glassType}
                     </span>
-                    <span className="px-1.5 py-0.5 rounded-[2px] bg-[#252725]/80 text-[#A68C70] backdrop-blur-sm border border-white/10 line-clamp-1">
+                    <span className="px-1.5 py-0.5 rounded bg-[#252725]/80 text-[#A68C70] backdrop-blur-sm border border-white/10 line-clamp-1">
                       {item.hardwareFinish}
                     </span>
                   </div>
@@ -226,10 +226,10 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             <button
               onClick={handleLoadMore}
               type="button"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider transition-all min-h-[44px]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
             >
               <span>Показать еще объекты</span>
-              <span className="text-[11px] font-mono text-[#A68C70]">
+              <span className="text-xs font-mono text-[#A68C70]">
                 ({filteredItems.length - visibleCount})
               </span>
               <ArrowDown className="w-3.5 h-3.5 text-[#FBFAF7]" />

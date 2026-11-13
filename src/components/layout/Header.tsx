@@ -76,7 +76,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-[background-color,border-color,padding] duration-200 ${
         isScrolled
           ? 'bg-[#F4F2EC]/95 backdrop-blur-md border-b border-[#DFDDD6] py-3'
           : 'bg-[#F4F2EC]/85 backdrop-blur-sm border-b border-[#DFDDD6]/60 py-3.5'
@@ -143,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 rel="noopener noreferrer"
                 title="Написать в WhatsApp студии VETRO"
                 aria-label="Написать в WhatsApp"
-                className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-colors duration-150 active:scale-[0.98]"
               >
                 <MessageCircle className="size-3.5" />
               </a>
@@ -153,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 rel="noopener noreferrer"
                 title="Написать в Telegram студии VETRO"
                 aria-label="Написать в Telegram"
-                className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                className="size-8 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#252725] hover:text-[#FBFAF7] flex items-center justify-center transition-colors duration-150 active:scale-[0.98]"
               >
                 <Send className="size-3.5" />
               </a>
@@ -189,7 +189,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
       {/* Mobile Drawer Navigation Menu */}
       <div
         data-testid="mobile-drawer"
-        className={`fixed inset-0 z-50 lg:hidden overflow-hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-50 lg:hidden overflow-hidden transition-opacity duration-300 ${
           isMobileMenuOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
@@ -228,7 +228,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="min-h-[44px] flex items-center justify-between px-3.5 rounded text-[14px] font-medium text-[#252725] hover:bg-[#FBFAF7] hover:border hover:border-[#DFDDD6] transition-all"
+                  className="min-h-[44px] flex items-center justify-between px-3.5 rounded text-[14px] font-medium text-[#252725] hover:bg-[#FBFAF7] hover:border hover:border-[#DFDDD6] transition-colors duration-150"
                 >
                   <span>{link.label}</span>
                   <ChevronRight className="w-4 h-4 text-[#777A74]" />
@@ -242,7 +242,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             {/* Phone link */}
             <a
               href={`tel:${businessConfig.phoneRaw}`}
-              className="min-h-[44px] flex items-center justify-center gap-2 px-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] font-medium text-[13px] hover:border-[#252725] transition-colors"
+              className="min-h-[44px] flex items-center justify-center gap-2 px-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] font-medium text-[13px] hover:border-[#252725] transition-colors duration-150"
             >
               <Phone className="w-4 h-4 text-[#788173]" />
               <span>{businessConfig.phone}</span>
@@ -254,7 +254,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 href={businessConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[42px] flex items-center justify-center gap-2 px-3 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] font-medium text-xs hover:border-[#252725] transition-colors"
+                className="min-h-[44px] flex items-center justify-center gap-2 px-3 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] font-medium text-xs hover:border-[#252725] transition-colors duration-150"
               >
                 <MessageCircle className="w-4 h-4 text-[#788173]" />
                 <span>WhatsApp</span>
@@ -263,7 +263,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
                 href={businessConfig.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[42px] flex items-center justify-center gap-2 px-3 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] font-medium text-xs hover:border-[#252725] transition-colors"
+                className="min-h-[44px] flex items-center justify-center gap-2 px-3 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] font-medium text-xs hover:border-[#252725] transition-colors duration-150"
               >
                 <Send className="w-3.5 h-3.5 text-[#788173]" />
                 <span>Telegram</span>
@@ -274,7 +274,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <button
               type="button"
               onClick={handleCtaClick}
-              className="min-h-[46px] w-full flex items-center justify-center gap-2 px-4 rounded bg-[#252725] text-[#FBFAF7] font-medium text-[13px] uppercase tracking-wider hover:bg-[#383B38] active:scale-[0.99] transition-all"
+              className="min-h-[48px] w-full flex items-center justify-center gap-2 px-4 rounded bg-[#252725] text-[#FBFAF7] font-medium text-[13px] uppercase tracking-wider hover:bg-[#383B38] active:scale-[0.98] transition-colors duration-150"
             >
               <span>Вызвать на замер</span>
               <ArrowUpRight className="w-4 h-4 text-[#A68C70]" />

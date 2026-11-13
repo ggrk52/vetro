@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
 
           {/* Column 2: Constructions Navigation */}
           <div>
-            <h4 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#A68C70] mb-4 border-l-2 border-[#788173] pl-2.5">
+            <h4 className="text-[11px] font-mono text-[#A68C70] mb-4 border-l-2 border-[#788173] pl-2.5">
               Конструкции
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px]">
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Services & Standards */}
           <div>
-            <h4 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#A68C70] mb-4 border-l-2 border-[#788173] pl-2.5">
+            <h4 className="text-[11px] font-mono text-[#A68C70] mb-4 border-l-2 border-[#788173] pl-2.5">
               Стандарты VETRO
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px] text-white/60">
@@ -98,7 +98,7 @@ export const Footer: React.FC = () => {
 
           {/* Column 4: Contacts & Working Hours */}
           <div className="space-y-4">
-            <h4 className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#A68C70] mb-4 border-l-2 border-[#788173] pl-2.5">
+            <h4 className="text-[11px] font-mono text-[#A68C70] mb-4 border-l-2 border-[#788173] pl-2.5">
               Прямая связь
             </h4>
 
@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
                 href={businessConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider transition-transform active:scale-[0.98]"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-colors duration-150 active:scale-[0.98] min-h-[40px]"
               >
                 <MessageCircle className="size-3.5 text-[#788173]" />
                 <span>WhatsApp</span>
@@ -143,7 +143,7 @@ export const Footer: React.FC = () => {
                 href={businessConfig.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono uppercase tracking-wider transition-transform active:scale-[0.98]"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-colors duration-150 active:scale-[0.98] min-h-[40px]"
               >
                 <Send className="size-3.5 text-[#788173]" />
                 <span>Telegram</span>
@@ -169,7 +169,7 @@ export const Footer: React.FC = () => {
               type="button"
               onClick={scrollToTop}
               aria-label="Вернуться наверх страницы"
-              className="size-9 rounded bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-transform active:scale-95"
+              className="size-9 rounded bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-150 active:scale-[0.98]"
             >
               <ArrowUp className="size-4" />
             </button>

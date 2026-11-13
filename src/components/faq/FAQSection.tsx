@@ -86,7 +86,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenMeasurementModal }
               <div
                 key={idx}
                 data-testid="faq-item"
-                className="bg-[#F4F2EC] rounded border border-[#DFDDD6] hover:border-[#252725] transition-all overflow-hidden"
+                className="bg-[#F4F2EC] rounded border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 overflow-hidden"
               >
                 <button
                   type="button"

@@ -16,31 +16,31 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
     {
       step: '01',
       title: 'Обсуждение задачи',
-      time: '15 МИНУТ',
+      time: '15 минут',
       description: 'Выяснение пожеланий, изучение визуализаций или дизайн-проекта. Предварительный расчет стоимости и консультация инженера.',
     },
     {
       step: '02',
       title: 'Замер и 3D-проектирование',
-      time: 'В ТЕЧЕНИЕ 24 ЧАСОВ',
+      time: 'В течение 24 часов',
       description: 'Выезд инженера с лазерным 3D-сканером и чемоданом реальных образцов стекла и фурнитуры. Точная фиксация разуклонки и уклонов стен.',
     },
     {
       step: '03',
       title: 'Согласование решения',
-      time: '1 ДЕНЬ',
+      time: '1 день',
       description: 'Утверждение производственных чертежей, узлов примыкания и фурнитуры. Фиксация итоговой сметы в официальном договоре.',
     },
     {
       step: '04',
       title: 'Изготовление на ЧПУ',
-      time: 'ОТ 5 ДНЕЙ',
+      time: 'От 5 дней',
       description: 'Раскрой стекла 8–10 мм, полировка еврокромки, вырезы под петли и термическая закалка по ГОСТ 30698-2014 в цеху VETRO в Москве.',
     },
     {
       step: '05',
       title: 'Чистовой монтаж и гидротест',
-      time: '3–4 ЧАСА',
+      time: '3–4 часа',
       description: 'Установка штатными сертифицированными монтажниками, проверка притвора, опрессовка швов водой и подписание акта с гарантией.',
     },
   ];
@@ -79,8 +79,8 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
         {/* Section Heading: Steps */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
-              ПРОЦЕСС РАБОТЫ / 01 — 05
+            <span className="font-mono text-[11px] text-[#788173] block mb-2">
+              Процесс работы · 01–05
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
               Архитектурный процесс.<br />
@@ -105,7 +105,7 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
                   <span className="font-mono text-2xl font-bold text-[#252725] group-hover:text-[#788173] transition-colors tabular-nums">
                     {item.step}
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-[2px] bg-[#F4F2EC] text-[#788173] border border-[#DFDDD6] tabular-nums">
+                  <span className="font-mono text-[9px] px-2 py-0.5 rounded bg-[#F4F2EC] text-[#788173] border border-[#DFDDD6] tabular-nums">
                     {item.time}
                   </span>
                 </div>
@@ -119,7 +119,7 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
               </div>
 
               <div className="pt-3 border-t border-[#DFDDD6]/70 mt-4 flex items-center justify-between text-[#777A74]">
-                <span className="font-mono text-[9px] tracking-wider uppercase">VETRO STEP</span>
+                <span className="font-mono text-[9px]">Этап VETRO</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#788173] group-hover:text-[#252725] transition-colors" />
               </div>
             </div>
@@ -127,12 +127,12 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
         </div>
 
         {/* Section Heading: Guarantees */}
-        <div className="flex items-center justify-between border-b border-[#DFDDD6] pb-3 mb-8 text-[11px] font-mono uppercase tracking-[0.16em] text-[#777A74]">
+        <div className="flex items-center justify-between border-b border-[#DFDDD6] pb-3 mb-8 text-[11px] font-mono text-[#777A74]">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-[#788173] rounded-none rotate-45" />
-            ГАРАНТИЙНЫЕ ОБЯЗАТЕЛЬСТВА СТУДИИ VETRO
+            Гарантийные обязательства студии VETRO
           </span>
-          <span className="hidden sm:inline-block">ОФИЦИАЛЬНЫЙ СЕРТИФИКАТ И ДОГОВОР</span>
+          <span className="hidden sm:inline-block">Официальный сертификат и договор</span>
         </div>
 
         {/* 3 Guarantees Cards */}
@@ -157,7 +157,7 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
                   <h3 className="text-base font-semibold text-[#252725] mb-1">
                     {w.title}
                   </h3>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#788173] block mb-3">
+                  <span className="font-mono text-[10px] text-[#788173] block mb-3">
                     {w.subtitle}
                   </span>
 

@@ -57,9 +57,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-8 border-b border-white/15">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-[2px] bg-white/10 text-[#A68C70] font-mono text-[10px] uppercase tracking-[0.16em] mb-3 border border-white/10">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/10 text-[#A68C70] font-mono text-[10px] mb-3 border border-white/10">
               <span className="w-1.5 h-1.5 bg-[#A68C70] rounded-none rotate-45" />
-              <span>ФИНАЛЬНЫЙ CTA · VETRO ATELIER</span>
+              <span>Консультация · VETRO Atelier</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#FBFAF7] tracking-tight leading-[1.06] text-balance">
               Создадим решение<br />
@@ -78,8 +78,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
           {/* Left: Lead Consultation Form */}
           <div className="lg:col-span-7 bg-[#1E201E] border border-white/15 rounded p-6 sm:p-8">
             <div className="mb-6">
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#A68C70] block mb-1">
-                ФОРМА ЗАЯВКИ НА ПРОЕКТ
+              <span className="font-mono text-[10px] text-[#A68C70] block mb-1">
+                Заявка на проект
               </span>
               <h3 className="text-xl sm:text-2xl font-serif text-[#FBFAF7]">
                 Обсудить проект с ведущим инженером
@@ -190,7 +190,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
                     required
-                    className="mt-0.5 rounded-[2px] bg-[#252725] border-white/20 text-[#788173] focus:ring-0"
+                    className="mt-0.5 rounded bg-[#252725] border-white/20 text-[#788173] focus:ring-0"
                   />
                   <label htmlFor="contact-agreement" className="text-[11px] text-white/60 leading-tight">
                     Я соглашаюсь на обработку персональных данных в соответствии с политикой конфиденциальности студии VETRO.
@@ -201,7 +201,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                   <button
                     type="submit"
                     disabled={isSubmitting || !agreed}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded bg-[#FBFAF7] hover:bg-white text-[#252725] font-medium text-xs uppercase tracking-wider transition-transform duration-120 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 min-h-[44px]"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded bg-[#FBFAF7] hover:bg-white text-[#252725] font-medium text-xs transition-colors duration-150 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 min-h-[44px]"
                   >
                     {isSubmitting ? (
                       <span>Отправка...</span>
@@ -317,7 +317,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                 <button
                   type="button"
                   onClick={onOpenMeasurementModal}
-                  className="w-full py-3 px-4 rounded font-medium text-[#FBFAF7] bg-white/10 hover:bg-white/20 border border-white/15 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-3 px-4 rounded font-medium text-[#FBFAF7] bg-white/10 hover:bg-white/20 border border-white/15 text-xs flex items-center justify-center gap-2 transition-colors duration-150 active:scale-[0.98] min-h-[44px]"
                 >
                   <Ruler className="w-3.5 h-3.5 text-[#A68C70]" />
                   <span>Вызвать инженера на 3D-замер</span>
@@ -327,19 +327,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
 
             {/* Geography & Cities Cloud */}
             <div className="bg-[#1E201E] border border-white/15 rounded p-5 space-y-3">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#A68C70] block">
-                РЕГУЛЯРНЫЕ ВЫЕЗДЫ В ГОРОДА ПОДМОСКОВЬЯ:
+              <span className="text-[11px] font-mono text-[#A68C70] block">
+                Регулярные выезды по Москве и городам Подмосковья:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {keyCities.map((city) => (
                   <span
                     key={city}
-                    className="px-2.5 py-0.5 rounded-[2px] bg-[#252725] border border-white/10 text-xs text-white/80 font-mono"
+                    className="px-2.5 py-0.5 rounded bg-[#252725] border border-white/10 text-xs text-white/80 font-mono"
                   >
                     {city}
                   </span>
                 ))}
-                <span className="px-2.5 py-0.5 rounded-[2px] bg-white/5 text-[11px] font-mono text-white/50">
+                <span className="px-2.5 py-0.5 rounded bg-white/5 text-[11px] font-mono text-white/50">
                   + коттеджные поселки до 70 км от МКАД
                 </span>
               </div>

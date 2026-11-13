@@ -107,10 +107,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
   };
 
   const metaSpecs = [
-    { num: '01', label: 'ЛАЗЕРНЫЙ 3D-ЗАМЕР', val: 'Точность до 1 мм' },
-    { num: '02', label: 'ЗАКАЛЕННОЕ СТЕКЛО', val: '8–10 мм ГОСТ 30698' },
-    { num: '03', label: 'ЧПУ ОБРАБОТКА', val: 'Собственный цех от 5 дней' },
-    { num: '04', label: 'ГАРАНТИЯ СТУДИИ', val: 'Официальный договор' },
+    { num: '01', label: 'Лазерный 3D-замер', val: 'Точность до 1 мм' },
+    { num: '02', label: 'Закаленное стекло', val: '8–10 мм ГОСТ 30698' },
+    { num: '03', label: 'ЧПУ-обработка', val: 'Собственный цех от 5 дней' },
+    { num: '04', label: 'Гарантия студии', val: 'Официальный договор' },
   ];
 
   return (
@@ -118,13 +118,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Architectural Subtitle Bar */}
-        <div className="flex items-center justify-between border-b border-[#DFDDD6] pb-3 mb-6 sm:mb-8 text-[11px] font-mono uppercase tracking-[0.15em] text-[#777A74]">
+        <div className="flex items-center justify-between border-b border-[#DFDDD6] pb-3 mb-6 sm:mb-8 text-xs font-mono text-[#777A74]">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-[#788173] rounded-none rotate-45" />
-            VETRO · ARCHITECTURAL GLASS STUDIO
+            Vetro · Architectural Glass Studio
           </span>
-          <span className="hidden sm:inline-block tracking-[0.18em]">
-            МОСКВА И МОСКОВСКАЯ ОБЛАСТЬ
+          <span className="hidden sm:inline-block">
+            Москва и Московская область
           </span>
         </div>
 
@@ -133,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
           {/* Left Column: Heading, Positioning, Dual CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-4 rounded-[2px] border border-[#DFDDD6] bg-[#FBFAF7] text-[11px] font-mono tracking-[0.14em] uppercase text-[#777A74]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded border border-[#DFDDD6] bg-[#FBFAF7] text-xs text-[#5E615B]">
               <Compass className="w-3.5 h-3.5 text-[#788173]" />
               <span>Индивидуальное проектирование</span>
             </div>
@@ -153,17 +153,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
               <button
                 type="button"
                 onClick={onOpenMeasurementModal}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded font-medium text-xs sm:text-sm uppercase tracking-[0.06em] text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] border border-[#252725] transition-transform duration-150 active:scale-[0.98] min-h-[46px]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-medium text-xs sm:text-sm text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] border border-[#252725] transition-colors duration-150 active:scale-[0.98] min-h-[48px]"
               >
                 <span>Обсудить проект</span>
-                <span className="text-[10px] text-[#A68C70] tracking-wider uppercase border-l border-white/20 pl-2">Заказать замер</span>
+                <span className="text-[11px] text-[#A68C70] border-l border-white/20 pl-2">Заказать замер</span>
                 <ArrowUpRight className="size-4 text-[#A68C70]" />
               </button>
 
               <a
                 href="#gallery"
                 onClick={handleScrollToGallery}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded font-medium text-xs sm:text-sm uppercase tracking-[0.06em] text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] transition-transform duration-150 active:scale-[0.98] min-h-[46px]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-medium text-xs sm:text-sm text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] transition-colors duration-150 active:scale-[0.98] min-h-[48px]"
               >
                 <span>Смотреть наши работы</span>
                 <ArrowDown className="size-4 text-[#777A74]" />
@@ -172,7 +172,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
               <a
                 href="#calculator"
                 onClick={handleScrollToCalculator}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-mono uppercase tracking-wider text-[#777A74] hover:text-[#252725] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-mono text-[#777A74] hover:text-[#252725] transition-colors"
               >
                 <span>Рассчитать стоимость →</span>
               </a>
@@ -182,7 +182,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-5 border-t border-[#DFDDD6]">
               {metaSpecs.map((spec, idx) => (
                 <div key={idx} className="flex flex-col">
-                  <span className="font-mono text-[10px] text-[#788173] uppercase tracking-wider tabular-nums">
+                  <span className="font-mono text-[11px] text-[#788173] tabular-nums">
                     {spec.num} · {spec.label}
                   </span>
                   <span className="text-xs sm:text-[13px] font-medium text-[#252725] mt-0.5 tabular-nums">
@@ -207,7 +207,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
                       key={obj.id}
                       type="button"
                       onClick={() => setSelectedIndex(idx)}
-                      className={`py-1.5 px-1.5 rounded-[2px] text-[10px] font-mono uppercase tracking-wider transition-all duration-200 text-center truncate ${
+                      className={`py-1.5 px-2 rounded text-xs font-mono transition-colors duration-150 text-center truncate ${
                         isActive
                           ? 'bg-[#252725] text-[#FBFAF7] font-medium'
                           : 'text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
@@ -226,10 +226,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
                     key={obj.id}
                     src={obj.image}
                     alt={obj.alt}
-                    className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ease-out ${
+                    className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 ease-out ${
                       idx === selectedIndex
                         ? 'opacity-100 scale-100'
-                        : 'opacity-0 scale-102 pointer-events-none'
+                        : 'opacity-0 pointer-events-none'
                     }`}
                     loading={idx === 0 ? 'eager' : 'lazy'}
                     width="600"
@@ -241,11 +241,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
                 <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/80 via-transparent to-[#252725]/20 pointer-events-none" />
 
                 {/* Top Badges */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[#FBFAF7] font-mono text-[10px] tracking-wider pointer-events-none z-10">
-                  <span className="px-2 py-0.5 rounded-[2px] bg-[#252725]/85 backdrop-blur-sm border border-white/10 uppercase">
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[#FBFAF7] font-mono text-[10px] pointer-events-none z-10">
+                  <span className="px-2.5 py-1 rounded bg-[#252725]/85 backdrop-blur-sm border border-white/10">
                     {currentObj.badge}
                   </span>
-                  <span className="px-2 py-0.5 rounded-[2px] bg-[#252725]/85 backdrop-blur-sm border border-white/10 text-[#FBFAF7]/90">
+                  <span className="px-2.5 py-1 rounded bg-[#252725]/85 backdrop-blur-sm border border-white/10 text-[#FBFAF7]/90">
                     {currentObj.glass}
                   </span>
                 </div>
@@ -253,7 +253,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
                 {/* Bottom Architectural Spec Card */}
                 <div className="absolute bottom-3 left-3 right-3 p-3 rounded bg-[#FBFAF7]/95 backdrop-blur-sm border border-[#DFDDD6] flex items-center justify-between z-10">
                   <div className="pr-2 min-w-0">
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-[#788173] block truncate">
+                    <span className="font-mono text-[10px] text-[#788173] block truncate">
                       {currentObj.feature}
                     </span>
                     <span className="text-xs sm:text-[13px] font-medium text-[#252725] block truncate mt-0.5">
@@ -265,7 +265,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
                     href={`https://wa.me/79268402345?text=${encodeURIComponent(currentObj.whatsappMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded font-mono text-[11px] font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-all"
+                    className="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded font-mono text-xs font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-colors duration-150"
                   >
                     <span>WhatsApp</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-[#A68C70]" />

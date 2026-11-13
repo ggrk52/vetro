@@ -129,7 +129,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
               />
               <div className="absolute top-3 left-3">
                 {item.badge && (
-                  <span className="px-2.5 py-1 rounded-[2px] bg-[#FBFAF7]/95 text-[#252725] font-mono text-[10px] uppercase tracking-wider font-medium shadow-none border border-[#DFDDD6]">
+                  <span className="px-2.5 py-1 rounded bg-[#FBFAF7]/95 text-[#252725] font-mono text-[10px] font-medium shadow-none border border-[#DFDDD6]">
                     {item.badge}
                   </span>
                 )}
@@ -138,7 +138,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                 <button
                   onClick={() => onOpenVideoModal && onOpenVideoModal(item.videoType!)}
                   type="button"
-                  className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-xs font-mono uppercase tracking-wider hover:bg-[#383B38] transition-transform active:scale-[0.97]"
+                  className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#252725] text-[#FBFAF7] text-xs font-mono hover:bg-[#383B38] transition-colors duration-150 active:scale-[0.98]"
                 >
                   <Video className="size-3.5 text-[#A68C70]" />
                   <span>Видео конструкции</span>
@@ -149,18 +149,18 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
             {/* Price & Summary */}
             <div className="p-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] flex items-center justify-between">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#777A74] block">Стоимость от:</span>
+                <span className="font-mono text-[10px] text-[#777A74] block">Стоимость от:</span>
                 <span className="text-xl sm:text-2xl font-bold text-[#252725] font-sans tabular-nums">{item.priceFormatted}</span>
               </div>
-              <span className="px-3 py-1 rounded-[2px] bg-[#F4F2EC] text-[#252725] font-mono text-xs border border-[#DFDDD6] tabular-nums">
+              <span className="px-3 py-1 rounded bg-[#F4F2EC] text-[#252725] font-mono text-xs border border-[#DFDDD6] tabular-nums">
                 {item.specs.productionTime}
               </span>
             </div>
 
             {/* Description */}
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#788173] block mb-1">
-                ОПИСАНИЕ КОНСТРУКЦИИ
+              <span className="font-mono text-[10px] text-[#788173] block mb-1">
+                Описание конструкции
               </span>
               <p className="text-sm text-[#777A74] leading-relaxed">
                 {item.subtitle}. Индивидуальный проект по вашим размерам с выездом инженера студии VETRO на 3D-замер.
@@ -217,7 +217,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                   {item.hardwareOptions.map((opt, idx) => (
                     <span 
                       key={idx}
-                      className="px-2.5 py-1 rounded-[2px] bg-[#FBFAF7] border border-[#DFDDD6] text-xs text-[#252725] font-mono"
+                      className="px-2.5 py-1 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-xs text-[#252725] font-mono"
                     >
                       {opt}
                     </span>
@@ -228,8 +228,8 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
 
             {/* Advantages List */}
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#788173] block mb-2">
-                ТЕХНИЧЕСКИЕ ОСОБЕННОСТИ
+              <span className="font-mono text-[10px] text-[#788173] block mb-2">
+                Технические особенности
               </span>
               <ul className="space-y-2">
                 {item.bullets.map((b, idx) => (
@@ -247,7 +247,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
             <button
               onClick={handleCalculate}
               type="button"
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider hover:bg-[#383B38] transition-all min-h-[44px]"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] text-[#FBFAF7] font-medium text-xs hover:bg-[#383B38] transition-colors duration-150 min-h-[44px]"
             >
               <Sliders className="w-3.5 h-3.5 text-[#A68C70]" />
               <span>Рассчитать эту модель</span>

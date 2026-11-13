@@ -23,7 +23,7 @@ export const VetroLogoMark: React.FC<{ size?: number; theme?: 'dark' | 'light'; 
       viewBox="0 0 44 44" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={`shrink-0 transition-transform duration-300 group-hover:scale-[1.02] ${className}`}
+      className={`shrink-0 ${className}`}
       aria-hidden="true"
     >
       {/* Crisp 4px architectural square frame */}

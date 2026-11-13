@@ -155,7 +155,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 key={v.id}
                 onClick={() => setActiveVideoId(v.id)}
                 type="button"
-                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded text-xs font-medium transition-all whitespace-nowrap min-h-[36px] border ${
+                className={`inline-flex items-center gap-2 px-4 py-1.5 rounded text-xs font-medium transition-colors duration-150 whitespace-nowrap min-h-[36px] border ${
                   isActive
                     ? 'bg-white text-vetro-graphite border-white font-semibold'
                     : 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10'
@@ -209,7 +209,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   onOpenMeasurementModal();
                 }}
                 type="button"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white hover:bg-vetro-ivory text-vetro-graphite font-semibold text-xs tracking-tight transition-colors min-h-[42px]"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white hover:bg-vetro-ivory text-vetro-graphite font-semibold text-xs tracking-tight transition-colors min-h-[44px]"
               >
                 <Ruler className="w-4 h-4" />
                 <span>Заказать такую же</span>
@@ -220,7 +220,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               href={`${businessConfig.whatsappUrl}&text=${encodeURIComponent(`Здравствуйте! Посмотрел видео «${currentVideo.title}». Хочу рассчитать стоимость такой конструкции.`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white/10 hover:bg-white/15 text-white font-medium text-xs tracking-tight transition-colors border border-white/15 min-h-[42px]"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white/10 hover:bg-white/15 text-white font-medium text-xs tracking-tight transition-colors border border-white/15 min-h-[44px]"
             >
               <MessageCircle className="w-4 h-4" />
               <span>WhatsApp</span>

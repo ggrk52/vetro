@@ -116,7 +116,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#DFDDD6] gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-3 rounded-[2px] border border-[#DFDDD6] bg-[#FBFAF7] text-[11px] font-mono tracking-[0.14em] uppercase text-[#777A74]">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 mb-3 rounded border border-[#DFDDD6] bg-[#FBFAF7] text-[11px] font-mono text-[#777A74]">
               <CalcIcon className="size-3.5 text-[#788173]" />
               <span>Интерактивный расчет</span>
             </div>
@@ -144,7 +144,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 key={s.num}
                 type="button"
                 onClick={() => setCurrentStep(s.num)}
-                className={`text-left p-2.5 sm:p-3 rounded border transition-all text-xs flex flex-col justify-between min-h-[58px] ${
+                className={`text-left p-2.5 sm:p-3 rounded border transition-colors duration-150 text-xs flex flex-col justify-between min-h-[56px] ${
                   isCurrent
                     ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
                     : isPassed
@@ -153,7 +153,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 }`}
               >
                 <div className="flex items-center justify-between w-full">
-                  <span className="font-mono text-[10px] uppercase tracking-wider">
+                  <span className="font-mono text-[10px] tabular-nums">
                     0{s.num}
                   </span>
                   {isPassed && <Check className="size-3 text-[#788173]" />}
@@ -194,7 +194,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         data-testid="cabin-type-option"
                         type="button"
                         onClick={() => handleSelectCabinType(typeKey)}
-                        className={`text-left p-5 rounded border transition-all duration-150 flex flex-col justify-between active:scale-[0.98] ${
+                        className={`text-left p-5 rounded border transition-colors duration-150 flex flex-col justify-between active:scale-[0.98] ${
                           isSelected
                             ? 'bg-[#F4F2EC] border-[#252725] ring-1 ring-[#252725]'
                             : 'bg-[#FBFAF7] border-[#DFDDD6] hover:border-[#252725]'
@@ -205,7 +205,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                             {item.title}
                           </span>
                           <div
-                            className={`size-5 rounded-[2px] border flex items-center justify-center shrink-0 ${
+                            className={`size-5 rounded border flex items-center justify-center shrink-0 ${
                               isSelected
                                 ? 'border-[#252725] bg-[#252725] text-[#FBFAF7]'
                                 : 'border-[#DFDDD6] bg-[#FBFAF7]'
@@ -214,7 +214,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                             {isSelected && <Check className="size-3.5" />}
                           </div>
                         </div>
-                        <span className="text-xs font-mono text-[#788173] mb-1 uppercase tracking-wider">
+                        <span className="text-xs font-mono text-[#788173] mb-1">
                           {item.subtitle}
                         </span>
                         <p className="text-xs text-[#777A74] leading-relaxed">
@@ -399,7 +399,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         key={glassKey}
                         type="button"
                         onClick={() => setCalcState((prev) => ({ ...prev, glassType: glassKey }))}
-                        className={`text-left p-5 rounded border transition-all duration-150 flex flex-col justify-between active:scale-[0.98] ${
+                        className={`text-left p-5 rounded border transition-colors duration-150 flex flex-col justify-between active:scale-[0.98] ${
                           isSelected
                             ? 'bg-[#F4F2EC] border-[#252725] ring-1 ring-[#252725]'
                             : 'bg-[#FBFAF7] border-[#DFDDD6] hover:border-[#252725]'
@@ -411,7 +411,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                               {item.name}
                             </span>
                             <span
-                              className={`text-[10px] font-mono px-2 py-0.5 rounded-[2px] border ${
+                              className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
                                 isSelected
                                   ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
                                   : 'bg-[#F4F2EC] text-[#777A74] border-[#DFDDD6]'
@@ -433,7 +433,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                             {isSelected ? 'Выбрано' : 'Нажмите для выбора'}
                           </span>
                           <div
-                            className={`size-5 rounded-[2px] border flex items-center justify-center ${
+                            className={`size-5 rounded border flex items-center justify-center ${
                               isSelected
                                 ? 'border-[#252725] bg-[#252725] text-[#FBFAF7]'
                                 : 'border-[#DFDDD6] bg-[#FBFAF7]'
@@ -473,7 +473,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         onClick={() =>
                           setCalcState((prev) => ({ ...prev, hardwareFinish: finishKey }))
                         }
-                        className={`text-left p-4 rounded border transition-all duration-150 flex flex-col justify-between active:scale-[0.98] ${
+                        className={`text-left p-4 rounded border transition-colors duration-150 flex flex-col justify-between active:scale-[0.98] ${
                           isSelected
                             ? 'bg-[#F4F2EC] border-[#252725] ring-1 ring-[#252725]'
                             : 'bg-[#FBFAF7] border-[#DFDDD6] hover:border-[#252725]'
@@ -691,7 +691,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         <button
                           type="button"
                           onClick={() => setPreferredMessenger('whatsapp')}
-                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-all active:scale-[0.98] ${
+                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-colors duration-150 active:scale-[0.98] ${
                             preferredMessenger === 'whatsapp'
                               ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
                               : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725]'
@@ -704,7 +704,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         <button
                           type="button"
                           onClick={() => setPreferredMessenger('telegram')}
-                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-all active:scale-[0.98] ${
+                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-colors duration-150 active:scale-[0.98] ${
                             preferredMessenger === 'telegram'
                               ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
                               : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725]'
@@ -717,7 +717,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         <button
                           type="button"
                           onClick={() => setPreferredMessenger('phone')}
-                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-all active:scale-[0.98] ${
+                          className={`flex items-center justify-center gap-1.5 py-2.5 rounded border text-xs font-semibold transition-colors duration-150 active:scale-[0.98] ${
                             preferredMessenger === 'phone'
                               ? 'bg-[#252725] text-[#FBFAF7] border-[#252725]'
                               : 'bg-[#FBFAF7] border-[#DFDDD6] text-[#777A74] hover:text-[#252725]'
@@ -733,7 +733,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <button
                         type="submit"
-                        className="flex-1 py-3 px-5 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs uppercase tracking-wider transition-transform duration-120 flex items-center justify-center gap-2 active:scale-[0.98]"
+                        className="flex-1 py-3 px-5 rounded font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] text-xs transition-colors duration-150 flex items-center justify-center gap-2 active:scale-[0.98]"
                       >
                         <ShieldCheck className="size-4 text-[#A68C70]" />
                         <span>Зафиксировать расчет и скидку</span>
@@ -743,7 +743,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         href={whatsappQuoteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-3 px-5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs uppercase tracking-wider transition-transform duration-120 flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
+                        className="py-3 px-5 rounded font-medium text-[#252725] bg-[#FBFAF7] hover:bg-[#E8E5DD] border border-[#DFDDD6] text-xs transition-colors duration-150 flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
                       >
                         <MessageCircle className="size-4 text-[#788173]" />
                         <span>В WhatsApp</span>
@@ -760,7 +760,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 type="button"
                 onClick={handlePrevStep}
                 disabled={currentStep === 1}
-                className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded text-xs uppercase tracking-wider font-mono transition-transform duration-120 active:scale-[0.98] border ${
+                className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded text-xs font-mono transition-colors duration-150 active:scale-[0.98] border ${
                   currentStep === 1
                     ? 'opacity-30 cursor-not-allowed text-[#777A74] border-transparent'
                     : 'text-[#252725] hover:bg-[#E8E5DD] bg-[#F4F2EC] border-[#DFDDD6]'
@@ -774,7 +774,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-transform duration-120 active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-colors duration-150 active:scale-[0.98]"
                 >
                   <span>Далее к шагу {currentStep + 1}</span>
                   <ChevronRight className="size-4 text-[#A68C70]" />
@@ -783,7 +783,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 <button
                   type="button"
                   onClick={onOpenMeasurementModal}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-transform duration-120 active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded text-xs font-medium text-[#FBFAF7] bg-[#252725] hover:bg-[#383B38] transition-colors duration-150 active:scale-[0.98]"
                 >
                   <Ruler className="size-4 text-[#A68C70]" />
                   <span>Вызвать инженера на замер</span>
@@ -797,10 +797,10 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
           <div className="lg:col-span-4 bg-[#FBFAF7] border border-[#DFDDD6] rounded p-6 shadow-none sticky top-24">
             
             <div className="flex items-center justify-between pb-3.5 border-b border-[#DFDDD6] mb-4">
-              <span className="text-[11px] font-mono font-medium text-[#788173] uppercase tracking-wider">
-                СМЕТА В РЕАЛЬНОМ ВРЕМЕНИ
+              <span className="text-[11px] font-mono font-medium text-[#788173]">
+                Смета в реальном времени
               </span>
-              <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-[2px] bg-[#252725] text-[#FBFAF7] text-[10px] font-mono">
+              <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#252725] text-[#FBFAF7] text-[10px] font-mono">
                 <span className="size-1.5 rounded-none rotate-45 bg-[#A68C70]" />
                 <span>LIVE</span>
               </div>
@@ -868,7 +868,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               href={whatsappQuoteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] text-[#FBFAF7] hover:bg-[#383B38] font-medium text-xs uppercase tracking-wider transition-transform duration-120 active:scale-[0.98]"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] text-[#FBFAF7] hover:bg-[#383B38] font-medium text-xs transition-colors duration-150 active:scale-[0.98]"
             >
               <MessageCircle className="size-4 text-[#788173]" />
               <span>Отправить расчет инженеру</span>

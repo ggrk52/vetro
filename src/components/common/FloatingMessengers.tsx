@@ -39,7 +39,7 @@ export const FloatingMessengers: React.FC = () => {
     >
       {/* Expanded Messenger Options */}
       <div
-        className={`flex flex-col items-end gap-2 mb-2.5 transition-all duration-200 origin-bottom-right ${
+        className={`flex flex-col items-end gap-2 mb-2.5 transition-[opacity,transform] duration-200 origin-bottom-right ${
           isOpen
             ? 'opacity-100 scale-100 pointer-events-auto translate-y-0'
             : 'opacity-0 scale-95 pointer-events-none translate-y-2'
@@ -51,7 +51,7 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm active:scale-[0.98]"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-colors duration-150 group shadow-none active:scale-[0.98]"
           aria-label="Написать в WhatsApp"
         >
           <span className="text-xs font-medium whitespace-nowrap">WhatsApp</span>
@@ -65,7 +65,7 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.telegramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm active:scale-[0.98]"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-colors duration-150 group shadow-none active:scale-[0.98]"
           aria-label="Написать в Telegram"
         >
           <span className="text-xs font-medium whitespace-nowrap">Telegram</span>
@@ -77,7 +77,7 @@ export const FloatingMessengers: React.FC = () => {
         {/* Direct Phone Call Option */}
         <a
           href={`tel:${businessConfig.phoneRaw}`}
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-all group shadow-sm active:scale-[0.98]"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-colors duration-150 group shadow-none active:scale-[0.98]"
           aria-label={`Позвонить в студию VETRO: ${businessConfig.phone}`}
         >
           <span className="text-xs font-medium whitespace-nowrap tabular-nums">Позвонить ({businessConfig.phone})</span>
