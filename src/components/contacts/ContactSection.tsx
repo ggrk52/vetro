@@ -276,7 +276,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
 
                 {/* Telegram */}
                 <a
-                  href={businessConfig.telegramUrl}
+                  href={businessConfig.telegramChannelUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3.5 p-3 rounded bg-[#252725] dark:bg-[#0F1B25] border border-white/10 dark:border-[#34434E] hover:border-white/30 dark:hover:border-[#B2E4DD] transition-colors group"
@@ -285,9 +285,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                     <Send className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-white/50 dark:text-[#B7C3CA] block uppercase">Telegram-канал и чат:</span>
+                    <span className="text-[10px] font-mono text-white/50 dark:text-[#B7C3CA] block uppercase">Telegram-канал · Примеры работ:</span>
                     <span className="font-semibold text-sm sm:text-base text-[#FBFAF7] dark:text-[#F1F2EF]">
-                      @{businessConfig.telegramUsername}
+                      @{businessConfig.telegramChannelUsername}
                     </span>
                   </div>
                 </a>

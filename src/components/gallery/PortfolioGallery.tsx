@@ -1,8 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { 
   ZoomIn, 
-  ArrowDown
+  ArrowDown,
+  Send,
+  ArrowUpRight
 } from 'lucide-react';
+import { businessConfig } from '../../data/businessConfig';
 import { 
   portfolioItems, 
   CabinCategory,
@@ -236,6 +239,33 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             </button>
           </div>
         )}
+
+        {/* Telegram Channel CTA Banner: More Live Examples */}
+        <div className="mt-8 p-6 sm:p-8 rounded bg-[#F4F2EC] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.14em] text-[#788173] dark:text-[#B2E4DD]">
+              <Send className="size-3.5" />
+              <span>Примеры наших работ · @{businessConfig.telegramChannelUsername}</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-serif text-[#252725] dark:text-[#F1F2EF] tracking-tight">
+              Свежие фото и видео с монтажей — в нашем Telegram-канале
+            </h3>
+            <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#B7C3CA] leading-relaxed">
+              Показываем готовые душевые кабины сразу после установки, сложные примыкания и обзоры фурнитуры BOHÉME без ретуши.
+            </p>
+          </div>
+
+          <a
+            href={businessConfig.telegramChannelUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] dark:bg-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs transition-colors duration-150 shrink-0 min-h-[44px] active:scale-[0.98]"
+          >
+            <Send className="size-3.5 text-[#A68C70] dark:text-[#102126]" />
+            <span>Смотреть примеры в Telegram</span>
+            <ArrowUpRight className="size-3.5 text-[#A68C70] dark:text-[#102126]" />
+          </a>
+        </div>
 
       </div>
 

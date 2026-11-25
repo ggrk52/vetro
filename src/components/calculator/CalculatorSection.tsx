@@ -583,6 +583,13 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                   </div>
 
                   <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6] dark:border-[#34434E]">
+                    <span className="text-[#777A74] dark:text-[#B7C3CA]">Площадь полотна:</span>
+                    <span className="font-mono text-[#252725] dark:text-[#B2E4DD] font-semibold tabular-nums">
+                      ~{pricing.areaSqm} м²
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6] dark:border-[#34434E]">
                     <span className="text-[#777A74] dark:text-[#B7C3CA]">Стекло:</span>
                     <strong className="text-[#252725] dark:text-[#F1F2EF] text-right font-medium">
                       {GLASS_METADATA[calcState.glassType].name} (8–10 мм закаленное)
@@ -730,7 +737,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                       </div>
                     </div>
 
-                    {/* Dual Action: Submit Form or Instant WhatsApp */}
+                    {/* Dual Action: Submit Form or Instant WhatsApp / Telegram */}
                     <div className="flex flex-col sm:flex-row gap-3 pt-2">
                       <button
                         type="submit"
@@ -740,15 +747,27 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                         <span>Зафиксировать расчет и скидку</span>
                       </button>
 
-                      <a
-                        href={whatsappQuoteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="py-3 px-5 rounded font-medium text-[#252725] dark:text-[#F1F2EF] bg-[#FBFAF7] dark:bg-transparent hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] border border-[#DFDDD6] dark:border-[#657881] dark:hover:border-[#B2E4DD] text-xs transition-colors duration-150 flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
-                      >
-                        <MessageCircle className="size-4 text-[#788173] dark:text-[#B2E4DD]" />
-                        <span>В WhatsApp</span>
-                      </a>
+                      <div className="flex gap-2 shrink-0">
+                        <a
+                          href={whatsappQuoteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 sm:flex-initial py-3 px-4 rounded font-medium text-[#252725] dark:text-[#F1F2EF] bg-[#FBFAF7] dark:bg-transparent hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] border border-[#DFDDD6] dark:border-[#657881] dark:hover:border-[#B2E4DD] text-xs transition-colors duration-150 flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
+                        >
+                          <MessageCircle className="size-4 text-[#788173] dark:text-[#B2E4DD]" />
+                          <span>WhatsApp</span>
+                        </a>
+                        <a
+                          href={businessConfig.telegramUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Написать в Telegram"
+                          className="flex-1 sm:flex-initial py-3 px-4 rounded font-medium text-[#252725] dark:text-[#F1F2EF] bg-[#FBFAF7] dark:bg-transparent hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] border border-[#DFDDD6] dark:border-[#657881] dark:hover:border-[#B2E4DD] text-xs transition-colors duration-150 flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
+                        >
+                          <Send className="size-3.5 text-[#0088cc] dark:text-[#B2E4DD]" />
+                          <span>Telegram</span>
+                        </a>
+                      </div>
                     </div>
                   </form>
                 )}
@@ -794,8 +813,8 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
 
           </div>
 
-          {/* Right Column: Live Price Breakdown Ticket (4 cols) */}
-          <div className="lg:col-span-4 bg-[#FBFAF7] dark:bg-[#14212B] dark-preview-glow border border-[#DFDDD6] dark:border-[#34434E] rounded p-6 shadow-none sticky top-24">
+          {/* Right Column: Live Price Breakdown Ticket (4 cols; hidden on mobile Step 5 to avoid duplicate summary card) */}
+          <div className={`${currentStep === 5 ? 'hidden lg:block ' : ''}lg:col-span-4 bg-[#FBFAF7] dark:bg-[#14212B] dark-preview-glow border border-[#DFDDD6] dark:border-[#34434E] rounded p-6 shadow-none sticky top-24`}>
             
             <div className="flex items-center justify-between pb-3.5 border-b border-[#DFDDD6] dark:border-[#34434E] mb-4">
               <span className="text-[11px] font-mono font-medium text-[#788173] dark:text-[#B2E4DD]">
