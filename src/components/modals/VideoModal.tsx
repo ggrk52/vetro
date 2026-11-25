@@ -118,19 +118,19 @@ export const VideoModal: React.FC<VideoModalProps> = ({
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-4xl bg-vetro-graphite rounded border border-white/10 shadow-2xl overflow-hidden flex flex-col my-auto"
+        className="relative w-full max-w-4xl bg-[#252725] dark:bg-[#101923] rounded border border-white/10 dark:border-[#34434E] shadow-2xl overflow-hidden flex flex-col my-auto"
       >
         {/* Top Header */}
-        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 bg-[#1E201E]">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10 dark:border-[#34434E] bg-[#1E201E] dark:bg-[#0D161F]">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded border border-white/15 bg-white/5 flex items-center justify-center text-white/80">
+            <div className="w-8 h-8 rounded border border-white/15 dark:border-[#34434E] bg-white/5 dark:bg-[#14212C] flex items-center justify-center text-white/80 dark:text-[#B2E4DD]">
               <Video className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm sm:text-base font-semibold text-white tracking-tight leading-tight font-sans">
+              <h3 className="text-sm sm:text-base font-semibold text-white dark:text-[#F1F2EF] tracking-tight leading-tight font-sans">
                 Видеообзор готовой работы
               </h3>
-              <p className="text-xs text-white/50">
+              <p className="text-xs text-white/50 dark:text-[#B7C3CA]">
                 Съемка на сданном объекте студии VETRO в Москве
               </p>
             </div>
@@ -140,14 +140,14 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             onClick={onClose}
             type="button"
             aria-label="Закрыть (Escape)"
-            className="p-2 rounded bg-white/5 hover:bg-white/15 text-white/80 hover:text-white transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center border border-white/10"
+            className="p-2 rounded bg-white/5 dark:bg-[#14212C] hover:bg-white/15 dark:hover:bg-[#1B2C36] text-white/80 dark:text-[#F1F2EF] hover:text-white transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center border border-white/10 dark:border-[#34434E] dark:hover:border-[#B2E4DD]"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Video Switcher Tabs */}
-        <div className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-[#1A1C1A] border-b border-white/10 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-[#1A1C1A] dark:bg-[#0D161F] border-b border-white/10 dark:border-[#34434E] overflow-x-auto no-scrollbar">
           {(Object.values(VIDEOS_DATA) as VideoInfo[]).map((v) => {
             const isActive = v.id === activeVideoId;
             return (
@@ -157,8 +157,8 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                 type="button"
                 className={`inline-flex items-center gap-2 px-4 py-1.5 rounded text-xs font-medium transition-colors duration-150 whitespace-nowrap min-h-[36px] border ${
                   isActive
-                    ? 'bg-white text-vetro-graphite border-white font-semibold'
-                    : 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10'
+                    ? 'bg-white dark:bg-[#B2E4DD] text-[#252725] dark:text-[#102126] border-white dark:border-[#B2E4DD] font-semibold'
+                    : 'bg-white/5 dark:bg-[#14212C] border-white/10 dark:border-[#34434E] text-white/70 dark:text-[#B7C3CA] hover:text-white dark:hover:text-[#F1F2EF] hover:bg-white/10 dark:hover:bg-[#1B2C36]'
                 }`}
               >
                 <Play className="w-3 h-3 fill-current" />
@@ -184,19 +184,19 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         </div>
 
         {/* Bottom Details & Conversion CTA */}
-        <div className="p-5 sm:p-6 bg-[#1E201E] border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="p-5 sm:p-6 bg-[#1E201E] dark:bg-[#0D161F] border-t border-white/10 dark:border-[#34434E] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1">
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/10 text-white/90 text-[11px] font-medium tracking-wide mb-1.5 border border-white/15">
-              <Sparkles className="w-3 h-3 text-vetro-stone" />
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/10 dark:bg-[#14212C] text-white/90 dark:text-[#B2E4DD] text-[11px] font-medium tracking-wide mb-1.5 border border-white/15 dark:border-[#34434E]">
+              <Sparkles className="w-3 h-3 text-[#D8D3C9] dark:text-[#B2E4DD]" />
               <span>{currentVideo.badge}</span>
             </div>
-            <h4 className="text-sm sm:text-base font-semibold text-white mb-1">
+            <h4 className="text-sm sm:text-base font-semibold text-white dark:text-[#F1F2EF] mb-1">
               {currentVideo.title}
             </h4>
-            <p className="text-xs text-white/60 mb-1.5 leading-relaxed">
+            <p className="text-xs text-white/60 dark:text-[#B7C3CA] mb-1.5 leading-relaxed">
               {currentVideo.description}
             </p>
-            <p className="text-[11px] font-mono text-white/40 tracking-wider">
+            <p className="text-[11px] font-mono text-white/40 dark:text-[#B2E4DD]/80 tracking-wider">
               {currentVideo.specs}
             </p>
           </div>
@@ -209,7 +209,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
                   onOpenMeasurementModal();
                 }}
                 type="button"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white hover:bg-vetro-ivory text-vetro-graphite font-semibold text-xs tracking-tight transition-colors min-h-[44px]"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white dark:bg-[#B2E4DD] hover:bg-[#F4F2EC] dark:hover:bg-[#D3F1EB] text-[#252725] dark:text-[#102126] font-semibold text-xs tracking-tight transition-colors min-h-[44px]"
               >
                 <Ruler className="w-4 h-4" />
                 <span>Заказать такую же</span>
@@ -220,7 +220,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               href={`${businessConfig.whatsappUrl}&text=${encodeURIComponent(`Здравствуйте! Посмотрел видео «${currentVideo.title}». Хочу рассчитать стоимость такой конструкции.`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white/10 hover:bg-white/15 text-white font-medium text-xs tracking-tight transition-colors border border-white/15 min-h-[44px]"
+              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-white/10 dark:bg-transparent hover:bg-white/15 dark:hover:bg-[#1B2C36] text-white dark:text-[#F1F2EF] font-medium text-xs tracking-tight transition-colors border border-white/15 dark:border-[#657881] dark:hover:border-[#B2E4DD] min-h-[44px]"
             >
               <MessageCircle className="w-4 h-4" />
               <span>WhatsApp</span>

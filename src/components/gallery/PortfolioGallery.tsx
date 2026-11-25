@@ -114,22 +114,22 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   const hasMore = visibleCount < filteredItems.length;
 
   return (
-    <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] text-[#252725] border-b border-[#DFDDD6]">
+    <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] border-b border-[#DFDDD6] dark:border-[#34434E]">
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] dark:text-[#B2E4DD] block mb-2">
               ПОРТФОЛИО СТУДИИ / 500+ РЕАЛИЗАЦИЙ
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] tracking-tight leading-[1.08] text-balance">
               Реализованные объекты.<br />
-              <span className="italic text-[#788173]">Чистая геометрия стекла.</span>
+              <span className="italic text-[#788173] dark:text-[#B2E4DD]">Чистая геометрия стекла.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
+          <p className="text-sm sm:text-base text-[#777A74] dark:text-[#B7C3CA] max-w-md leading-relaxed font-sans text-pretty">
             Реализованные проекты VETRO в интерьерах Москвы и Московской области. Чистая эстетика, отсутствие визуального шума и точность подгонки в каждый миллиметр.
           </p>
         </div>
@@ -146,13 +146,13 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                 type="button"
                 className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded font-mono text-xs transition-colors duration-150 min-h-[32px] shrink-0 border active:scale-[0.98] ${
                   isActive
-                    ? 'bg-[#252725] border-[#252725] text-[#FBFAF7] font-medium'
-                    : 'bg-[#F4F2EC] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
+                    ? 'bg-[#252725] dark:bg-[#B2E4DD] border-[#252725] dark:border-[#B2E4DD] text-[#FBFAF7] dark:text-[#122128] font-medium dark:font-semibold'
+                    : 'bg-[#F4F2EC] dark:bg-[#14212C] border-[#DFDDD6] dark:border-[#34434E] text-[#777A74] dark:text-[#B7C3CA] hover:text-[#252725] dark:hover:text-[#F1F2EF] hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36]'
                 }`}
               >
                 <span>{tab.label}</span>
                 <span className={`text-[10px] px-1.5 py-0.5 rounded tabular-nums ${
-                  isActive ? 'bg-[#788173] text-[#FBFAF7]' : 'bg-[#DFDDD6] text-[#252725]'
+                  isActive ? 'bg-[#788173] dark:bg-[#102126]/15 text-[#FBFAF7] dark:text-[#102126]' : 'bg-[#DFDDD6] dark:bg-[#0F1B25] text-[#252725] dark:text-[#B2E4DD]'
                 }`}>
                   {count}
                 </span>
@@ -168,10 +168,10 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
               key={item.id}
               data-testid="portfolio-card"
               onClick={() => handleOpenPhoto(index)}
-              className="group relative bg-[#F4F2EC] rounded overflow-hidden border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 cursor-pointer flex flex-col active:scale-[0.99]"
+              className="group relative bg-[#F4F2EC] dark:bg-[#14212C] rounded overflow-hidden border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 cursor-pointer flex flex-col active:scale-[0.99]"
             >
               {/* Image Container with 3:4 Aspect Ratio */}
-              <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E5DD]">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#E8E5DD] dark:bg-[#0E1822]">
                 <img
                   src={item.imageSrc}
                   alt={item.title}
@@ -180,37 +180,37 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                 />
                 
                 {/* Architectural Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/85 via-transparent to-[#252725]/20 opacity-70 group-hover:opacity-90 transition-opacity duration-150" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/85 dark:from-[#0E1822]/90 via-transparent to-[#252725]/20 dark:to-[#0E1822]/30 opacity-70 group-hover:opacity-90 transition-opacity duration-150" />
 
                 {/* Top Badge: Category */}
                 <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] backdrop-blur-sm">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FBFAF7]/95 dark:bg-[#0D161F]/90 text-[#252725] dark:text-[#B2E4DD] border border-[#DFDDD6] dark:border-[#34434E] backdrop-blur-sm">
                     {getCabinCategoryLabel(item.category)}
                   </span>
 
-                  <span className="size-7 rounded bg-[#FBFAF7]/95 text-[#252725] group-hover:bg-[#252725] group-hover:text-[#FBFAF7] flex items-center justify-center transition-colors duration-150">
+                  <span className="size-7 rounded bg-[#FBFAF7]/95 dark:bg-[#0D161F]/90 text-[#252725] dark:text-[#F1F2EF] group-hover:bg-[#252725] dark:group-hover:bg-[#B2E4DD] group-hover:text-[#FBFAF7] dark:group-hover:text-[#102126] dark:border dark:border-[#34434E] flex items-center justify-center transition-colors duration-150">
                     <ZoomIn className="size-3.5" />
                   </span>
                 </div>
 
                 {/* Bottom Overlay Content */}
                 <div className="absolute bottom-2.5 left-2.5 right-2.5 flex flex-col gap-1">
-                  <h3 className="text-xs sm:text-[13px] font-medium text-[#FBFAF7] line-clamp-1">
+                  <h3 className="text-xs sm:text-[13px] font-medium text-[#FBFAF7] dark:text-[#F1F2EF] line-clamp-1">
                     {item.title}
                   </h3>
 
                   {/* Spec Chips */}
                   <div className="flex flex-wrap items-center gap-1 text-[9px] font-mono">
-                    <span className="px-1.5 py-0.5 rounded bg-[#252725]/80 text-[#FBFAF7]/90 backdrop-blur-sm border border-white/10 line-clamp-1">
+                    <span className="px-1.5 py-0.5 rounded bg-[#252725]/80 dark:bg-[#0D161F]/90 text-[#FBFAF7]/90 dark:text-[#D8E5E9] backdrop-blur-sm border border-white/10 dark:border-[#34434E] line-clamp-1">
                       {item.glassType}
                     </span>
-                    <span className="px-1.5 py-0.5 rounded bg-[#252725]/80 text-[#A68C70] backdrop-blur-sm border border-white/10 line-clamp-1">
+                    <span className="px-1.5 py-0.5 rounded bg-[#252725]/80 dark:bg-[#0D161F]/90 text-[#A68C70] dark:text-[#B2E4DD] backdrop-blur-sm border border-white/10 dark:border-[#34434E] line-clamp-1">
                       {item.hardwareFinish}
                     </span>
                   </div>
 
                   {item.approxDimensions && (
-                    <span className="text-[9px] font-mono text-[#FBFAF7]/70">
+                    <span className="text-[9px] font-mono text-[#FBFAF7]/70 dark:text-[#B7C3CA]">
                       Размер: {item.approxDimensions}
                     </span>
                   )}
@@ -226,13 +226,13 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             <button
               onClick={handleLoadMore}
               type="button"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded bg-[#252725] dark:bg-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
             >
               <span>Показать еще объекты</span>
-              <span className="text-xs font-mono text-[#A68C70]">
+              <span className="text-xs font-mono text-[#A68C70] dark:text-[#102126]/80">
                 ({filteredItems.length - visibleCount})
               </span>
-              <ArrowDown className="w-3.5 h-3.5 text-[#FBFAF7]" />
+              <ArrowDown className="w-3.5 h-3.5 text-[#FBFAF7] dark:text-[#102126]" />
             </button>
           </div>
         )}

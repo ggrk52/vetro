@@ -73,22 +73,22 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
   ];
 
   return (
-    <section id="workflow" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] text-[#252725] border-b border-[#DFDDD6]">
+    <section id="workflow" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] border-b border-[#DFDDD6] dark:border-[#34434E]">
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading: Steps */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
           <div>
-            <span className="font-mono text-[11px] text-[#788173] block mb-2">
+            <span className="font-mono text-[11px] text-[#788173] dark:text-[#B2E4DD] block mb-2">
               Процесс работы · 01–05
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] tracking-tight leading-[1.08] text-balance">
               Архитектурный процесс.<br />
-              <span className="italic text-[#788173]">От первой идеи до финального гидротеста.</span>
+              <span className="italic text-[#788173] dark:text-[#B2E4DD]">От первой идеи до финального гидротеста.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
+          <p className="text-sm sm:text-base text-[#777A74] dark:text-[#B7C3CA] max-w-md leading-relaxed font-sans text-pretty">
             Фиксированная смета и прозрачные сроки в официальном договоре. Итоговая стоимость после замера не изменится ни на рубль.
           </p>
         </div>
@@ -98,38 +98,38 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
           {steps.map((item, idx) => (
             <div
               key={idx}
-              className="group p-5 rounded bg-[#FBFAF7] border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 flex flex-col justify-between min-h-[220px]"
+              className="group p-5 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 flex flex-col justify-between min-h-[220px]"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-2xl font-bold text-[#252725] group-hover:text-[#788173] transition-colors tabular-nums">
+                  <span className="font-mono text-2xl font-bold text-[#252725] dark:text-[#F1F2EF] group-hover:text-[#788173] dark:group-hover:text-[#B2E4DD] transition-colors tabular-nums">
                     {item.step}
                   </span>
-                  <span className="font-mono text-[9px] px-2 py-0.5 rounded bg-[#F4F2EC] text-[#788173] border border-[#DFDDD6] tabular-nums">
+                  <span className="font-mono text-[9px] px-2 py-0.5 rounded bg-[#F4F2EC] dark:bg-[#0F1B25] text-[#788173] dark:text-[#B2E4DD] border border-[#DFDDD6] dark:border-[#34434E] tabular-nums">
                     {item.time}
                   </span>
                 </div>
 
-                <h3 className="text-sm font-semibold text-[#252725] mb-2 leading-snug">
+                <h3 className="text-sm font-semibold text-[#252725] dark:text-[#F1F2EF] mb-2 leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-xs text-[#777A74] leading-relaxed">
+                <p className="text-xs text-[#777A74] dark:text-[#B7C3CA] leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#DFDDD6]/70 mt-4 flex items-center justify-between text-[#777A74]">
+              <div className="pt-3 border-t border-[#DFDDD6]/70 dark:border-[#34434E] mt-4 flex items-center justify-between text-[#777A74] dark:text-[#B7C3CA]">
                 <span className="font-mono text-[9px]">Этап VETRO</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#788173] group-hover:text-[#252725] transition-colors" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] group-hover:text-[#252725] dark:group-hover:text-[#D3F1EB] transition-colors" />
               </div>
             </div>
           ))}
         </div>
 
         {/* Section Heading: Guarantees */}
-        <div className="flex items-center justify-between border-b border-[#DFDDD6] pb-3 mb-8 text-[11px] font-mono text-[#777A74]">
+        <div className="flex items-center justify-between border-b border-[#DFDDD6] dark:border-[#34434E] pb-3 mb-8 text-[11px] font-mono text-[#777A74] dark:text-[#B7C3CA]">
           <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-[#788173] rounded-none rotate-45" />
+            <span className="w-1.5 h-1.5 bg-[#788173] dark:bg-[#B2E4DD] rounded-none rotate-45" />
             Гарантийные обязательства студии VETRO
           </span>
           <span className="hidden sm:inline-block">Официальный сертификат и договор</span>
@@ -142,26 +142,26 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
             return (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded bg-[#FBFAF7] border border-[#DFDDD6] flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-2xl sm:text-3xl font-bold font-mono text-[#252725]">
+                    <span className="text-2xl sm:text-3xl font-bold font-mono text-[#252725] dark:text-[#B2E4DD]">
                       {w.years}
                     </span>
-                    <div className="w-9 h-9 rounded bg-[#F4F2EC] border border-[#DFDDD6] text-[#252725] flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-[#788173]" />
+                    <div className="w-9 h-9 rounded bg-[#F4F2EC] dark:bg-[#0F1B25] border border-[#DFDDD6] dark:border-[#34434E] text-[#252725] dark:text-[#B2E4DD] flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-[#788173] dark:text-[#B2E4DD]" />
                     </div>
                   </div>
 
-                  <h3 className="text-base font-semibold text-[#252725] mb-1">
+                  <h3 className="text-base font-semibold text-[#252725] dark:text-[#F1F2EF] mb-1">
                     {w.title}
                   </h3>
-                  <span className="font-mono text-[10px] text-[#788173] block mb-3">
+                  <span className="font-mono text-[10px] text-[#788173] dark:text-[#B2E4DD] block mb-3">
                     {w.subtitle}
                   </span>
 
-                  <p className="text-xs sm:text-[13px] text-[#777A74] leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-[#777A74] dark:text-[#B7C3CA] leading-relaxed">
                     {w.desc}
                   </p>
                 </div>

@@ -153,22 +153,22 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] text-[#252725] border-b border-[#DFDDD6]">
+    <section className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] border-b border-[#DFDDD6] dark:border-[#34434E]">
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] dark:text-[#B2E4DD] block mb-2">
               КОЛЛЕКЦИЯ ФУРНИТУРЫ / BOHEME MILANO
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] tracking-tight leading-[1.08] text-balance">
               Фурнитура Boheme.<br />
-              <span className="italic text-[#788173]">Итальянская латунь и сталь AISI 304.</span>
+              <span className="italic text-[#788173] dark:text-[#B2E4DD]">Итальянская латунь и сталь AISI 304.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
+          <p className="text-sm sm:text-base text-[#777A74] dark:text-[#B7C3CA] max-w-md leading-relaxed font-sans text-pretty">
             Монолитная нержавеющая сталь, прецизионные петли с доводчиком ±25° и PVD-напыление с официальной гарантией до 10 лет.
           </p>
         </div>
@@ -176,10 +176,10 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
         {/* 7 Swatches Selector Strip */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-3 text-xs font-mono">
-            <span className="text-[#788173]">
+            <span className="text-[#788173] dark:text-[#B2E4DD]">
               Оттенки фурнитуры (7 вариантов):
             </span>
-            <span className="text-[#252725] font-semibold hidden sm:inline">
+            <span className="text-[#252725] dark:text-[#F1F2EF] font-semibold hidden sm:inline">
               Выбрано: {activeFinish.name}
             </span>
           </div>
@@ -194,28 +194,28 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
                   type="button"
                   className={`group relative flex flex-col items-center p-3 rounded border transition-colors duration-150 min-h-[48px] active:scale-[0.98] ${
                     isActive
-                      ? 'bg-[#252725] border-[#252725] text-[#FBFAF7]'
-                      : 'bg-[#F4F2EC] border-[#DFDDD6] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD]'
+                      ? 'bg-[#252725] dark:bg-[#B2E4DD] border-[#252725] dark:border-[#B2E4DD] text-[#FBFAF7] dark:text-[#122128]'
+                      : 'bg-[#F4F2EC] dark:bg-[#14212C] border-[#DFDDD6] dark:border-[#34434E] text-[#777A74] dark:text-[#B7C3CA] hover:text-[#252725] dark:hover:text-[#F1F2EF] hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36]'
                   }`}
                 >
                   {/* Swatch circle */}
                   <div className="relative mb-2">
                     <div 
                       className={`size-9 rounded-full border bg-gradient-to-tr ${finish.gradient} ${
-                        isActive ? 'border-[#A68C70] ring-1 ring-[#A68C70]' : 'border-black/10'
+                        isActive ? 'border-[#A68C70] dark:border-[#102126] ring-1 ring-[#A68C70] dark:ring-[#102126]' : 'border-black/10 dark:border-white/20'
                       }`}
                     />
                     {isActive && (
-                      <span className="absolute -top-1 -right-1 size-3.5 bg-[#A68C70] rounded-full flex items-center justify-center text-white">
+                      <span className="absolute -top-1 -right-1 size-3.5 bg-[#A68C70] dark:bg-[#102126] rounded-full flex items-center justify-center text-white dark:text-[#B2E4DD]">
                         <Check className="size-2.5" />
                       </span>
                     )}
                   </div>
 
-                  <span className={`text-xs font-medium text-center line-clamp-1 ${isActive ? 'text-[#FBFAF7]' : 'text-[#252725]'}`}>
+                  <span className={`text-xs font-medium text-center line-clamp-1 ${isActive ? 'text-[#FBFAF7] dark:text-[#102126] dark:font-semibold' : 'text-[#252725] dark:text-[#F1F2EF]'}`}>
                     {finish.name.split(' (')[0]}
                   </span>
-                  <span className={`text-[10px] font-mono text-center line-clamp-1 ${isActive ? 'text-[#FBFAF7]/70' : 'text-[#777A74]'}`}>
+                  <span className={`text-[10px] font-mono text-center line-clamp-1 ${isActive ? 'text-[#FBFAF7]/70 dark:text-[#102126]/75' : 'text-[#777A74] dark:text-[#B7C3CA]'}`}>
                     {finish.englishName.split(' ')[0]}
                   </span>
                 </button>
@@ -225,29 +225,29 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
         </div>
 
         {/* Active Finish Details Showcase */}
-        <div className="bg-[#F4F2EC] rounded border border-[#DFDDD6] p-6 sm:p-8 lg:p-10 mb-8">
+        <div className="bg-[#F4F2EC] dark:bg-[#14212C] rounded border border-[#DFDDD6] dark:border-[#34434E] p-6 sm:p-8 lg:p-10 mb-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left: Project Image with Finish */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded overflow-hidden border border-[#DFDDD6] aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] bg-[#E8E5DD] group">
+              <div className="relative rounded overflow-hidden border border-[#DFDDD6] dark:border-[#34434E] aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] bg-[#E8E5DD] dark:bg-[#0E1822] dark-swatch-backdrop group">
                 <img
                   src={activeFinish.sampleProject}
                   alt={activeFinish.sampleTitle}
                   className="w-full h-full object-cover transition-opacity duration-300"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#252725]/75 dark:from-[#0E1822]/90 via-transparent to-transparent pointer-events-none" />
                 
                 <div className="absolute bottom-3 left-3 right-3">
-                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#FBFAF7]/95 text-[#252725] border border-[#DFDDD6] text-xs font-mono mb-1.5 backdrop-blur-sm">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#FBFAF7]/95 dark:bg-[#14212C]/95 text-[#252725] dark:text-[#F1F2EF] border border-[#DFDDD6] dark:border-[#34434E] text-xs font-mono mb-1.5 backdrop-blur-sm">
                     <div 
-                      className="w-2.5 h-2.5 rounded-full border border-black/20"
+                      className="w-2.5 h-2.5 rounded-full border border-black/20 dark:border-white/30"
                       style={{ backgroundColor: activeFinish.hex }}
                     />
                     <span>{activeFinish.name}</span>
                   </div>
-                  <p className="text-[11px] font-mono text-[#FBFAF7]/90 bg-[#252725]/80 p-2 rounded backdrop-blur-sm border border-white/10">
+                  <p className="text-[11px] font-mono text-[#FBFAF7]/90 dark:text-[#D8E5E9] bg-[#252725]/80 dark:bg-[#0D161F]/90 p-2 rounded backdrop-blur-sm border border-white/10 dark:border-[#34434E]">
                     {activeFinish.sampleTitle}
                   </p>
                 </div>
@@ -257,42 +257,42 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
             {/* Right: Technical Specs and Guarantees */}
             <div className="lg:col-span-7 flex flex-col">
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FBFAF7] text-[#788173] border border-[#DFDDD6]">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FBFAF7] dark:bg-[#0F1B25] text-[#788173] dark:text-[#B2E4DD] border border-[#DFDDD6] dark:border-[#34434E]">
                   {activeFinish.category}
                 </span>
                 {activeFinish.badge && (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#252725] text-[#FBFAF7]">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] dark:font-semibold">
                     {activeFinish.badge}
                   </span>
                 )}
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#252725] mb-3">
+              <h3 className="text-2xl sm:text-3xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] mb-3">
                 Фурнитура: {activeFinish.name}
               </h3>
 
-              <p className="text-sm text-[#777A74] leading-relaxed mb-6 font-sans">
+              <p className="text-sm text-[#777A74] dark:text-[#D1DCE1] leading-relaxed mb-6 font-sans">
                 {activeFinish.description}
               </p>
 
               {/* Technology & Recommendation Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                <div className="p-3.5 rounded bg-[#FBFAF7] border border-[#DFDDD6]">
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#788173] uppercase tracking-wider mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#788173]" />
+                <div className="p-3.5 rounded bg-[#FBFAF7] dark:bg-[#0F1B25] border border-[#DFDDD6] dark:border-[#34434E]">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#788173] dark:text-[#B2E4DD] uppercase tracking-wider mb-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
                     <span>ТЕХНОЛОГИЯ ПОКРЫТИЯ</span>
                   </div>
-                  <p className="text-xs text-[#252725]">
+                  <p className="text-xs text-[#252725] dark:text-[#D1DCE1]">
                     {activeFinish.coatingTech}
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded bg-[#FBFAF7] border border-[#DFDDD6]">
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#788173] uppercase tracking-wider mb-1">
-                    <Award className="w-3.5 h-3.5 text-[#A68C70]" />
+                <div className="p-3.5 rounded bg-[#FBFAF7] dark:bg-[#0F1B25] border border-[#DFDDD6] dark:border-[#34434E]">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#788173] dark:text-[#B2E4DD] uppercase tracking-wider mb-1">
+                    <Award className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#B2E4DD]" />
                     <span>РЕКОМЕНДОВАНО ДЛЯ</span>
                   </div>
-                  <p className="text-xs text-[#252725]">
+                  <p className="text-xs text-[#252725] dark:text-[#D1DCE1]">
                     {activeFinish.bestFor}
                   </p>
                 </div>
@@ -300,16 +300,16 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
 
               {/* Guarantees List */}
               <div className="space-y-2 mb-6">
-                <div className="flex items-center gap-2 text-xs text-[#252725]">
-                  <Check className="w-3.5 h-3.5 text-[#788173] shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-[#252725] dark:text-[#D1DCE1]">
+                  <Check className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] shrink-0" />
                   <span>Литые латунные петли с автодоводчиком ±25° и защитой от провисания</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#252725]">
-                  <Check className="w-3.5 h-3.5 text-[#788173] shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-[#252725] dark:text-[#D1DCE1]">
+                  <Check className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] shrink-0" />
                   <span>Стабилизационные штанги из высоколегированной стали AISI 304</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#252725]">
-                  <Check className="w-3.5 h-3.5 text-[#788173] shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-[#252725] dark:text-[#D1DCE1]">
+                  <Check className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] shrink-0" />
                   <span>Неодимовые магнитные уплотнители со сроком службы более 100 000 циклов</span>
                 </div>
               </div>
@@ -319,20 +319,20 @@ export const HardwareShowcase: React.FC<HardwareShowcaseProps> = ({
                 <a
                   href="#calculator"
                   onClick={handleScrollToCalculator}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#252725] dark:bg-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
                 >
                   <span>Рассчитать с этим цветом</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#A68C70]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#102126]" />
                 </a>
 
                 {onOpenMeasurementModal && (
                   <button
                     onClick={onOpenMeasurementModal}
                     type="button"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FBFAF7] dark:bg-transparent hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] text-[#252725] dark:text-[#F1F2EF] border border-[#DFDDD6] dark:border-[#657881] dark:hover:border-[#B2E4DD] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
                   >
                     <span>Заказать выезд с образцами</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#788173]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#788173] dark:text-[#B7C3CA]" />
                   </button>
                 )}
               </div>

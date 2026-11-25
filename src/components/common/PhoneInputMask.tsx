@@ -126,18 +126,18 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
         <label 
           htmlFor={id} 
           className={`text-xs font-medium flex items-center justify-between ${
-            isDark ? 'text-[#FBFAF7]/90' : 'text-[#252725]'
+            isDark ? 'text-[#FBFAF7]/90 dark:text-[#DDE7E9]' : 'text-[#252725] dark:text-[#DDE7E9]'
           }`}
         >
           <span>{label}</span>
-          {required && <span className="text-[#A68C70] font-mono text-[10px] uppercase">Обязательно</span>}
+          {required && <span className="text-[#A68C70] dark:text-[#B2E4DD] font-mono text-[10px] uppercase">Обязательно</span>}
         </label>
       )}
 
       <div className="relative rounded">
         {showIcon && (
           <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none ${
-            isDark ? 'text-white/40' : 'text-[#777A74]'
+            isDark ? 'text-white/40 dark:text-[#B7C3CA]' : 'text-[#777A74] dark:text-[#B7C3CA]'
           }`}>
             <Phone className="size-4" />
           </div>
@@ -160,8 +160,8 @@ export const PhoneInputMask: React.FC<PhoneInputMaskProps> = ({
             showIcon ? 'pl-10 pr-4' : 'px-4'
           } ${
             isDark 
-              ? 'bg-[#1E201E] text-[#FBFAF7] placeholder-white/30 border-white/15 focus:border-[#FBFAF7]' 
-              : 'bg-[#FBFAF7] text-[#252725] placeholder-[#777A74] border-[#DFDDD6] focus:border-[#252725]'
+              ? 'bg-[#1E201E] dark:bg-[#0F1B25] text-[#FBFAF7] dark:text-[#F1F2EF] placeholder-white/30 dark:placeholder-[#B7C3CA]/40 border-white/15 dark:border-[#435461] focus:border-[#FBFAF7] dark:focus:border-[#B2E4DD]' 
+              : 'bg-[#FBFAF7] dark:bg-[#0F1B25] text-[#252725] dark:text-[#F1F2EF] placeholder-[#777A74] dark:placeholder-[#B7C3CA]/40 border-[#DFDDD6] dark:border-[#435461] focus:border-[#252725] dark:focus:border-[#B2E4DD]'
           } ${
             error ? 'border-red-500 focus:border-red-500' : ''
           } ${className}`}

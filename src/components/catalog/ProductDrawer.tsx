@@ -89,22 +89,22 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
       {/* Backdrop */}
       <div 
         onClick={onClose}
-        className="fixed inset-0 bg-[#252725]/60 backdrop-blur-sm transition-opacity duration-300"
+        className="fixed inset-0 bg-[#252725]/60 dark:bg-[#080E14]/75 backdrop-blur-sm transition-opacity duration-300"
       />
 
       {/* Drawer Container */}
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div 
           onClick={(e) => e.stopPropagation()}
-          className="w-screen max-w-full sm:max-w-md md:max-w-lg bg-[#F4F2EC] text-[#252725] border-l border-[#DFDDD6] shadow-xl flex flex-col justify-between overflow-y-auto drawer-ease animate-in slide-in-from-right"
+          className="w-screen max-w-full sm:max-w-md md:max-w-lg bg-[#F4F2EC] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] border-l border-[#DFDDD6] dark:border-[#34434E] shadow-xl flex flex-col justify-between overflow-y-auto drawer-ease animate-in slide-in-from-right"
         >
           {/* Header */}
-          <div className="p-4 sm:p-6 border-b border-[#DFDDD6] bg-[#FBFAF7] sticky top-0 z-10 flex items-center justify-between">
+          <div className="p-4 sm:p-6 border-b border-[#DFDDD6] dark:border-[#34434E] bg-[#FBFAF7] dark:bg-[#0D161F] sticky top-0 z-10 flex items-center justify-between">
             <div className="pr-2">
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#788173] block mb-0.5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#788173] dark:text-[#B2E4DD] block mb-0.5">
                 VETRO SPECIFICATION · {item.id.replace('cat_', '').toUpperCase()}
               </span>
-              <h2 className="text-base sm:text-lg font-semibold text-[#252725] line-clamp-1">
+              <h2 className="text-base sm:text-lg font-semibold text-[#252725] dark:text-[#F1F2EF] line-clamp-1">
                 {item.title}
               </h2>
             </div>
@@ -112,7 +112,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
               onClick={onClose}
               type="button"
               aria-label="Закрыть"
-              className="p-2 rounded bg-[#F4F2EC] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] transition-transform active:scale-[0.95] min-w-[36px] min-h-[36px] flex items-center justify-center shrink-0"
+              className="p-2 rounded bg-[#F4F2EC] dark:bg-[#14212C] hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] text-[#252725] dark:text-[#F1F2EF] border border-[#DFDDD6] dark:border-[#34434E] dark:hover:border-[#B2E4DD] transition-transform active:scale-[0.95] min-w-[36px] min-h-[36px] flex items-center justify-center shrink-0"
             >
               <X className="size-4" />
             </button>
@@ -121,7 +121,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
           {/* Body Content */}
           <div className="p-4 sm:p-6 space-y-6 flex-1">
             {/* Visual Photo */}
-            <div className="relative aspect-[16/10] rounded overflow-hidden bg-[#E8E5DD] border border-[#DFDDD6]">
+            <div className="relative aspect-[16/10] rounded overflow-hidden bg-[#E8E5DD] dark:bg-[#0E1822] border border-[#DFDDD6] dark:border-[#34434E]">
               <img
                 src={item.imageSrc}
                 alt={item.title}
@@ -129,7 +129,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
               />
               <div className="absolute top-3 left-3">
                 {item.badge && (
-                  <span className="px-2.5 py-1 rounded bg-[#FBFAF7]/95 text-[#252725] font-mono text-[10px] font-medium shadow-none border border-[#DFDDD6]">
+                  <span className="px-2.5 py-1 rounded bg-[#FBFAF7]/95 dark:bg-[#14212C]/95 text-[#252725] dark:text-[#B2E4DD] font-mono text-[10px] font-medium shadow-none border border-[#DFDDD6] dark:border-[#34434E]">
                     {item.badge}
                   </span>
                 )}
@@ -138,71 +138,71 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                 <button
                   onClick={() => onOpenVideoModal && onOpenVideoModal(item.videoType!)}
                   type="button"
-                  className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#252725] text-[#FBFAF7] text-xs font-mono hover:bg-[#383B38] transition-colors duration-150 active:scale-[0.98]"
+                  className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#252725] dark:bg-[#0D161F]/95 text-[#FBFAF7] dark:text-[#F1F2EF] text-xs font-mono hover:bg-[#383B38] dark:border dark:border-[#34434E] dark:hover:border-[#B2E4DD] transition-colors duration-150 active:scale-[0.98]"
                 >
-                  <Video className="size-3.5 text-[#A68C70]" />
+                  <Video className="size-3.5 text-[#A68C70] dark:text-[#B2E4DD]" />
                   <span>Видео конструкции</span>
                 </button>
               )}
             </div>
 
             {/* Price & Summary */}
-            <div className="p-4 rounded bg-[#FBFAF7] border border-[#DFDDD6] flex items-center justify-between">
+            <div className="p-4 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] flex items-center justify-between">
               <div>
-                <span className="font-mono text-[10px] text-[#777A74] block">Стоимость от:</span>
-                <span className="text-xl sm:text-2xl font-bold text-[#252725] font-sans tabular-nums">{item.priceFormatted}</span>
+                <span className="font-mono text-[10px] text-[#777A74] dark:text-[#B7C3CA] block">Стоимость от:</span>
+                <span className="text-xl sm:text-2xl font-bold text-[#252725] dark:text-[#F1F2EF] font-sans tabular-nums">{item.priceFormatted}</span>
               </div>
-              <span className="px-3 py-1 rounded bg-[#F4F2EC] text-[#252725] font-mono text-xs border border-[#DFDDD6] tabular-nums">
+              <span className="px-3 py-1 rounded bg-[#F4F2EC] dark:bg-[#0F1B25] text-[#252725] dark:text-[#B2E4DD] font-mono text-xs border border-[#DFDDD6] dark:border-[#34434E] tabular-nums">
                 {item.specs.productionTime}
               </span>
             </div>
 
             {/* Description */}
             <div>
-              <span className="font-mono text-[10px] text-[#788173] block mb-1">
+              <span className="font-mono text-[10px] text-[#788173] dark:text-[#B2E4DD] block mb-1">
                 Описание конструкции
               </span>
-              <p className="text-sm text-[#777A74] leading-relaxed">
+              <p className="text-sm text-[#777A74] dark:text-[#D1DCE1] leading-relaxed">
                 {item.subtitle}. Индивидуальный проект по вашим размерам с выездом инженера студии VETRO на 3D-замер.
               </p>
             </div>
 
             {/* Engineering Specs Grid */}
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#788173] block mb-2.5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#788173] dark:text-[#B2E4DD] block mb-2.5">
                 ИНЖЕНЕРНЫЕ ПАРАМЕТРЫ
               </span>
               <div className="grid grid-cols-2 gap-2.5">
-                <div className="p-3 rounded bg-[#FBFAF7] border border-[#DFDDD6]">
-                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#788173]" />
+                <div className="p-3 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E]">
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] dark:text-[#B7C3CA] mb-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
                     <span className="font-mono text-[10px]">СТЕКЛО</span>
                   </div>
-                  <span className="text-xs font-semibold text-[#252725] block">{item.specs.thickness}</span>
+                  <span className="text-xs font-semibold text-[#252725] dark:text-[#F1F2EF] block">{item.specs.thickness}</span>
                 </div>
 
-                <div className="p-3 rounded bg-[#FBFAF7] border border-[#DFDDD6]">
-                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
-                    <Award className="w-3.5 h-3.5 text-[#A68C70]" />
+                <div className="p-3 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E]">
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] dark:text-[#B7C3CA] mb-1">
+                    <Award className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#B2E4DD]" />
                     <span className="font-mono text-[10px]">ГАРАНТИЯ</span>
                   </div>
-                  <span className="text-xs font-semibold text-[#252725] block">{item.specs.warranty} по договору</span>
+                  <span className="text-xs font-semibold text-[#252725] dark:text-[#F1F2EF] block">{item.specs.warranty} по договору</span>
                 </div>
 
-                <div className="p-3 rounded bg-[#FBFAF7] border border-[#DFDDD6]">
-                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
-                    <Clock className="w-3.5 h-3.5 text-[#788173]" />
+                <div className="p-3 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E]">
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] dark:text-[#B7C3CA] mb-1">
+                    <Clock className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
                     <span className="font-mono text-[10px]">ПРОИЗВОДСТВО</span>
                   </div>
-                  <span className="text-xs font-semibold text-[#252725] block">{item.specs.productionTime}</span>
+                  <span className="text-xs font-semibold text-[#252725] dark:text-[#F1F2EF] block">{item.specs.productionTime}</span>
                 </div>
 
-                <div className="p-3 rounded bg-[#FBFAF7] border border-[#DFDDD6]">
-                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] mb-1">
-                    <Sparkles className="w-3.5 h-3.5 text-[#788173]" />
+                <div className="p-3 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E]">
+                  <div className="flex items-center gap-1.5 text-xs text-[#777A74] dark:text-[#B7C3CA] mb-1">
+                    <Sparkles className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
                     <span className="font-mono text-[10px]">ФУРНИТУРА</span>
                   </div>
-                  <span className="text-xs font-semibold text-[#252725] block">Boheme Milano</span>
+                  <span className="text-xs font-semibold text-[#252725] dark:text-[#F1F2EF] block">Boheme Milano</span>
                 </div>
               </div>
             </div>
@@ -210,14 +210,14 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
             {/* Hardware Finishes */}
             {item.hardwareOptions && item.hardwareOptions.length > 0 && (
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#788173] block mb-2">
+                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#788173] dark:text-[#B2E4DD] block mb-2">
                   ДОСТУПНЫЕ ОТДЕЛКИ ФУРНИТУРЫ
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {item.hardwareOptions.map((opt, idx) => (
                     <span 
                       key={idx}
-                      className="px-2.5 py-1 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-xs text-[#252725] font-mono"
+                      className="px-2.5 py-1 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] text-xs text-[#252725] dark:text-[#D1DCE1] font-mono"
                     >
                       {opt}
                     </span>
@@ -228,13 +228,13 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
 
             {/* Advantages List */}
             <div>
-              <span className="font-mono text-[10px] text-[#788173] block mb-2">
+              <span className="font-mono text-[10px] text-[#788173] dark:text-[#B2E4DD] block mb-2">
                 Технические особенности
               </span>
               <ul className="space-y-2">
                 {item.bullets.map((b, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs text-[#777A74]">
-                    <Check className="w-3.5 h-3.5 text-[#788173] shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-2 text-xs text-[#777A74] dark:text-[#D1DCE1]">
+                    <Check className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] shrink-0 mt-0.5" />
                     <span>{b}</span>
                   </li>
                 ))}
@@ -243,13 +243,13 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
           </div>
 
           {/* Footer Actions */}
-          <div className="p-4 sm:p-6 border-t border-[#DFDDD6] bg-[#FBFAF7] sticky bottom-0 space-y-2">
+          <div className="p-4 sm:p-6 border-t border-[#DFDDD6] dark:border-[#34434E] bg-[#FBFAF7] dark:bg-[#0D161F] sticky bottom-0 space-y-2">
             <button
               onClick={handleCalculate}
               type="button"
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] text-[#FBFAF7] font-medium text-xs hover:bg-[#383B38] transition-colors duration-150 min-h-[44px]"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] transition-colors duration-150 min-h-[44px]"
             >
-              <Sliders className="w-3.5 h-3.5 text-[#A68C70]" />
+              <Sliders className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#102126]" />
               <span>Рассчитать эту модель</span>
             </button>
 
@@ -257,9 +257,9 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
               <button
                 onClick={handleMeasurement}
                 type="button"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-[#F4F2EC] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs transition-colors min-h-[40px]"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-[#F4F2EC] dark:bg-[#14212C] hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] text-[#252725] dark:text-[#F1F2EF] border border-[#DFDDD6] dark:border-[#34434E] dark:hover:border-[#B2E4DD] font-medium text-xs transition-colors min-h-[40px]"
               >
-                <Ruler className="w-3.5 h-3.5 text-[#788173]" />
+                <Ruler className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
                 <span>Заказать замер</span>
               </button>
 
@@ -267,9 +267,9 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                 href={`${businessConfig.whatsappUrl}&text=${encodeURIComponent(`Здравствуйте! Интересует конструкция VETRO: ${item.title}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-[#FBFAF7] hover:bg-[#F4F2EC] text-[#252725] border border-[#DFDDD6] font-medium text-xs transition-colors min-h-[40px]"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded bg-[#FBFAF7] dark:bg-[#14212C] hover:bg-[#F4F2EC] dark:hover:bg-[#1B2C36] text-[#252725] dark:text-[#F1F2EF] border border-[#DFDDD6] dark:border-[#34434E] dark:hover:border-[#B2E4DD] font-medium text-xs transition-colors min-h-[40px]"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
+                <MessageCircle className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
                 <span>WhatsApp</span>
               </a>
             </div>

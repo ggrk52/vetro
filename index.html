@@ -14,8 +14,19 @@
     <!-- Preload hero imagery -->
     <link rel="preload" as="image" href="/portfolio/hero_luxury_vetro.jpg" />
     <link rel="preload" as="image" href="/portfolio/hero_optiwhite_gold.jpg" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem('vetro-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#101923');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#f4f2ec] text-[#1a1712] antialiased font-sans selection:bg-[#1a1712] selection:text-[#f4f2ec] overflow-x-hidden min-h-screen">
+  <body class="bg-[#f4f2ec] dark:bg-[#101923] text-[#1a1712] dark:text-[#F1F2EF] antialiased font-sans selection:bg-[#1a1712] selection:text-[#f4f2ec] dark:selection:bg-[#B2E4DD] dark:selection:text-[#102126] overflow-x-hidden min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

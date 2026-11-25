@@ -91,7 +91,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-vetro-ivory text-vetro-graphite flex flex-col font-sans selection:bg-vetro-graphite selection:text-vetro-ivory">
+    <div className="min-h-screen bg-[#F4F2EC] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] flex flex-col font-sans selection:bg-[#252725] selection:text-[#F4F2EC] dark:selection:bg-[#B2E4DD] dark:selection:text-[#102126]">
       {/* 1. Sticky Navigation Header */}
       <Header onOpenMeasurementModal={() => handleOpenMeasurement('Замер из шапки')} />
 

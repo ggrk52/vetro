@@ -51,12 +51,12 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-colors duration-150 group shadow-none active:scale-[0.98]"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] text-[#252725] dark:text-[#F1F2EF] hover:bg-[#F4F2EC] dark:hover:bg-[#1B2C36] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 group shadow-none active:scale-[0.98]"
           aria-label="Написать в WhatsApp"
         >
           <span className="text-xs font-medium whitespace-nowrap">WhatsApp</span>
-          <div className="size-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
-            <MessageCircle className="size-3.5 text-[#788173]" />
+          <div className="size-7 rounded bg-[#252725] dark:bg-[#0F1B25] dark:border dark:border-[#34434E] text-[#FBFAF7] dark:text-[#B2E4DD] flex items-center justify-center">
+            <MessageCircle className="size-3.5 text-[#788173] dark:text-[#B2E4DD]" />
           </div>
         </a>
 
@@ -65,24 +65,24 @@ export const FloatingMessengers: React.FC = () => {
           href={businessConfig.telegramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-colors duration-150 group shadow-none active:scale-[0.98]"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] text-[#252725] dark:text-[#F1F2EF] hover:bg-[#F4F2EC] dark:hover:bg-[#1B2C36] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 group shadow-none active:scale-[0.98]"
           aria-label="Написать в Telegram"
         >
           <span className="text-xs font-medium whitespace-nowrap">Telegram</span>
-          <div className="size-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
-            <Send className="size-3.5 text-[#788173]" />
+          <div className="size-7 rounded bg-[#252725] dark:bg-[#0F1B25] dark:border dark:border-[#34434E] text-[#FBFAF7] dark:text-[#B2E4DD] flex items-center justify-center">
+            <Send className="size-3.5 text-[#788173] dark:text-[#B2E4DD]" />
           </div>
         </a>
 
         {/* Direct Phone Call Option */}
         <a
           href={`tel:${businessConfig.phoneRaw}`}
-          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] border border-[#DFDDD6] text-[#252725] hover:bg-[#F4F2EC] hover:border-[#252725] transition-colors duration-150 group shadow-none active:scale-[0.98]"
+          className="flex items-center gap-3 px-3.5 py-2 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] text-[#252725] dark:text-[#F1F2EF] hover:bg-[#F4F2EC] dark:hover:bg-[#1B2C36] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 group shadow-none active:scale-[0.98]"
           aria-label={`Позвонить в студию VETRO: ${businessConfig.phone}`}
         >
           <span className="text-xs font-medium whitespace-nowrap tabular-nums">Позвонить ({businessConfig.phone})</span>
-          <div className="size-7 rounded bg-[#252725] text-[#FBFAF7] flex items-center justify-center">
-            <Phone className="size-3.5 text-[#A68C70]" />
+          <div className="size-7 rounded bg-[#252725] dark:bg-[#0F1B25] dark:border dark:border-[#34434E] text-[#FBFAF7] dark:text-[#B2E4DD] flex items-center justify-center">
+            <Phone className="size-3.5 text-[#A68C70] dark:text-[#B2E4DD]" />
           </div>
         </a>
       </div>
@@ -94,16 +94,16 @@ export const FloatingMessengers: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Закрыть контакты' : 'Написать в студию VETRO'}
-          className={`relative size-12 rounded flex items-center justify-center text-[#FBFAF7] transition-transform duration-150 active:scale-95 focus:outline-none border shadow-md ${
+          className={`relative size-12 rounded flex items-center justify-center text-[#FBFAF7] dark:text-[#102126] transition-transform duration-150 active:scale-95 focus:outline-none border shadow-md ${
             isOpen
-              ? 'bg-[#252725] border-[#252725]'
-              : 'bg-[#252725] border-white/20 hover:bg-[#383B38]'
+              ? 'bg-[#252725] dark:bg-[#B2E4DD] border-[#252725] dark:border-[#B2E4DD]'
+              : 'bg-[#252725] dark:bg-[#B2E4DD] border-white/20 dark:border-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB]'
           }`}
         >
           {isOpen ? (
-            <X className="w-5 h-5 text-[#FBFAF7]" />
+            <X className="w-5 h-5 text-[#FBFAF7] dark:text-[#102126]" />
           ) : (
-            <MessageCircle className="w-5 h-5 text-[#A68C70]" />
+            <MessageCircle className="w-5 h-5 text-[#A68C70] dark:text-[#102126]" />
           )}
         </button>
       </div>

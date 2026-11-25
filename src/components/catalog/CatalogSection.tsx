@@ -227,22 +227,22 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
     : catalogItemsData.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="catalog" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] text-[#252725] border-b border-[#DFDDD6]">
+    <section id="catalog" className="py-12 sm:py-16 lg:py-20 bg-[#F4F2EC] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] border-b border-[#DFDDD6] dark:border-[#34434E]">
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] dark:text-[#B2E4DD] block mb-2">
               ПРОДУКЦИЯ СТУДИИ / 001 — 008
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] tracking-tight leading-[1.08] text-balance">
               Каталог решений.<br />
-              <span className="italic text-[#788173]">Архитектурные пропорции.</span>
+              <span className="italic text-[#788173] dark:text-[#B2E4DD]">Архитектурные пропорции.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
+          <p className="text-sm sm:text-base text-[#777A74] dark:text-[#B7C3CA] max-w-md leading-relaxed font-sans text-pretty">
             Закаленное монолитное стекло 8–10 мм и фурнитура Boheme Milano. Все подробности и технические характеристики доступны внутри карточки каждого объекта.
           </p>
         </div>
@@ -258,8 +258,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 type="button"
                 className={`whitespace-nowrap px-3.5 py-1.5 rounded font-mono text-xs transition-colors duration-150 min-h-[32px] shrink-0 border active:scale-[0.98] ${
                   isActive
-                    ? 'bg-[#252725] text-[#FBFAF7] border-[#252725] font-medium'
-                    : 'bg-[#FBFAF7] text-[#777A74] hover:text-[#252725] hover:bg-[#E8E5DD] border-[#DFDDD6]'
+                    ? 'bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#122128] border-[#252725] dark:border-[#B2E4DD] font-medium dark:font-semibold'
+                    : 'bg-[#FBFAF7] dark:bg-[#14212C] text-[#777A74] dark:text-[#B7C3CA] hover:text-[#252725] dark:hover:text-[#F1F2EF] hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] border-[#DFDDD6] dark:border-[#34434E]'
                 }`}
               >
                 {tab.label}
@@ -284,15 +284,15 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         </div>
 
         {/* Bottom Custom Project Callout: Sleek Editorial Strip */}
-        <div className="rounded bg-[#FBFAF7] border border-[#DFDDD6] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex-1 text-center md:text-left">
-            <span className="font-mono text-xs text-[#788173] font-medium block mb-1">
+            <span className="font-mono text-xs text-[#788173] dark:text-[#B2E4DD] font-medium block mb-1">
               Индивидуальное проектирование · Bespoke
             </span>
-            <h3 className="text-lg sm:text-xl font-semibold text-[#252725] font-sans">
+            <h3 className="text-lg sm:text-xl font-semibold text-[#252725] dark:text-[#F1F2EF] font-sans">
               Нестандартные размеры и фигурный раскрой под геометрию стен
             </h3>
-            <p className="text-xs sm:text-sm text-[#777A74] mt-1.5 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#B7C3CA] mt-1.5 max-w-xl">
               Точный лазерный 3D-замер инженеров VETRO под уклоны керамогранита, встроенные трапы и скрытые инсталляции.
             </p>
           </div>
@@ -302,9 +302,9 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               <button
                 onClick={onOpenMeasurementModal}
                 type="button"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#252725] hover:bg-[#383B38] text-[#FBFAF7] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#252725] dark:bg-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
               >
-                <Ruler className="w-3.5 h-3.5 text-[#A68C70]" />
+                <Ruler className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#102126]" />
                 <span>Заказать замер 24ч</span>
               </button>
             )}
@@ -313,11 +313,11 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               href={businessConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FBFAF7] hover:bg-[#E8E5DD] text-[#252725] border border-[#DFDDD6] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-[#FBFAF7] dark:bg-transparent hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] text-[#252725] dark:text-[#F1F2EF] border border-[#DFDDD6] dark:border-[#657881] dark:hover:border-[#B2E4DD] font-medium text-xs transition-colors duration-150 min-h-[44px] active:scale-[0.98]"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-[#788173]" />
+              <MessageCircle className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
               <span>Консультация</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#788173]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD]" />
             </a>
           </div>
         </div>

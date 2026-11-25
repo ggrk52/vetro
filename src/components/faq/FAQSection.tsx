@@ -58,22 +58,22 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenMeasurementModal }
   ];
 
   return (
-    <section id="faq" className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] text-[#252725] border-b border-[#DFDDD6]">
+    <section id="faq" className="py-12 sm:py-16 lg:py-20 bg-[#FBFAF7] dark:bg-[#13202A] text-[#252725] dark:text-[#F1F2EF] border-b border-[#DFDDD6] dark:border-[#34434E]">
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] block mb-2">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#788173] dark:text-[#B2E4DD] block mb-2">
               ЧАСТЫЕ ВОПРОСЫ / FAQ
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] tracking-tight leading-[1.08] text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] tracking-tight leading-[1.08] text-balance">
               Вопросы и ответы.<br />
-              <span className="italic text-[#788173]">Технические стандарты реализации.</span>
+              <span className="italic text-[#788173] dark:text-[#B2E4DD]">Технические стандарты реализации.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-[#777A74] max-w-md leading-relaxed font-sans text-pretty">
+          <p className="text-sm sm:text-base text-[#777A74] dark:text-[#B7C3CA] max-w-md leading-relaxed font-sans text-pretty">
             Ответы инженеров VETRO о безопасности закаленного стекла, уходе за гидрофобным слоем, сроках и герметичности.
           </p>
         </div>
@@ -86,7 +86,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenMeasurementModal }
               <div
                 key={idx}
                 data-testid="faq-item"
-                className="bg-[#F4F2EC] rounded border border-[#DFDDD6] hover:border-[#252725] transition-colors duration-150 overflow-hidden"
+                className="bg-[#F4F2EC] dark:bg-[#14212C] rounded border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 overflow-hidden"
               >
                 <button
                   type="button"
@@ -94,12 +94,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenMeasurementModal }
                   aria-expanded={isOpen}
                   className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 focus:outline-none active:scale-[0.99] transition-transform"
                 >
-                  <span className="font-medium text-sm sm:text-base text-[#252725] pr-2">
+                  <span className="font-medium text-sm sm:text-base text-[#252725] dark:text-[#F1F2EF] pr-2">
                     {item.question}
                   </span>
                   <div
-                    className={`size-6 rounded flex items-center justify-center shrink-0 border border-[#DFDDD6] transition-transform duration-200 ${
-                      isOpen ? 'bg-[#252725] text-[#FBFAF7] rotate-180 border-[#252725]' : 'bg-[#FBFAF7] text-[#252725]'
+                    className={`size-6 rounded flex items-center justify-center shrink-0 border border-[#DFDDD6] dark:border-[#34434E] transition-transform duration-200 ${
+                      isOpen ? 'bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] rotate-180 border-[#252725] dark:border-[#B2E4DD]' : 'bg-[#FBFAF7] dark:bg-[#0F1B25] text-[#252725] dark:text-[#F1F2EF]'
                     }`}
                   >
                     <ChevronDown className="size-3.5" />
@@ -107,7 +107,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenMeasurementModal }
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 sm:px-5 pb-5 pt-0 text-xs sm:text-[13px] text-[#777A74] leading-relaxed border-t border-[#DFDDD6]/60 mt-1 pt-3">
+                  <div className="px-4 sm:px-5 pb-5 pt-0 text-xs sm:text-[13px] text-[#777A74] dark:text-[#B7C3CA] leading-relaxed border-t border-[#DFDDD6]/60 dark:border-[#34434E] mt-1 pt-3">
                     <p className="text-pretty">{item.answer}</p>
                   </div>
                 )}
@@ -117,22 +117,22 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenMeasurementModal }
         </div>
 
         {/* Still Have Questions CTA */}
-        <div className="text-center bg-[#F4F2EC] rounded border border-[#DFDDD6] p-6 sm:p-8 max-w-lg mx-auto">
-          <h3 className="text-base sm:text-lg font-semibold text-[#252725] mb-1.5 font-sans">
+        <div className="text-center bg-[#F4F2EC] dark:bg-[#14212C] rounded border border-[#DFDDD6] dark:border-[#34434E] p-6 sm:p-8 max-w-lg mx-auto">
+          <h3 className="text-base sm:text-lg font-semibold text-[#252725] dark:text-[#F1F2EF] mb-1.5 font-sans">
             Остались вопросы по вашему проекту?
           </h3>
-          <p className="text-xs sm:text-[13px] text-[#777A74] mb-5 text-pretty">
+          <p className="text-xs sm:text-[13px] text-[#777A74] dark:text-[#B7C3CA] mb-5 text-pretty">
             Направьте эскиз или план санузла в инженерный отдел VETRO — сделаем предварительный расчет за 15 минут.
           </p>
           <a
             href={businessConfig.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#252725] text-[#FBFAF7] font-medium text-xs uppercase tracking-wider hover:bg-[#383B38] transition-transform active:scale-[0.98]"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs uppercase tracking-wider hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] transition-colors duration-150 active:scale-[0.98]"
           >
-            <MessageCircle className="size-3.5 text-[#788173]" />
+            <MessageCircle className="size-3.5 text-[#788173] dark:text-[#102126]" />
             <span>Обсудить в WhatsApp</span>
-            <ArrowUpRight className="size-3.5 text-[#A68C70]" />
+            <ArrowUpRight className="size-3.5 text-[#A68C70] dark:text-[#102126]" />
           </a>
         </div>
 
