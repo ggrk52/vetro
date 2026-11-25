@@ -34,7 +34,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Порошковая полимеризация высокой адгезии',
     description: 'Глубокий бархатистый черный оттенок без глянцевых бликов. Устойчив к царапинам, истиранию и агрессивным моющим средствам.',
     bestFor: 'Санузлы в стиле лофт, минимализм, плитка под серый бетон и белый мрамор Calacatta.',
-    sampleProject: '/portfolio/corner_02.jpg',
+    sampleProject: 'portfolio/corner_02.jpg',
     sampleTitle: 'Угловая кабина с черным матовым профилем и петлями',
   },
   {
@@ -48,7 +48,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Вакуумное PVD-напыление нитрида титана',
     description: 'Сатинированная теплая текстура золота с микронаправленной шлифовкой. Не темнеет, не окисляется и идеально сочетается с золотыми смесителями.',
     bestFor: 'Неоклассика, ар-деко, светлый керамогранит, стекло Optiwhite и Estriado.',
-    sampleProject: '/portfolio/corner_01.jpg',
+    sampleProject: 'portfolio/corner_01.jpg',
     sampleTitle: 'Кабина Optiwhite с фурнитурой под брашированное золото',
   },
   {
@@ -62,7 +62,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Многослойное титановое PVD-напыление',
     description: 'Эксклюзивный темно-серый металлик с глубоким графитовым отливом. Скрывает отпечатки пальцев и создает сдержанную строгую эстетику.',
     bestFor: 'Темный керамогранит, графитовое стекло, сантехника цвета оружейной стали.',
-    sampleProject: '/portfolio/corner_06.jpg',
+    sampleProject: 'portfolio/corner_06.jpg',
     sampleTitle: 'Угловая кабина Графит с фурнитурой Gunmetal',
   },
   {
@@ -75,7 +75,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Трехслойное электрохимическое хромирование',
     description: 'Зеркальный идеальный блеск полированной нержавеющей стали AISI 304. Классика, подходящая к стандартным хромированным смесителям.',
     bestFor: 'Традиционные светлые санузлы, хромированные душевые стойки и полотенцесушители.',
-    sampleProject: '/portfolio/corner_03.jpg',
+    sampleProject: 'portfolio/corner_03.jpg',
     sampleTitle: 'Классическая кабина с полированными петлями 90°',
   },
   {
@@ -88,7 +88,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Прецизионная механическая направленная шлифовка',
     description: 'Матовая нержавеющая сталь без зеркального блеска. На ней практически не заметны высохшие капли воды и прикосновения пальцев.',
     bestFor: 'Семейные санузлы с интенсивной эксплуатацией, скандинавский стиль.',
-    sampleProject: '/portfolio/corner_05.jpg',
+    sampleProject: 'portfolio/corner_05.jpg',
     sampleTitle: 'Кабина со скрытым креплением в матовом сатине',
   },
   {
@@ -101,7 +101,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Высокотемпературная порошковая эмаль',
     description: 'Безупречно белый шелковистый финиш, растворяющийся на фоне светлой плитки и белых поддонов. Максимально облегчает конструкцию.',
     bestFor: 'Монохромные белые ванные комнаты, белая сантехника, минимализм.',
-    sampleProject: '/portfolio/niche_02.jpg',
+    sampleProject: 'portfolio/niche_02.jpg',
     sampleTitle: 'Дверь в нишу с белой матовой фурнитурой и скрытым уплотнителем',
   },
   {
@@ -114,7 +114,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     coatingTech: 'Химическое патинирование с защитным лаком',
     description: 'Благородный оттенок выдержанной временем бронзы с деликатным затемнением в углублениях. Идеален для классических и ретро интерьеров.',
     bestFor: 'Классические интерьеры с ванной на лапах, бронзовыми смесителями и деревом.',
-    sampleProject: '/portfolio/sliding_05.jpg',
+    sampleProject: 'portfolio/sliding_05.jpg',
     sampleTitle: 'Раздвижная система с бронзовой роликовой штангой',
   },
 ];

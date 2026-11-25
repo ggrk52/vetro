@@ -44,7 +44,7 @@ export const glassTypesData: GlassType[] = [
       'Закалка по ГОСТ 30698-2014 с полированной еврокромкой'
     ],
     recommendedFor: 'Белый мрамор, керамогранит светлых оттенков, премиальные дизайнерские санузлы',
-    imageSrc: '/portfolio/hero_optiwhite_gold.jpg',
+    imageSrc: 'portfolio/hero_optiwhite_gold.jpg',
     accentColor: 'from-sky-500/20 to-cyan-500/10',
   },
   {
@@ -63,7 +63,7 @@ export const glassTypesData: GlassType[] = [
       '100% травмобезопасность при разрушении (мелкая безопасная крошка)'
     ],
     recommendedFor: 'Универсальное решение для любых санузлов, арендных квартир и семейных ванных комнат',
-    imageSrc: '/portfolio/corner_03.jpg',
+    imageSrc: 'portfolio/corner_03.jpg',
     accentColor: 'from-emerald-500/20 to-teal-500/10',
   },
   {
@@ -83,7 +83,7 @@ export const glassTypesData: GlassType[] = [
       'Возможность частичного матирования полосой (интим-зона)'
     ],
     recommendedFor: 'Совмещенные санузлы, спа-зоны, душевые напротив дверей и окон',
-    imageSrc: '/portfolio/corner_04.jpg',
+    imageSrc: 'portfolio/corner_04.jpg',
     accentColor: 'from-slate-400/20 to-slate-200/10',
   },
   {
@@ -103,7 +103,7 @@ export const glassTypesData: GlassType[] = [
       'Придает ванной комнате статус европейского бутик-отеля'
     ],
     recommendedFor: 'Современные дизайнерские санузлы, ар-деко, сканди, стиль джапанди и лофт',
-    imageSrc: '/portfolio/hero_estriado_black.jpg',
+    imageSrc: 'portfolio/hero_estriado_black.jpg',
     accentColor: 'from-amber-500/20 to-yellow-500/10',
     hasVideo: true,
   },
@@ -124,7 +124,7 @@ export const glassTypesData: GlassType[] = [
       'Создает интимную, камерную атмосферу расслабления'
     ],
     recommendedFor: 'Интерьеры в стиле лофт, минимализм, хай-тек, темный керамогранит и сланец',
-    imageSrc: '/portfolio/corner_06.jpg',
+    imageSrc: 'portfolio/corner_06.jpg',
     accentColor: 'from-zinc-500/20 to-neutral-700/10',
   },
   {
@@ -143,7 +143,7 @@ export const glassTypesData: GlassType[] = [
       'Устойчиво к ультрафиолету и влаге на весь срок службы'
     ],
     recommendedFor: 'Теплые интерьеры с деревом, натуральным камнем, травертином и латунью',
-    imageSrc: '/portfolio/hero_bronze_titanium.jpg',
+    imageSrc: 'portfolio/hero_bronze_titanium.jpg',
     accentColor: 'from-orange-500/20 to-amber-700/10',
   },
 ];

@@ -77,7 +77,7 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="relative rounded overflow-hidden border border-[#DFDDD6] dark:border-[#34434E] bg-[#252725] dark:bg-[#0E1822] aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
                 <img
-                  src="/portfolio/vetro_philosophy_atelier.jpg"
+                  src="portfolio/vetro_philosophy_atelier.jpg"
                   alt="Инженерное ателье и производство студии архитектурного стекла VETRO"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
