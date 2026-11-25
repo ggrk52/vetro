@@ -27,6 +27,7 @@ import {
   formatPrice
 } from '../../utils/calculatorPricing';
 import { PhoneInputMask, isPhoneComplete } from '../common/PhoneInputMask';
+import { businessConfig } from '../../data/businessConfig';
 
 export interface CalculatorSectionProps {
   onOpenMeasurementModal?: () => void;
@@ -863,16 +864,27 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               </div>
             </div>
 
-            {/* Direct Action Link */}
-            <a
-              href={whatsappQuoteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] font-medium dark:font-semibold text-xs transition-colors duration-150 active:scale-[0.98]"
-            >
-              <MessageCircle className="size-4 text-[#788173] dark:text-[#102126]" />
-              <span>Отправить расчет инженеру</span>
-            </a>
+            {/* Direct Action Links */}
+            <div className="space-y-2">
+              <a
+                href={whatsappQuoteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] font-medium dark:font-semibold text-xs transition-colors duration-150 active:scale-[0.98]"
+              >
+                <MessageCircle className="size-4 text-[#788173] dark:text-[#102126]" />
+                <span>Отправить расчет в WhatsApp</span>
+              </a>
+              <a
+                href={businessConfig.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded bg-[#FBFAF7] dark:bg-[#0F1B25] hover:bg-[#E8E5DD] dark:hover:bg-[#1B2C36] border border-[#DFDDD6] dark:border-[#34434E] dark:hover:border-[#B2E4DD] text-[#252725] dark:text-[#F1F2EF] font-medium text-xs transition-colors duration-150 active:scale-[0.98]"
+              >
+                <Send className="size-3.5 text-[#0088cc] dark:text-[#B2E4DD]" />
+                <span>Написать в Telegram (@{businessConfig.telegramUsername})</span>
+              </a>
+            </div>
 
             <div className="mt-3 text-center">
               <span className="text-[11px] font-mono text-[#777A74] dark:text-[#B7C3CA]">
