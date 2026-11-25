@@ -228,6 +228,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
 
         {/* Drawer Panel */}
         <div
+          data-lenis-prevent
           className={`absolute top-0 right-0 bottom-0 w-full max-w-sm bg-[#F4F2EC] dark:bg-[#0D161F] border-l border-[#DFDDD6] dark:border-[#34434E] p-6 flex flex-col justify-between overflow-y-auto transform transition-transform duration-300 shadow-xl ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}

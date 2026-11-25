@@ -1,49 +1,93 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   Droplets,
   Award,
   Layers,
-  ArrowUpRight
+  ArrowUpRight,
+  CheckCircle2
 } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { businessConfig } from '../../data/businessConfig';
 
 export interface WorkflowGuaranteesProps {
   onOpenMeasurementModal?: () => void;
 }
 
-export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMeasurementModal }) => {
+export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = () => {
+  const stackRef = useRef<HTMLDivElement>(null);
+
   const steps = [
     {
       step: '01',
-      title: 'Обсуждение задачи',
+      title: 'Обсуждение задачи и эскиз',
       time: '15 минут',
-      description: 'Выяснение пожеланий, изучение визуализаций или дизайн-проекта. Предварительный расчет стоимости и консультация инженера.',
+      deliverable: 'Предварительная смета и техническая консультация',
+      description: 'Изучаем планировку, дизайн-проект или фото санузла. Подбираем конфигурацию полотен, тип закалённого стекла и фурнитуру Boheme Milano с ориентировочной сметой.',
     },
     {
       step: '02',
-      title: 'Замер и 3D-проектирование',
+      title: 'Лазерный 3D-замер и образцы',
       time: 'В течение 24 часов',
-      description: 'Выезд инженера с лазерным 3D-сканером и чемоданом реальных образцов стекла и фурнитуры. Точная фиксация разуклонки и уклонов стен.',
+      deliverable: '3D-сканирование с допуском 1 мм',
+      description: 'Выезд ведущего инженера с лазерным 3D-сканером и кейсом физических образцов стекла и PVD-фурнитуры. Фиксируем уклоны стен, геометрию ниши и разуклонку трапа.',
     },
     {
       step: '03',
-      title: 'Согласование решения',
+      title: 'Проектирование и договор',
       time: '1 день',
-      description: 'Утверждение производственных чертежей, узлов примыкания и фурнитуры. Фиксация итоговой сметы в официальном договоре.',
+      deliverable: 'Рабочие чертежи КМД и фиксация цены',
+      description: 'Разрабатываем производственные чертежи с узлами примыкания и вырезами. Утверждаем финальную спецификацию — цена в договоре фиксируется и не меняется ни на рубль.',
     },
     {
       step: '04',
-      title: 'Изготовление на ЧПУ',
+      title: 'Изготовление на ЧПУ в цеху VETRO',
       time: 'От 5 дней',
-      description: 'Раскрой стекла 8–10 мм, полировка еврокромки, вырезы под петли и термическая закалка по ГОСТ 30698-2014 в цеху VETRO в Москве.',
+      deliverable: 'Закалка ESG по ГОСТ 30698-2014 и ОТК',
+      description: 'Автоматический раскрой стекла 8–10 мм, алмазная полировка еврокромки, зенковка отверстий, термическая закалка при 680°C и нанесение гидрофобного слоя Easy Clean.',
     },
     {
       step: '05',
       title: 'Чистовой монтаж и гидротест',
       time: '3–4 часа',
-      description: 'Установка штатными сертифицированными монтажниками, проверка притвора, опрессовка швов водой и подписание акта с гарантией.',
+      deliverable: 'Опрессовка водой и гарантия до 10 лет',
+      description: 'Установка штатными сертифицированными мастерами в бахилах без пыли. Регулировка доводчиков, настройка магнитных уплотнителей, гидротест швов и передача гарантийного акта.',
     },
   ];
+
+  useEffect(() => {
+    if (
+      typeof window === 'undefined' ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>('[data-stack-card]', stackRef.current);
+      cards.forEach((card, i) => {
+        const nextCard = cards[i + 1];
+        if (!nextCard) return;
+
+        gsap.to(card, {
+          scale: 0.94 + 0.013 * i,
+          autoAlpha: 0.7,
+          y: -16,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: nextCard,
+            start: 'top 75%',
+            end: 'top 20%',
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+      });
+    }, stackRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const warranties = [
     {
@@ -77,7 +121,7 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading: Steps */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12 pb-6 border-b border-[#DFDDD6] dark:border-[#34434E]">
           <div>
             <span className="font-mono text-[11px] text-[#788173] dark:text-[#B2E4DD] block mb-2">
               Процесс работы · 01–05
@@ -93,36 +137,60 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = ({ onOpenMe
           </p>
         </div>
 
-        {/* 5 Sequential Architectural Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 mb-12 sm:mb-16">
+        {/* 5 Sequential Overlapping Sticky Stack Cards */}
+        <div
+          ref={stackRef}
+          data-sticky-stack="true"
+          className="relative max-w-4xl mx-auto space-y-6 sm:space-y-8 mb-16 sm:mb-24"
+        >
           {steps.map((item, idx) => (
-            <div
-              key={idx}
-              className="group p-5 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] transition-colors duration-150 flex flex-col justify-between min-h-[220px]"
+            <article
+              key={item.step}
+              data-stack-card="true"
+              className="group p-6 sm:p-8 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] shadow-subtle dark:shadow-none transition-colors duration-150 relative overflow-hidden"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-2xl font-bold text-[#252725] dark:text-[#F1F2EF] group-hover:text-[#788173] dark:group-hover:text-[#B2E4DD] transition-colors tabular-nums">
-                    {item.step}
-                  </span>
-                  <span className="font-mono text-[9px] px-2 py-0.5 rounded bg-[#F4F2EC] dark:bg-[#0F1B25] text-[#788173] dark:text-[#B2E4DD] border border-[#DFDDD6] dark:border-[#34434E] tabular-nums">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-5 sm:gap-8">
+                {/* Left Step Index & Timing Column */}
+                <div className="flex sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-3 sm:w-44 shrink-0">
+                  <div className="flex items-baseline gap-2.5">
+                    <span className="font-mono text-3xl sm:text-4xl font-bold text-[#252725] dark:text-[#F1F2EF] group-hover:text-[#788173] dark:group-hover:text-[#B2E4DD] transition-colors tabular-nums">
+                      {item.step}
+                    </span>
+                    <span className="font-mono text-[10px] text-[#777A74] dark:text-[#B7C3CA]">
+                      / 05
+                    </span>
+                  </div>
+
+                  <span className="font-mono text-[11px] px-2.5 py-1 rounded bg-[#F4F2EC] dark:bg-[#0F1B25] text-[#788173] dark:text-[#B2E4DD] border border-[#DFDDD6] dark:border-[#34434E] tabular-nums">
                     {item.time}
                   </span>
                 </div>
 
-                <h3 className="text-sm font-semibold text-[#252725] dark:text-[#F1F2EF] mb-2 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#777A74] dark:text-[#B7C3CA] leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+                {/* Right Main Content Column */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-4 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#252725] dark:text-[#F1F2EF] leading-snug">
+                      {item.title}
+                    </h3>
+                    <ArrowUpRight className="w-4 h-4 text-[#788173] dark:text-[#B2E4DD] group-hover:text-[#252725] dark:group-hover:text-[#D3F1EB] transition-colors shrink-0 hidden sm:block" />
+                  </div>
 
-              <div className="pt-3 border-t border-[#DFDDD6]/70 dark:border-[#34434E] mt-4 flex items-center justify-between text-[#777A74] dark:text-[#B7C3CA]">
-                <span className="font-mono text-[9px]">Этап VETRO</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] group-hover:text-[#252725] dark:group-hover:text-[#D3F1EB] transition-colors" />
+                  <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#D1DCE1] leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+
+                  <div className="pt-3 border-t border-[#DFDDD6]/70 dark:border-[#34434E] flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <span className="inline-flex items-center gap-1.5 text-[#252725] dark:text-[#F1F2EF] font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#788173] dark:text-[#B2E4DD] shrink-0" />
+                      <span>{item.deliverable}</span>
+                    </span>
+                    <span className="font-mono text-[10px] text-[#777A74] dark:text-[#B7C3CA]">
+                      Этап VETRO · {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 

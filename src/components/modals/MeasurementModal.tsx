@@ -107,6 +107,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
 
   return (
     <div
+      data-lenis-prevent
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
       role="dialog"
       aria-modal="true"

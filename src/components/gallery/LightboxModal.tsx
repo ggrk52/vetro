@@ -83,6 +83,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
   return (
     <div
+      data-lenis-prevent
       data-testid="lightbox-modal"
       role="dialog"
       aria-modal="true"

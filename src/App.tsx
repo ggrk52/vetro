@@ -18,8 +18,11 @@ import { FloatingMessengers } from './components/common/FloatingMessengers';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { MobileStickyCta } from './components/common/MobileStickyCta';
 import { CabinCategory } from './data/portfolioData';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 
 export const App: React.FC = () => {
+  useSmoothScroll();
+
   // Modal state management
   const [isMeasurementOpen, setIsMeasurementOpen] = useState<boolean>(false);
   const [measurementCabinType, setMeasurementCabinType] = useState<string>('Перегородка Walk-In');

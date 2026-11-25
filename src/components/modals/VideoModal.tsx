@@ -110,6 +110,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
   return (
     <div
+      data-lenis-prevent
       role="dialog"
       aria-modal="true"
       aria-label="Видеообзор конструкции"

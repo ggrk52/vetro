@@ -95,6 +95,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
       {/* Drawer Container */}
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div 
+          data-lenis-prevent
           onClick={(e) => e.stopPropagation()}
           className="w-screen max-w-full sm:max-w-md md:max-w-lg bg-[#F4F2EC] dark:bg-[#101923] text-[#252725] dark:text-[#F1F2EF] border-l border-[#DFDDD6] dark:border-[#34434E] shadow-xl flex flex-col justify-between overflow-y-auto drawer-ease animate-in slide-in-from-right"
         >
