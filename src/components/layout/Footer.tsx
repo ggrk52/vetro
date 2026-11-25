@@ -1,13 +1,9 @@
 import React from 'react';
-import { Phone, MessageCircle, Send, MapPin, Clock, ShieldCheck, ArrowUp } from 'lucide-react';
+import { Phone, MessageCircle, Send, MapPin, Clock, ShieldCheck } from 'lucide-react';
 import { businessConfig } from '../../data/businessConfig';
 import { VetroLogo } from '../common/VetroLogo';
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const target = document.querySelector(href);
@@ -44,12 +40,17 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#1A1C1A] dark:bg-[#0D161F] text-[#FBFAF7] dark:text-[#F1F2EF] relative overflow-hidden border-t border-white/10 dark:border-[#34434E]">
       {/* Main Footer Container */}
-      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10">
+      <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 md:pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           
           {/* Column 1: Brand & Studio VETRO */}
-          <div className="space-y-4">
-            <VetroLogo theme="light" size="md" subtitleText="Architectural Glass Studio • Москва" />
+          <div className="space-y-4 min-w-0">
+            <VetroLogo
+              theme="light"
+              size="md"
+              subtitleText="Architectural Glass Studio • Москва"
+              subtitleClassName="whitespace-normal tracking-[0.08em]"
+            />
 
             <p className="text-xs sm:text-[13px] text-white/60 dark:text-[#B7C3CA] leading-relaxed font-sans">
               Проектирование, ЧПУ-производство и чистовой монтаж стеклянных душевых перегородок, кабин и зеркал по индивидуальным размерам в Москве и Московской области.
@@ -152,28 +153,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar with Legal, Disclaimer & Back to Top */}
-        <div className="mt-12 pt-8 border-t border-white/10 dark:border-[#34434E] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40 dark:text-[#B7C3CA]/70">
+        {/* Bottom Bar with Legal & Disclaimer (padded for floating corner buttons) */}
+        <div className="mt-12 pt-8 md:pr-36 border-t border-white/10 dark:border-[#34434E] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40 dark:text-[#B7C3CA]/70">
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left font-mono text-[11px]">
             <span>© 2026 VETRO. Все права защищены.</span>
             <span className="hidden sm:inline">•</span>
             <span>Architectural Glass Studio (Москва и МО)</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-[11px] font-mono text-white/40 dark:text-[#B7C3CA]/60 text-center sm:text-right max-w-xs">
-              Не является публичной офертой (ст. 437 ГК РФ).
-            </span>
-
-            <button
-              type="button"
-              onClick={scrollToTop}
-              aria-label="Вернуться наверх страницы"
-              className="size-9 rounded bg-white/10 hover:bg-white/20 dark:bg-[#14212C] dark:border dark:border-[#34434E] dark:hover:border-[#B2E4DD] dark:hover:bg-[#1B2C36] text-white dark:text-[#B2E4DD] flex items-center justify-center transition-colors duration-150 active:scale-[0.98]"
-            >
-              <ArrowUp className="size-4" />
-            </button>
-          </div>
+          <span className="text-[11px] font-mono text-white/40 dark:text-[#B7C3CA]/60 text-center sm:text-right max-w-xs">
+            Не является публичной офертой (ст. 437 ГК РФ).
+          </span>
         </div>
       </div>
     </footer>

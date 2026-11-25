@@ -95,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMeasurementModal }) => {
             <VetroLogo 
               size="md" 
               subtitleText="Architectural Glass Studio • Душевые" 
-              subtitleClassName="hidden 2xl:block"
+              subtitleClassName="hidden 2xl:block whitespace-nowrap"
             />
           </a>
 

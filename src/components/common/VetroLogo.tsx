@@ -92,10 +92,10 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
   };
 
   return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 group shrink-0 ${className}`}>
+    <div className={`flex items-center gap-2.5 sm:gap-3 group max-w-full min-w-0 ${className}`}>
       <VetroLogoMark size={markSizes[size]} theme={theme} />
       
-      <div className="flex flex-col">
+      <div className="flex flex-col min-w-0">
         <div className="flex items-center gap-1.5 leading-none">
           <span 
             className={`font-sans font-bold tracking-[0.18em] whitespace-nowrap ${titleSizes[size]} ${
@@ -114,7 +114,7 @@ export const VetroLogo: React.FC<VetroLogoProps> = ({
         
         {showSubtitle && (
           <span 
-            className={`font-mono tracking-[0.14em] mt-0.5 truncate uppercase whitespace-nowrap ${subSizes[size]} ${
+            className={`font-mono tracking-[0.11em] mt-0.5 uppercase leading-snug ${subSizes[size]} ${
               isGlobalDark ? 'text-[#B7C3CA]' : isLightInk ? 'text-[#FBFAF7]/60' : 'text-[#777A74]'
             } ${subtitleClassName}`}
           >
