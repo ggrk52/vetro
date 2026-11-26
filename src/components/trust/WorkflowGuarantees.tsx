@@ -27,10 +27,10 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = () => {
     },
     {
       step: '02',
-      title: 'Лазерный 3D-замер и образцы',
-      time: 'В течение 24 часов',
-      deliverable: '3D-сканирование с допуском 1 мм',
-      description: 'Выезд ведущего инженера с лазерным 3D-сканером и кейсом физических образцов стекла и PVD-фурнитуры. Фиксируем уклоны стен, геометрию ниши и разуклонку трапа.',
+      title: 'Бесплатный точный замер и образцы',
+      time: 'Бесплатно · 24ч',
+      deliverable: 'Точный замер с допуском 1 мм',
+      description: 'Бесплатный выезд ведущего инженера с профессиональным измерительным инструментом и кейсом физических образцов стекла и фурнитуры. Фиксируем уклоны стен, геометрию ниши и разуклонку трапа.',
     },
     {
       step: '03',
@@ -91,7 +91,7 @@ export const WorkflowGuarantees: React.FC<WorkflowGuaranteesProps> = () => {
 
   const warranties = [
     {
-      years: '3 года',
+      years: '1 год',
       numericYears: businessConfig.guarantees.installationYears,
       title: 'Монтаж и герметичность',
       subtitle: 'Аквастоп-защита',

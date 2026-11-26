@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { businessConfig } from '../../data/businessConfig';
 
-export type VideoType = 'sliding' | 'estriado';
+export type VideoType = 'sliding';
 
 export interface VideoInfo {
   id: VideoType;
@@ -30,15 +30,6 @@ export const VIDEOS_DATA: Record<VideoType, VideoInfo> = {
     posterSrc: 'videos/sliding_bath_thumb.jpg',
     description: 'Демонстрация плавного и легкого скольжения стеклянной створки на борт ванны в светлом мраморном санузле. Верхний роликовый трек из нержавеющей стали AISI 304, мягкие демпферы торможения и идеальная герметичность.',
     specs: 'Стекло 8 мм Optiwhite • Полированная сталь AISI 304 • Защита от брызг 100%',
-  },
-  estriado: {
-    id: 'estriado',
-    title: 'Кабина из рифленого стекла Estriado в золоте',
-    badge: 'Трендовый проект',
-    videoSrc: 'videos/estriado_gold_demo.mp4',
-    posterSrc: 'videos/estriado_gold_thumb.jpg',
-    description: 'Видеообзор готовой душевой кабины из фактурного рифленого стекла Estriado в сочетании с фурнитурой под брашированное золото Boheme Milano. Объемная вертикальная текстура дает великолепную игру света и приватность.',
-    specs: 'Рифленое стекло Estriado 8 мм • Брашированное золото PVD • Петли Boheme',
   },
 };
 

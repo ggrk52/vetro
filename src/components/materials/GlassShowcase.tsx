@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 
 export interface GlassType {
-  id: 'optiwhite' | 'float' | 'matelux' | 'estriado' | 'graphite' | 'bronze';
+  id: 'optiwhite' | 'float' | 'matelux' | 'graphite' | 'bronze';
   name: string;
   russianLabel: string;
   category: string;
@@ -87,27 +87,6 @@ export const glassTypesData: GlassType[] = [
     accentColor: 'from-slate-400/20 to-slate-200/10',
   },
   {
-    id: 'estriado',
-    name: 'Estriado / Fluted (Рифленое)',
-    russianLabel: 'Рифленое фактурное',
-    category: 'Дизайнерский тренд',
-    badge: 'Тренд сезона',
-    thickness: '8 мм закаленное ESG',
-    lightTransmission: '85%',
-    privacy: 'Средняя (объемное преломление)',
-    description: 'Ультрамодное ребристое стекло с выразительной вертикальной полосой. Создает завораживающую объемную игру света и оптическое искажение силуэта.',
-    keyBenefits: [
-      'Фактурная полоса скрывает высохшие капли воды и брызги',
-      'Эффектная игра световых бликов в интерьере',
-      'Идеально подчеркивает фурнитуру под брашированное золото и графит',
-      'Придает ванной комнате статус европейского бутик-отеля'
-    ],
-    recommendedFor: 'Современные дизайнерские санузлы, ар-деко, сканди, стиль джапанди и лофт',
-    imageSrc: 'portfolio/hero_estriado_black.jpg',
-    accentColor: 'from-amber-500/20 to-yellow-500/10',
-    hasVideo: true,
-  },
-  {
     id: 'graphite',
     name: 'Graphite / Grey (Графит)',
     russianLabel: 'Тонированное графитовое',
@@ -150,7 +129,7 @@ export const glassTypesData: GlassType[] = [
 
 export interface GlassShowcaseProps {
   onSelectGlass?: (glassId: string) => void;
-  onOpenVideoModal?: (video: 'sliding' | 'estriado') => void;
+  onOpenVideoModal?: (video: 'sliding') => void;
   onOpenMeasurementModal?: () => void;
 }
 
@@ -274,16 +253,6 @@ export const GlassShowcase: React.FC<GlassShowcaseProps> = ({
                     <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-[#FBFAF7]/95 dark:bg-[#14212C]/95 text-[#252725] dark:text-[#B2E4DD] border border-[#DFDDD6] dark:border-[#34434E] backdrop-blur-sm">
                       {activeGlass.thickness}
                     </span>
-                    {activeGlass.hasVideo && (
-                      <button
-                        onClick={() => onOpenVideoModal && onOpenVideoModal('estriado')}
-                        type="button"
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#252725] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] text-[10px] font-mono dark:font-semibold hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] transition-colors duration-150"
-                      >
-                        <Video className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#102126]" />
-                        <span>Видео</span>
-                      </button>
-                    )}
                   </div>
                   <p className="text-[11px] font-mono text-[#FBFAF7]/90 dark:text-[#D8E5E9] bg-[#252725]/80 dark:bg-[#0D161F]/90 p-2 rounded backdrop-blur-sm border border-white/10 dark:border-[#34434E]">
                     Реальная реализация VETRO в интерьере

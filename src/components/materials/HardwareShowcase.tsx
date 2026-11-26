@@ -47,7 +47,7 @@ export const hardwareFinishesData: HardwareFinish[] = [
     badge: 'Люкс-сегмент',
     coatingTech: 'Вакуумное PVD-напыление нитрида титана',
     description: 'Сатинированная теплая текстура золота с микронаправленной шлифовкой. Не темнеет, не окисляется и идеально сочетается с золотыми смесителями.',
-    bestFor: 'Неоклассика, ар-деко, светлый керамогранит, стекло Optiwhite и Estriado.',
+    bestFor: 'Неоклассика, ар-деко, светлый керамогранит, стекло Optiwhite, Матовое и Бронза.',
     sampleProject: 'portfolio/corner_01.jpg',
     sampleTitle: 'Кабина Optiwhite с фурнитурой под брашированное золото',
   },

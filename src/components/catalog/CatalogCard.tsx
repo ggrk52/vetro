@@ -24,7 +24,7 @@ export interface CatalogCardItem {
   bullets: string[];
   hardwareOptions: string[];
   hasVideo?: boolean;
-  videoType?: 'sliding' | 'estriado';
+  videoType?: 'sliding';
 }
 
 export interface CatalogCardProps {
@@ -32,7 +32,7 @@ export interface CatalogCardProps {
   index?: number;
   onCalculateClick?: (categoryId: string) => void;
   onViewGalleryClick?: (category: CabinCategory) => void;
-  onOpenVideoModal?: (video: 'sliding' | 'estriado') => void;
+  onOpenVideoModal?: (video: 'sliding') => void;
   onOpenDetails?: (item: CatalogCardItem) => void;
 }
 

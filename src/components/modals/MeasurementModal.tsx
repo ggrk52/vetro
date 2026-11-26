@@ -136,7 +136,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
                 Бесплатный выезд 24ч
               </span>
               <h2 id="modal-title" className="text-base font-semibold text-[#252725] dark:text-[#F1F2EF]">
-                Заказать лазерный 3D-замер
+                Заказать бесплатный замер
               </h2>
             </div>
           </div>
@@ -159,7 +159,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
                 <Check className="size-7 text-[#A68C70] dark:text-[#102126]" />
               </div>
               <h3 className="text-xl font-serif font-normal text-[#252725] dark:text-[#F1F2EF] mb-2 text-balance">
-                Заявка на 3D-замер принята
+                Заявка на бесплатный замер принята
               </h3>
               <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#D1DCE1] leading-relaxed max-w-md mb-6 text-pretty">
                 Инженер студии VETRO свяжется с вами в течение 15 минут для подтверждения удобного времени выезда и деталей проекта.
@@ -195,7 +195,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Trust Callout */}
               <div className="bg-[#F4F2EC] dark:bg-[#0F1B25] border border-[#DFDDD6] dark:border-[#34434E] rounded p-3.5 text-xs text-[#777A74] dark:text-[#B7C3CA] leading-relaxed">
-                Инженер студии приедет с лазерным 3D-сканером и комплектом образцов стекла (Optiwhite, сатинат, Estriado) и фурнитуры Boheme Milano.
+                Инженер студии приедет бесплатно с точным инструментом и комплектом образцов стекла (Optiwhite, прозрачное, сатинат, графит, бронза) и фурнитуры.
               </div>
 
               {/* Name & Phone Grid */}
@@ -356,7 +356,7 @@ export const MeasurementModal: React.FC<MeasurementModalProps> = ({
                 ) : (
                   <>
                     <Ruler className="w-4 h-4 text-[#A68C70] dark:text-[#102126]" />
-                    <span>Забронировать 3D-замер</span>
+                    <span>Забронировать бесплатный замер</span>
                     <ArrowUpRight className="w-4 h-4 text-[#A68C70] dark:text-[#102126]" />
                   </>
                 )}

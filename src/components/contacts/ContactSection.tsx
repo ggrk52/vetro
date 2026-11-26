@@ -98,7 +98,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                   Благодарим за обращение в VETRO.
                 </h4>
                 <p className="text-xs sm:text-sm text-white/70 dark:text-[#D1DCE1] max-w-md mx-auto leading-relaxed text-pretty">
-                  Заявка принята. Инженер свяжется с вами по номеру <strong className="text-[#FBFAF7] dark:text-[#B2E4DD] tabular-nums">{phone}</strong> для уточнения деталей и выезда на 3D-замер.
+                  Заявка принята. Инженер свяжется с вами по номеру <strong className="text-[#FBFAF7] dark:text-[#B2E4DD] tabular-nums">{phone}</strong> для уточнения деталей и бесплатного выезда на замер.
                 </p>
                 <button
                   type="button"
@@ -320,7 +320,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenMeasuremen
                   className="w-full py-3 px-4 rounded font-medium text-[#FBFAF7] dark:text-[#F1F2EF] bg-white/10 dark:bg-transparent hover:bg-white/20 dark:hover:bg-[#1B2C36] border border-white/15 dark:border-[#657881] dark:hover:border-[#B2E4DD] text-xs flex items-center justify-center gap-2 transition-colors duration-150 active:scale-[0.98] min-h-[44px]"
                 >
                   <Ruler className="w-3.5 h-3.5 text-[#A68C70] dark:text-[#B2E4DD]" />
-                  <span>Вызвать инженера на 3D-замер</span>
+                  <span>Вызвать инженера на бесплатный замер</span>
                 </button>
               )}
             </div>

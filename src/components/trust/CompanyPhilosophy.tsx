@@ -24,8 +24,8 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
     },
     {
       value: '1 мм',
-      label: 'Точность лазера',
-      sublabel: '3D-нивелирование проема',
+      label: 'Точность замера',
+      sublabel: 'бесплатный выезд инженера',
     },
     {
       value: 'до 10 лет',
@@ -124,7 +124,7 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
             </h2>
 
             <p className="text-sm sm:text-base text-[#777A74] dark:text-[#D1DCE1] leading-relaxed mb-6 max-w-2xl font-sans text-pretty">
-              В VETRO мы относимся к стеклянной душевой перегородке не как к сантехнике, а как к элементу архитектурного пространства. Собственное производство в Москве, многолетний опыт инженеров, 3D-контроль геометрии проемов и итальянская фурнитура Boheme Milano обеспечивают эталонную прозрачность и надежность конструкции на десятилетия.
+              В VETRO мы относимся к стеклянной душевой перегородке не как к сантехнике, а как к элементу архитектурного пространства. Собственное производство в Москве, опыт инженеров, точный контроль геометрии проемов и европейская фурнитура обеспечивают эталонную прозрачность и надежность конструкции на десятилетия.
             </p>
 
             {/* 4 Pillars of Philosophy */}
@@ -175,7 +175,7 @@ export const CompanyPhilosophy: React.FC<CompanyPhilosophyProps> = ({ onOpenMeas
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-[#252725] dark:bg-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] text-[#FBFAF7] dark:text-[#102126] font-medium dark:font-semibold text-xs transition-colors duration-150 active:scale-[0.98] min-h-[44px]"
               >
                 <Ruler className="size-3.5 text-[#A68C70] dark:text-[#102126]" />
-                <span>Заказать 3D-замер</span>
+                <span>Заказать бесплатный замер</span>
               </button>
 
               <a

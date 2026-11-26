@@ -31,8 +31,6 @@ export const catalogItemsData: CatalogCardItem[] = [
       'Закалка по ГОСТ 30698-2014 с европолировкой кромки',
     ],
     hardwareOptions: ['Черный матовый', 'Брашированное золото', 'Хром', 'Gunmetal'],
-    hasVideo: true,
-    videoType: 'estriado',
   },
   {
     id: 'cat_corner',
@@ -71,7 +69,7 @@ export const catalogItemsData: CatalogCardItem[] = [
       warranty: 'до 5 лет',
     },
     bullets: [
-      'Точный лазерный 3D-замер проема с допуском до 1 мм',
+      'Бесплатный точный замер проема с допуском до 1 мм',
       'Распашные петли «стена-стекло» с плавным закрыванием',
       'Силиконовые капельники и водоотбойники от брызг',
       'Любая нестандартная высота до 2500 мм под потолок',
@@ -120,7 +118,7 @@ export const catalogItemsData: CatalogCardItem[] = [
       'Надежная защита пола и мебели от брызг взамен тканевых штор',
       'Поворот створки на 180° для свободного доступа и мытья ванны',
       'Нижний силиконовый лепесток плотно прилегает к бортику',
-      'Стекло Optiwhite, классическое прозрачное или рифленое Estriado',
+      'Стекло Optiwhite, классическое прозрачное, матовое или тонированное',
     ],
     hardwareOptions: ['Хром', 'Черный матовый', 'Брашированное золото'],
     hasVideo: true,
@@ -197,7 +195,7 @@ export const catalogItemsData: CatalogCardItem[] = [
 export interface CatalogSectionProps {
   onCalculateClick?: (categoryId: string) => void;
   onViewGalleryClick?: (category: CabinCategory) => void;
-  onOpenVideoModal?: (video: 'sliding' | 'estriado') => void;
+  onOpenVideoModal?: (video: 'sliding') => void;
   onOpenMeasurementModal?: () => void;
 }
 
@@ -293,7 +291,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               Нестандартные размеры и фигурный раскрой под геометрию стен
             </h3>
             <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#B7C3CA] mt-1.5 max-w-xl">
-              Точный лазерный 3D-замер инженеров VETRO под уклоны керамогранита, встроенные трапы и скрытые инсталляции.
+              Бесплатный точный замер инженеров VETRO под уклоны керамогранита, встроенные трапы и скрытые инсталляции.
             </p>
           </div>
 

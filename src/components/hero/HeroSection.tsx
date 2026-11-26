@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { 
   ArrowUpRight,
   ArrowDown,
-  Compass
+  Compass,
+  Ruler
 } from 'lucide-react';
 import { businessConfig } from '../../data/businessConfig';
 
@@ -50,26 +51,14 @@ const HERO_OBJECTS: HeroObject[] = [
   },
   {
     id: '03',
-    tabLabel: '03 · Estriado Noir',
-    name: 'Estriado Fluted · Grafite Noir',
-    glass: 'Рифленое Estriado 10 мм',
-    hardware: 'Grafite Noir · Скрытый трек',
-    feature: 'Светотень и приватность',
-    image: 'portfolio/hero_estriado_black.jpg',
-    badge: 'STUDIO SPEC · 03',
-    whatsappMessage: 'Здравствуйте! Понравился проект VETRO 03 (Рифленое стекло Estriado + Графит). Хочу рассчитать стоимость.',
-    alt: 'Душевая перегородка из рифленого стекла Estriado с матовой графитовой фурнитурой',
-  },
-  {
-    id: '04',
-    tabLabel: '04 · Bronze Titanium',
+    tabLabel: '03 · Bronze Titanium',
     name: 'Bronze Glass · Brushed Titanium',
     glass: 'ESG Bronze в массе 10 мм',
     hardware: 'Brushed Titanium · Скрытый монтаж',
     feature: 'Архитектурный акцент',
     image: 'portfolio/hero_bronze_titanium.jpg',
-    badge: 'STUDIO SPEC · 04',
-    whatsappMessage: 'Здравствуйте! Понравился проект VETRO 04 (Бронзовое стекло в массе + Титан). Хочу рассчитать проект.',
+    badge: 'STUDIO SPEC · 03',
+    whatsappMessage: 'Здравствуйте! Понравился проект VETRO 03 (Бронзовое стекло в массе + Титан). Хочу рассчитать проект.',
     alt: 'Душевое ограждение из бронзового стекла в массе с брашированной фурнитурой титан',
   },
 ];
@@ -107,16 +96,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
   };
 
   const metaSpecs = [
-    { num: '01', label: 'Лазерный 3D-замер', val: 'Точность до 1 мм' },
+    { num: '01', label: 'Выезд на замер', val: 'Бесплатно · до 1 мм' },
     { num: '02', label: 'Закаленное стекло', val: '8–10 мм ГОСТ 30698' },
     { num: '03', label: 'ЧПУ-обработка', val: 'Собственный цех от 5 дней' },
-    { num: '04', label: 'Гарантия студии', val: 'Официальный договор' },
+    { num: '04', label: 'Гарантия на монтаж', val: '1 год по договору' },
   ];
 
   return (
-    <section className="relative pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20 bg-[#F4F2EC] dark:bg-[#101A25] overflow-hidden border-b border-[#DFDDD6] dark:border-[#34434E]">
+    <section className="relative pt-5 pb-12 sm:pt-8 sm:pb-16 lg:pt-10 lg:pb-20 bg-[#F4F2EC] dark:bg-[#101A25] overflow-hidden border-b border-[#DFDDD6] dark:border-[#34434E]">
       <div className="w-full max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
+        {/* Prominent Free Measurement Banner */}
+        <div className="mb-5 sm:mb-6 rounded border border-[#DFDDD6] dark:border-[#B2E4DD]/40 bg-[#252725] dark:bg-[#14212C] text-[#FBFAF7] dark:text-[#F1F2EF] px-4 py-3 sm:px-5 sm:py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-start sm:items-center gap-3 min-w-0">
+            <span className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#A68C70] dark:bg-[#B2E4DD] text-[#FBFAF7] dark:text-[#102126] font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">
+              <Ruler className="w-3.5 h-3.5" />
+              <span>Замер — 0 ₽</span>
+            </span>
+            <p className="text-xs sm:text-sm font-medium leading-snug text-[#FBFAF7] dark:text-[#F1F2EF]">
+              Бесплатный выезд инженера на замер с образцами стекла и фурнитуры по Москве и МО
+            </p>
+          </div>
+
+          {onOpenMeasurementModal && (
+            <button
+              type="button"
+              onClick={onOpenMeasurementModal}
+              className="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded bg-[#FBFAF7] dark:bg-[#B2E4DD] hover:bg-[#E8E5DD] dark:hover:bg-[#D3F1EB] text-[#252725] dark:text-[#102126] font-semibold text-xs transition-colors duration-150 active:scale-[0.98]"
+            >
+              <span>Записаться бесплатно</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
+
         {/* Top Architectural Subtitle Bar */}
         <div className="flex items-center justify-between border-b border-[#DFDDD6] dark:border-[#34434E] pb-3 mb-6 sm:mb-8 text-xs font-mono text-[#777A74] dark:text-[#B7C3CA]">
           <span className="flex items-center gap-2">
@@ -156,7 +169,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-medium dark:font-semibold text-xs sm:text-sm text-[#FBFAF7] dark:text-[#102126] bg-[#252725] dark:bg-[#B2E4DD] hover:bg-[#383B38] dark:hover:bg-[#D3F1EB] border border-[#252725] dark:border-[#B2E4DD] transition-colors duration-150 active:scale-[0.98] min-h-[48px]"
               >
                 <span>Обсудить проект</span>
-                <span className="text-[11px] text-[#A68C70] dark:text-[#102126]/80 border-l border-white/20 dark:border-[#102126]/25 pl-2">Заказать замер</span>
+                <span className="text-[11px] text-[#A68C70] dark:text-[#102126]/80 border-l border-white/20 dark:border-[#102126]/25 pl-2">Бесплатный замер</span>
                 <ArrowUpRight className="size-4 text-[#A68C70] dark:text-[#102126]" />
               </button>
 
@@ -199,7 +212,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMeasurementModal
             <div className="relative mx-auto max-w-md lg:max-w-none w-full">
               
               {/* Architecture Switcher Tabs */}
-              <div className="grid grid-cols-4 gap-1 p-1 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] mb-2.5">
+              <div className="grid grid-cols-3 gap-1 p-1 rounded bg-[#FBFAF7] dark:bg-[#14212C] border border-[#DFDDD6] dark:border-[#34434E] mb-2.5">
                 {HERO_OBJECTS.map((obj, idx) => {
                   const isActive = idx === selectedIndex;
                   return (

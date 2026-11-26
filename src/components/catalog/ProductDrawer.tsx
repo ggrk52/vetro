@@ -20,7 +20,7 @@ export interface ProductDrawerProps {
   onClose: () => void;
   onCalculateClick?: (categoryId: string) => void;
   onOpenMeasurementModal?: () => void;
-  onOpenVideoModal?: (video: 'sliding' | 'estriado') => void;
+  onOpenVideoModal?: (video: 'sliding') => void;
 }
 
 export const ProductDrawer: React.FC<ProductDrawerProps> = ({
@@ -164,7 +164,7 @@ export const ProductDrawer: React.FC<ProductDrawerProps> = ({
                 Описание конструкции
               </span>
               <p className="text-sm text-[#777A74] dark:text-[#D1DCE1] leading-relaxed">
-                {item.subtitle}. Индивидуальный проект по вашим размерам с выездом инженера студии VETRO на 3D-замер.
+                {item.subtitle}. Индивидуальный проект по вашим размерам с бесплатным выездом инженера студии VETRO на замер.
               </p>
             </div>
 

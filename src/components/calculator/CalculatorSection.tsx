@@ -6,7 +6,6 @@ import {
   ChevronLeft, 
   Ruler, 
   ShieldCheck, 
-  Droplets, 
   Wrench, 
   MessageCircle, 
   Phone, 
@@ -22,7 +21,7 @@ import {
   CABIN_TYPE_METADATA, 
   GLASS_METADATA, 
   HARDWARE_METADATA, 
-  OPTION_PRICES,
+  INSTALLATION_RATE_PER_SQM,
   calculatePrice,
   formatPrice
 } from '../../utils/calculatorPricing';
@@ -79,14 +78,13 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
       `Здравствуйте! Рассчитал душевую кабину на сайте студии VETRO:`,
       `• Тип: ${CABIN_TYPE_METADATA[calcState.cabinType].title}`,
       `• Размеры: ${calcState.width}×${calcState.height}${calcState.depth && cabinMeta.requiresDepth ? `×${calcState.depth}` : ''} см (площадь ~${pricing.areaSqm} м²)`,
-      `• Стекло: ${GLASS_METADATA[calcState.glassType].name}`,
-      `• Фурнитура: ${HARDWARE_METADATA[calcState.hardwareFinish].name}`,
-      `• Монтаж: ${calcState.hasInstallation ? 'Да (+6000 ₽)' : 'Нет'}`,
-      `• Антикапля: ${calcState.hasHydrophobicCoating ? 'Да (+2500 ₽)' : 'Нет'}`,
+      `• Стекло: ${GLASS_METADATA[calcState.glassType].name} (${pricing.glassRate.toLocaleString('ru-RU')} ₽/м² — ${formatPrice(pricing.glassPrice)})`,
+      `• Цвет фурнитуры: ${HARDWARE_METADATA[calcState.hardwareFinish].name} (без доплаты)`,
+      `• Монтаж (+${INSTALLATION_RATE_PER_SQM.toLocaleString('ru-RU')} ₽/м²): ${formatPrice(pricing.installationPrice)}`,
       `• Расчетная стоимость: ${pricing.formattedTotal}`,
       clientName ? `Имя: ${clientName}` : '',
       clientPhone ? `Телефон: ${clientPhone}` : '',
-      `Хочу подтвердить расчет и заказать выезд на замер.`,
+      `Хочу подтвердить расчет и заказать бесплатный выезд на замер.`,
     ].filter(Boolean);
 
     return `https://wa.me/79268402345?text=${encodeURIComponent(lines.join('\n'))}`;
@@ -106,7 +104,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
     { num: 1, title: 'Конструкция', desc: 'Тип кабины' },
     { num: 2, title: 'Габариты', desc: 'Ширина и высота' },
     { num: 3, title: 'Стекло', desc: 'Оттенок полотна' },
-    { num: 4, title: 'Фурнитура', desc: 'Цвет и опции' },
+    { num: 4, title: 'Фурнитура', desc: 'Выбор цвета' },
     { num: 5, title: 'Смета', desc: 'Фиксация цены' },
   ];
 
@@ -236,7 +234,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     Шаг 2. Размеры конструкции (см)
                   </h3>
                   <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#B7C3CA]">
-                    Укажите ориентировочные габариты для расчета. Точный лазерный 3D-замер инженер проведет на объекте бесплатно.
+                    Укажите ориентировочные габариты с точностью до 1 см. Точный замер инженер проведет на объекте бесплатно.
                   </p>
                 </div>
 
@@ -268,7 +266,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     type="range"
                     min={cabinMeta.minDimensions.width}
                     max={cabinMeta.maxDimensions.width}
-                    step={5}
+                    step={1}
                     value={calcState.width}
                     onChange={(e) =>
                       setCalcState((prev) => ({ ...prev, width: Number(e.target.value) }))
@@ -309,7 +307,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     type="range"
                     min={cabinMeta.minDimensions.height}
                     max={cabinMeta.maxDimensions.height}
-                    step={5}
+                    step={1}
                     value={calcState.height}
                     onChange={(e) =>
                       setCalcState((prev) => ({ ...prev, height: Number(e.target.value) }))
@@ -352,7 +350,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                       type="range"
                       min={cabinMeta.minDimensions.depth ?? 70}
                       max={cabinMeta.maxDimensions.depth ?? 150}
-                      step={5}
+                      step={1}
                       value={calcState.depth ?? 90}
                       onChange={(e) =>
                         setCalcState((prev) => ({ ...prev, depth: Number(e.target.value) }))
@@ -450,15 +448,15 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
               </div>
             )}
 
-            {/* STEP 4: HARDWARE FINISH & ADD-ONS */}
+            {/* STEP 4: HARDWARE FINISH */}
             {currentStep === 4 && (
               <div className="space-y-6">
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-[#252725] dark:text-[#F1F2EF] mb-1 font-sans">
-                    Шаг 4. Цвет фурнитуры и доп. опции
+                    Шаг 4. Цвет фурнитуры
                   </h3>
                   <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#B7C3CA]">
-                    Итальянская фурнитура BOHÉME Milano из нержавеющей стали AISI 304 и латуни с PVD-покрытием.
+                    Любой оттенок фурнитуры доступен без доплат к базовой стоимости.
                   </p>
                 </div>
 
@@ -496,68 +494,6 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     );
                   })}
                 </div>
-
-                {/* Add-ons Checkboxes */}
-                <div className="pt-4 border-t border-[#DFDDD6] dark:border-[#34434E] space-y-3">
-                  <h4 className="text-sm font-semibold text-[#252725] dark:text-[#F1F2EF]">
-                    Дополнительные услуги и покрытия:
-                  </h4>
-
-                  {/* Installation Option */}
-                  <label className="flex items-start gap-3 p-4 rounded bg-[#FBFAF7] dark:bg-[#0F1B25] border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] cursor-pointer transition-colors">
-                    <input
-                      type="checkbox"
-                      checked={calcState.hasInstallation}
-                      onChange={(e) =>
-                        setCalcState((prev) => ({ ...prev, hasInstallation: e.target.checked }))
-                      }
-                      className="mt-1 size-4 rounded text-[#252725] dark:text-[#B2E4DD] focus:ring-[#252725] dark:focus:ring-[#B2E4DD] border-[#DFDDD6] dark:border-[#435461] accent-[#252725] dark:accent-[#B2E4DD]"
-                    />
-                    <div className="flex-1 text-xs sm:text-sm">
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium text-[#252725] dark:text-[#F1F2EF] flex items-center gap-1.5">
-                          <Wrench className="size-4 text-[#788173] dark:text-[#B2E4DD]" />
-                          Чистовой монтаж под ключ инженерной бригадой VETRO
-                        </span>
-                        <span className="font-mono text-[#788173] dark:text-[#B2E4DD] font-semibold tabular-nums">
-                          +{formatPrice(OPTION_PRICES.installation)}
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#777A74] dark:text-[#B7C3CA] mt-1">
-                        Установка с лазерным нивелиром, проклейка магнитных уплотнителей, гидротест и гарантия 3 года.
-                      </p>
-                    </div>
-                  </label>
-
-                  {/* Hydrophobic Coating Option */}
-                  <label className="flex items-start gap-3 p-4 rounded bg-[#FBFAF7] dark:bg-[#0F1B25] border border-[#DFDDD6] dark:border-[#34434E] hover:border-[#252725] dark:hover:border-[#B2E4DD] cursor-pointer transition-colors">
-                    <input
-                      type="checkbox"
-                      checked={calcState.hasHydrophobicCoating}
-                      onChange={(e) =>
-                        setCalcState((prev) => ({
-                          ...prev,
-                          hasHydrophobicCoating: e.target.checked,
-                        }))
-                      }
-                      className="mt-1 size-4 rounded text-[#252725] dark:text-[#B2E4DD] focus:ring-[#252725] dark:focus:ring-[#B2E4DD] border-[#DFDDD6] dark:border-[#435461] accent-[#252725] dark:accent-[#B2E4DD]"
-                    />
-                    <div className="flex-1 text-xs sm:text-sm">
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium text-[#252725] dark:text-[#F1F2EF] flex items-center gap-1.5">
-                          <Droplets className="size-4 text-[#788173] dark:text-[#B2E4DD]" />
-                          Нанопокрытие «Антикапля» (Easy Clean)
-                        </span>
-                        <span className="font-mono text-[#788173] dark:text-[#B2E4DD] font-semibold tabular-nums">
-                          +{formatPrice(OPTION_PRICES.hydrophobicCoating)}
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#777A74] dark:text-[#B7C3CA] mt-1">
-                        Вода скатывается каплями, не оставляя известкового налета и мыльных разводов на стекле.
-                      </p>
-                    </div>
-                  </label>
-                </div>
               </div>
             )}
 
@@ -569,7 +505,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                     Шаг 5. Итоговая смета и фиксация скидки 5%
                   </h3>
                   <p className="text-xs sm:text-sm text-[#777A74] dark:text-[#B7C3CA]">
-                    Детальная спецификация вашего проекта. Оставьте контакт, чтобы зафиксировать цену при замере.
+                    Детальная спецификация вашего проекта. Оставьте контакт, чтобы зафиксировать цену при бесплатном замере.
                   </p>
                 </div>
 
@@ -590,37 +526,35 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                   </div>
 
                   <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6] dark:border-[#34434E]">
-                    <span className="text-[#777A74] dark:text-[#B7C3CA]">Стекло:</span>
-                    <strong className="text-[#252725] dark:text-[#F1F2EF] text-right font-medium">
-                      {GLASS_METADATA[calcState.glassType].name} (8–10 мм закаленное)
+                    <span className="text-[#777A74] dark:text-[#B7C3CA]">
+                      Стекло ({GLASS_METADATA[calcState.glassType].name}, {pricing.glassRate.toLocaleString('ru-RU')} ₽/м²):
+                    </span>
+                    <strong className="font-mono text-[#252725] dark:text-[#F1F2EF] text-right font-medium tabular-nums">
+                      {formatPrice(pricing.glassPrice)}
                     </strong>
                   </div>
 
                   <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6] dark:border-[#34434E]">
-                    <span className="text-[#777A74] dark:text-[#B7C3CA]">Фурнитура:</span>
-                    <strong className="text-[#252725] dark:text-[#F1F2EF] text-right font-medium">
-                      BOHÉME ({HARDWARE_METADATA[calcState.hardwareFinish].name})
-                    </strong>
-                  </div>
-
-                  <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6] dark:border-[#34434E]">
-                    <span className="text-[#777A74] dark:text-[#B7C3CA]">Монтаж инженерами VETRO:</span>
-                    <span className="font-mono text-[#252725] dark:text-[#F1F2EF] tabular-nums">
-                      {calcState.hasInstallation ? formatPrice(OPTION_PRICES.installation) : 'Без монтажа'}
+                    <span className="text-[#777A74] dark:text-[#B7C3CA]">Фурнитура ({HARDWARE_METADATA[calcState.hardwareFinish].name}):</span>
+                    <span className="font-mono text-[#788173] dark:text-[#B2E4DD] text-right font-medium">
+                      Без доплаты
                     </span>
                   </div>
 
                   <div className="flex justify-between items-center text-xs sm:text-sm pb-2 border-b border-[#DFDDD6] dark:border-[#34434E]">
-                    <span className="text-[#777A74] dark:text-[#B7C3CA]">Покрытие «Антикапля»:</span>
+                    <span className="text-[#777A74] dark:text-[#B7C3CA] flex items-center gap-1.5">
+                      <Wrench className="size-3.5 text-[#788173] dark:text-[#B2E4DD]" />
+                      <span>Монтаж (+{INSTALLATION_RATE_PER_SQM.toLocaleString('ru-RU')} ₽/м², гарантия 1 год):</span>
+                    </span>
                     <span className="font-mono text-[#252725] dark:text-[#F1F2EF] tabular-nums">
-                      {calcState.hasHydrophobicCoating ? formatPrice(OPTION_PRICES.hydrophobicCoating) : 'Не выбрано'}
+                      {formatPrice(pricing.installationPrice)}
                     </span>
                   </div>
 
                   <div className="pt-2 flex justify-between items-center">
                     <div>
                       <span className="text-xs text-[#777A74] dark:text-[#B7C3CA] block">Расчетная стоимость проекта:</span>
-                      <span className="text-xs text-[#788173] dark:text-[#B2E4DD] font-semibold">Без скрытых доплат</span>
+                      <span className="text-xs text-[#788173] dark:text-[#B2E4DD] font-semibold">Без скрытых доплат · Замер 0 ₽</span>
                     </div>
                     <span className="text-2xl sm:text-3xl font-bold text-[#252725] dark:text-[#B2E4DD] font-mono tabular-nums">
                       {pricing.formattedTotal}
@@ -833,7 +767,7 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 {pricing.formattedTotal}
               </div>
               <span className="text-[11px] text-[#777A74] dark:text-[#B7C3CA] mt-1 block">
-                Точная стоимость фиксируется после лазерного 3D-замера
+                Точная стоимость фиксируется после бесплатного замера
               </span>
             </div>
 
@@ -858,27 +792,21 @@ export const CalculatorSection: React.FC<CalculatorSectionProps> = ({ onOpenMeas
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#777A74] dark:text-[#B7C3CA]">Стекло:</span>
+                <span className="text-[#777A74] dark:text-[#B7C3CA]">Стекло ({pricing.glassRate.toLocaleString('ru-RU')} ₽/м²):</span>
                 <span className="font-medium text-[#252725] dark:text-[#F1F2EF] truncate max-w-[170px]">
                   {GLASS_METADATA[calcState.glassType].name}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#777A74] dark:text-[#B7C3CA]">Фурнитура:</span>
+                <span className="text-[#777A74] dark:text-[#B7C3CA]">Фурнитура (0 ₽ доплата):</span>
                 <span className="font-medium text-[#252725] dark:text-[#F1F2EF] truncate max-w-[170px]">
                   {HARDWARE_METADATA[calcState.hardwareFinish].name}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#777A74] dark:text-[#B7C3CA]">Монтаж:</span>
-                <span className="font-medium text-[#252725] dark:text-[#F1F2EF]">
-                  {calcState.hasInstallation ? 'Включен' : 'Без монтажа'}
-                </span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#777A74] dark:text-[#B7C3CA]">Антикапля:</span>
-                <span className="font-medium text-[#252725] dark:text-[#F1F2EF]">
-                  {calcState.hasHydrophobicCoating ? 'Включено' : 'Нет'}
+                <span className="text-[#777A74] dark:text-[#B7C3CA]">Монтаж (+{INSTALLATION_RATE_PER_SQM.toLocaleString('ru-RU')} ₽/м²):</span>
+                <span className="font-mono text-[#252725] dark:text-[#F1F2EF] tabular-nums">
+                  {formatPrice(pricing.installationPrice)}
                 </span>
               </div>
             </div>

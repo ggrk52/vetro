@@ -34,7 +34,7 @@ export const businessConfig: BusinessContact = {
   workingHours: "Ежедневно с 09:00 до 21:00",
   serviceRegion: "Москва и вся Московская область (до 70 км от МКАД)",
   guarantees: {
-    installationYears: 3,
+    installationYears: 1,
     hardwareYears: 5,
     glassYears: 10,
   },
@@ -50,8 +50,8 @@ export interface TrustBadge {
 export const trustBadges: TrustBadge[] = [
   {
     id: "laser_measuring",
-    title: "Выезд инженера 24ч",
-    description: "Точный 3D-лазерный замер с образцами стекла и фурнитуры Boheme на вашем объекте",
+    title: "Бесплатный выезд инженера 24ч",
+    description: "Бесплатный точный замер с образцами стекла и фурнитуры Boheme на вашем объекте",
     icon: "Ruler",
   },
   {

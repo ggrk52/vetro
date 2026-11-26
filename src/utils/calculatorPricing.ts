@@ -15,7 +15,6 @@ export type CalculatorGlassType =
   | 'optiwhite'
   | 'float'
   | 'matelux'
-  | 'estriado'
   | 'graphite'
   | 'bronze';
 
@@ -29,18 +28,18 @@ export type CalculatorHardwareFinish =
 
 export interface CalculatorState {
   cabinType: CalculatorCabinType;
-  width: number; // in cm (60 to 250)
-  height: number; // in cm (140 to 250)
-  depth?: number; // in cm (for corner/trapezoid: 60 to 150)
+  width: number; // in cm
+  height: number; // in cm
+  depth?: number; // in cm (for corner/trapezoid)
   glassType: CalculatorGlassType;
   hardwareFinish: CalculatorHardwareFinish;
-  hasInstallation: boolean;
-  hasHydrophobicCoating: boolean;
 }
 
 export interface PricingBreakdown {
   basePrice: number;
+  glassRate: number;
   glassPrice: number;
+  installationPrice: number;
   hardwarePrice: number;
   optionsPrice: number;
   totalPrice: number;
@@ -49,48 +48,32 @@ export interface PricingBreakdown {
 }
 
 /**
- * Base production rate per square meter of glass by construction complexity (in rubles).
+ * Glass rate per square meter by glass type (in rubles).
  */
-export const BASE_RATES_PER_SQM: Record<CalculatorCabinType, number> = {
-  walkin: 14000,       // Прямая перегородка свободного входа
-  bath_screen: 15000,  // Шторка на ванну
-  niche: 18000,        // Дверь в нишу с петлями и уплотнителями
-  corner: 22000,       // Угловая кабина 90° (две стороны)
-  trapezoid: 25000,    // Пятиугольная трапеция 135° (сложная геометрия)
-  sliding: 26000,      // Раздвижная система на открытом/закрытом треке
+export const GLASS_RATES_PER_SQM: Record<CalculatorGlassType, number> = {
+  float: 3200,     // Обычное прозрачное закаленное М1 — 3 200 ₽/м²
+  optiwhite: 8000, // Осветленное кристальное Optiwhite — 8 000 ₽/м²
+  matelux: 8000,   // Матовое сатинат Matelux — 8 000 ₽/м²
+  graphite: 8000,  // Тонированное в массе Графит — 8 000 ₽/м²
+  bronze: 8000,    // Тонированное в массе Бронза — 8 000 ₽/м²
 };
 
 /**
- * Multiplier for premium glass types relative to standard tempered float glass.
+ * Installation cost per square meter of glass (in rubles).
  */
-export const GLASS_MULTIPLIERS: Record<CalculatorGlassType, number> = {
-  float: 1.0,      // Прозрачное бесцветное закаленное М1 (базовое)
-  matelux: 1.25,   // Матовое сатинат (+25%)
-  optiwhite: 1.30, // Осветленное кристальное Optiwhite (+30%)
-  graphite: 1.35,  // Тонированное в массе Графит (+35%)
-  bronze: 1.35,    // Тонированное в массе Бронза (+35%)
-  estriado: 1.40,  // Рифленое дизайнерское Estriado (+40%)
-};
+export const INSTALLATION_RATE_PER_SQM = 1000;
 
 /**
- * Hardware finish surcharge relative to baseline polished chrome (in rubles).
+ * Hardware finish surcharge (no extra cost for hardware colors).
  */
 export const HARDWARE_SURCHARGES: Record<CalculatorHardwareFinish, number> = {
-  chrome: 0,        // Полированный хром (базовый)
-  black: 3500,      // Черный матовый
-  white: 4000,      // Белый матовый
-  gunmetal: 6000,   // Оружейная сталь (Gunmetal PVD)
-  bronze: 6500,     // Матовая состаренная бронза
-  gold: 7000,       // Брашированное золото (PVD)
+  chrome: 0,
+  black: 0,
+  white: 0,
+  gunmetal: 0,
+  bronze: 0,
+  gold: 0,
 };
-
-/**
- * Add-on option fixed prices (in rubles).
- */
-export const OPTION_PRICES = {
-  installation: 6000,          // Профессиональный монтаж с лазерным нивелиром
-  hydrophobicCoating: 2500,    // Нано-гидрофобное покрытие «Антикапля»
-} as const;
 
 /**
  * Metadata descriptions for cabin construction types.
@@ -179,37 +162,31 @@ export const GLASS_METADATA: Record<
     name: 'Прозрачное М1',
     description: 'Классическое термозакаленное стекло высокой прочности с естественным зеленоватым торцом.',
     thickness: '8 мм',
-    badge: 'Базовое',
+    badge: '3 200 ₽/м²',
   },
   optiwhite: {
     name: 'Осветленное Optiwhite',
     description: 'Максимально прозрачное стекло без бутылочного оттенка. Идеальная цветопередача плитки и мозаики.',
     thickness: '8-10 мм',
-    badge: 'Хит продаж (+30%)',
+    badge: '8 000 ₽/м² · Хит',
   },
   matelux: {
     name: 'Матовое Matelux',
     description: 'Стекло с химическим травлением (сатинат). Шелковистая поверхность, защита от отпечатков пальцев.',
     thickness: '8 мм',
-    badge: '+25%',
-  },
-  estriado: {
-    name: 'Рифленое Estriado',
-    description: 'Фактурное рельефное стекло с вертикальными полосами. Дизайнерский тренд, скрывает силуэт и капли.',
-    thickness: '8 мм',
-    badge: 'Премиум (+40%)',
+    badge: '8 000 ₽/м²',
   },
   graphite: {
     name: 'Тонированное Графит',
     description: 'Элегантное дымчато-серое стекло, тонированное в массе. Идеально для интерьеров в темных тонах.',
     thickness: '8 мм',
-    badge: '+35%',
+    badge: '8 000 ₽/м²',
   },
   bronze: {
     name: 'Тонированное Бронза',
     description: 'Теплый благородный коньячный оттенок. Отлично сочетается с золотой и латунной фурнитурой.',
     thickness: '8 мм',
-    badge: '+35%',
+    badge: '8 000 ₽/м²',
   },
 };
 
@@ -229,37 +206,37 @@ export const HARDWARE_METADATA: Record<
     name: 'Полированный хром',
     description: 'Классический зеркальный глянец, нержавеющая сталь AISI 304.',
     colorHex: '#D1D5DB',
-    priceBadge: 'Включено в базу',
+    priceBadge: 'Без доплаты',
   },
   black: {
     name: 'Черный матовый',
     description: 'Глубокий бархатистый матовый черный, устойчивое порошковое напыление.',
     colorHex: '#1F2937',
-    priceBadge: '+3 500 ₽',
+    priceBadge: 'Без доплаты',
   },
   white: {
     name: 'Белый матовый',
     description: 'Чистый белый матовый оттенок для светлых скандинавских интерьеров.',
     colorHex: '#F3F4F6',
-    priceBadge: '+4 000 ₽',
+    priceBadge: 'Без доплаты',
   },
   gunmetal: {
     name: 'Оружейная сталь',
     description: 'Темный титановый графит с благородным металлическим блеском (Gunmetal).',
     colorHex: '#4B5563',
-    priceBadge: '+6 000 ₽',
+    priceBadge: 'Без доплаты',
   },
   bronze: {
     name: 'Матовая бронза',
     description: 'Античная состаренная бронза для интерьеров в стиле неоклассика.',
     colorHex: '#92400E',
-    priceBadge: '+6 500 ₽',
+    priceBadge: 'Без доплаты',
   },
   gold: {
     name: 'Брашированное золото',
     description: 'Премиальное PVD-покрытие с текстурой тонкой шлифовки под матовую латунь.',
     colorHex: '#D97706',
-    priceBadge: '+7 000 ₽',
+    priceBadge: 'Без доплаты',
   },
 };
 
@@ -273,8 +250,6 @@ export const DEFAULT_CALCULATOR_STATE: CalculatorState = {
   depth: 90,
   glassType: 'optiwhite',
   hardwareFinish: 'black',
-  hasInstallation: true,
-  hasHydrophobicCoating: true,
 };
 
 /**
@@ -337,28 +312,19 @@ export function calculatePrice(state: CalculatorState): PricingBreakdown {
     state.depth
   );
 
-  const baseRate = BASE_RATES_PER_SQM[state.cabinType] ?? 18000;
-  const basePrice = Math.round(areaSqm * baseRate);
-
-  const glassMultiplier = GLASS_MULTIPLIERS[state.glassType] ?? 1.0;
-  // glassPrice represents the premium above standard float glass
-  const glassPrice = Math.round(basePrice * (glassMultiplier - 1.0));
-
+  const glassRate = GLASS_RATES_PER_SQM[state.glassType] ?? 3200;
+  const glassPrice = Math.round(areaSqm * glassRate);
+  const installationPrice = Math.round(areaSqm * INSTALLATION_RATE_PER_SQM);
   const hardwarePrice = HARDWARE_SURCHARGES[state.hardwareFinish] ?? 0;
+  const optionsPrice = 0;
 
-  let optionsPrice = 0;
-  if (state.hasInstallation) {
-    optionsPrice += OPTION_PRICES.installation;
-  }
-  if (state.hasHydrophobicCoating) {
-    optionsPrice += OPTION_PRICES.hydrophobicCoating;
-  }
-
-  const totalPrice = basePrice + glassPrice + hardwarePrice + optionsPrice;
+  const totalPrice = glassPrice + installationPrice + hardwarePrice + optionsPrice;
 
   return {
-    basePrice,
+    basePrice: glassPrice,
+    glassRate,
     glassPrice,
+    installationPrice,
     hardwarePrice,
     optionsPrice,
     totalPrice,
